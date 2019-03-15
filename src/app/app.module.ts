@@ -22,6 +22,9 @@ import { SmallTraserComponent } from './dashboadComponents/small-traser/small-tr
 import { PrimumTrasherComponent } from './dashboadComponents/primum-trasher/primum-trasher.component';
 import { LargeTrasherComponent } from './dashboadComponents/large-trasher/large-trasher.component';
 import { DashboadpanelComponent } from './dashboadComponents/dashboadpanel/dashboadpanel.component';
+import { ProfileEditComponent } from './userComponents/profile-edit/profile-edit.component';
+import { UserPageComponent } from './user-page/user-page.component';
+import { ChangeImageComponent } from './userComponents/change-image/change-image.component';
 
 
 
@@ -45,6 +48,9 @@ import { DashboadpanelComponent } from './dashboadComponents/dashboadpanel/dashb
     PrimumTrasherComponent,
     LargeTrasherComponent,
     DashboadpanelComponent,
+    ProfileEditComponent,
+    UserPageComponent,
+    ChangeImageComponent,
     
  
   ],

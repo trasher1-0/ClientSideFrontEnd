@@ -17,15 +17,17 @@ import {ServiceComponent} from 'src/app/menu/service/service.component';
 import {UserComponent} from 'src/app/menu/user/user.component';
 import {NavigationbarComponent} from 'src/app/menu/navigationbar/navigationbar.component';
 
+// main page components
+import {UserPageComponent} from 'src/app/user-page/user-page.component';
+
+
 const routes: Routes = [
 
   {path:'',component:ClientHomeComponent},
   {path:'customer/login',component:LoginComponent},
   {path:'customer/signup',component:SignupComponent},
   {path:'customer/dashboad',component:ClientDashComponent},
-  {path:'customer/dashboad',component:ClientDashComponent},
-  {path:'customer/dashboad',component:ClientDashComponent},
-  {path:'customer/profile',component:UserComponent},
+  {path:'customer/profile',component:UserPageComponent},
   {path:'customer/buyTrasher',component:BuyComponent},
   {path:'customer/feedback',component:FeedbackComponent},
   {path:'customer/help',component:HelpComponent},
