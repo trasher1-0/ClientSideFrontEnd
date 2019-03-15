@@ -27,6 +27,8 @@ import { UserPageComponent } from './user-page/user-page.component';
 import { ChangeImageComponent } from './userComponents/change-image/change-image.component';
 import { BuyrobotformComponent } from './buyRobot/buyrobotform/buyrobotform.component';
 import { BuyRobotPageComponent } from './buy-robot-page/buy-robot-page.component';
+import { GetServiceFormComponent } from './getServiceFromTrasher/get-service-form/get-service-form.component';
+import { GetServicePageComponent } from './get-service-page/get-service-page.component';
 
 
 
@@ -55,6 +57,8 @@ import { BuyRobotPageComponent } from './buy-robot-page/buy-robot-page.component
     ChangeImageComponent,
     BuyrobotformComponent,
     BuyRobotPageComponent,
+    GetServiceFormComponent,
+    GetServicePageComponent,
     
  
   ],
