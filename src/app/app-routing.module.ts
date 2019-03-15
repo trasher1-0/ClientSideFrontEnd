@@ -19,6 +19,7 @@ import {NavigationbarComponent} from 'src/app/menu/navigationbar/navigationbar.c
 
 // main page components
 import {UserPageComponent} from 'src/app/user-page/user-page.component';
+import {BuyRobotPageComponent} from 'src/app/buy-robot-page/buy-robot-page.component';
 
 
 const routes: Routes = [
@@ -28,7 +29,7 @@ const routes: Routes = [
   {path:'customer/signup',component:SignupComponent},
   {path:'customer/dashboad',component:ClientDashComponent},
   {path:'customer/profile',component:UserPageComponent},
-  {path:'customer/buyTrasher',component:BuyComponent},
+  {path:'customer/buyTrasher',component:BuyRobotPageComponent},
   {path:'customer/feedback',component:FeedbackComponent},
   {path:'customer/help',component:HelpComponent},
   {path:'customer/getService',component:ServiceComponent},

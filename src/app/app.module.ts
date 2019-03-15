@@ -25,6 +25,8 @@ import { DashboadpanelComponent } from './dashboadComponents/dashboadpanel/dashb
 import { ProfileEditComponent } from './userComponents/profile-edit/profile-edit.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { ChangeImageComponent } from './userComponents/change-image/change-image.component';
+import { BuyrobotformComponent } from './buyRobot/buyrobotform/buyrobotform.component';
+import { BuyRobotPageComponent } from './buy-robot-page/buy-robot-page.component';
 
 
 
@@ -51,6 +53,8 @@ import { ChangeImageComponent } from './userComponents/change-image/change-image
     ProfileEditComponent,
     UserPageComponent,
     ChangeImageComponent,
+    BuyrobotformComponent,
+    BuyRobotPageComponent,
     
  
   ],
