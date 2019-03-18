@@ -22,13 +22,29 @@ import {UserPageComponent} from 'src/app/user-page/user-page.component';
 import {BuyRobotPageComponent} from 'src/app/buy-robot-page/buy-robot-page.component';
 import {GetServicePageComponent} from 'src/app/get-service-page/get-service-page.component';
 
+import {PrimumTrasherComponent} from 'src/app/dashboadComponents/primum-trasher/primum-trasher.component';
+import {LargeTrasherComponent} from 'src/app/dashboadComponents/large-trasher/large-trasher.component';
+
 
 const routes: Routes = [
 
   {path:'',component:ClientHomeComponent},
   {path:'customer/login',component:LoginComponent},
   {path:'customer/signup',component:SignupComponent},
-  {path:'customer/dashboad',component:ClientDashComponent},
+  {path:'customer/dashboad',component:ClientDashComponent,
+        children:[
+          {
+            path:'primumTrasher',
+            component:PrimumTrasherComponent
+          },
+          {
+            path:'largeTrasher',
+            component:LargeTrasherComponent
+          },
+
+        ]
+
+  },
   {path:'customer/profile',component:UserPageComponent},
   {path:'customer/buyTrasher',component:BuyRobotPageComponent},
   {path:'customer/feedback',component:FeedbackComponent},
