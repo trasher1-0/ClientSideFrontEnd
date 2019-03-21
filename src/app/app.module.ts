@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-/*import {MatSlideToggleModule} from '@angular/material/slide-toggle';*/
+import {MatTabsModule} from '@angular/material/tabs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -64,8 +64,9 @@ import { GetServicePageComponent } from './get-service-page/get-service-page.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
-   /* BrowserAnimationsModule,*/
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatTabsModule
     
   ],
   providers: [],

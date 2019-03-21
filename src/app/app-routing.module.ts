@@ -31,20 +31,7 @@ const routes: Routes = [
   {path:'',component:ClientHomeComponent},
   {path:'customer/login',component:LoginComponent},
   {path:'customer/signup',component:SignupComponent},
-  {path:'customer/dashboad',component:ClientDashComponent,
-        children:[
-          {
-            path:'primumTrasher',
-            component:PrimumTrasherComponent
-          },
-          {
-            path:'largeTrasher',
-            component:LargeTrasherComponent
-          },
-
-        ]
-
-  },
+  {path:'customer/dashboad',component:ClientDashComponent},
   {path:'customer/profile',component:UserPageComponent},
   {path:'customer/buyTrasher',component:BuyRobotPageComponent},
   {path:'customer/feedback',component:FeedbackComponent},
