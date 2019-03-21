@@ -29,6 +29,11 @@ import { BuyrobotformComponent } from './buyRobot/buyrobotform/buyrobotform.comp
 import { BuyRobotPageComponent } from './buy-robot-page/buy-robot-page.component';
 import { GetServiceFormComponent } from './getServiceFromTrasher/get-service-form/get-service-form.component';
 import { GetServicePageComponent } from './get-service-page/get-service-page.component';
+import { PrimumTrasherVideoComponent } from './dashboadComponents/primum-trasher-video/primum-trasher-video.component';
+import { LargeTrasherVideoComponent } from './dashboadComponents/large-trasher-video/large-trasher-video.component';
+import { LargeTrasherPanelComponent } from './dashboadComponents/large-trasher-panel/large-trasher-panel.component';
+import { PrimumTrasherPanelComponent } from './dashboadComponents/primum-trasher-panel/primum-trasher-panel.component';
+
 
 
 
@@ -59,6 +64,11 @@ import { GetServicePageComponent } from './get-service-page/get-service-page.com
     BuyRobotPageComponent,
     GetServiceFormComponent,
     GetServicePageComponent,
+    PrimumTrasherVideoComponent,
+    LargeTrasherVideoComponent,
+    LargeTrasherPanelComponent,
+    PrimumTrasherPanelComponent,
+   
     
  
   ],
