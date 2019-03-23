@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,6 +34,7 @@ import { PrimumTrasherVideoComponent } from './dashboadComponents/primum-trasher
 import { LargeTrasherVideoComponent } from './dashboadComponents/large-trasher-video/large-trasher-video.component';
 import { LargeTrasherPanelComponent } from './dashboadComponents/large-trasher-panel/large-trasher-panel.component';
 import { PrimumTrasherPanelComponent } from './dashboadComponents/primum-trasher-panel/primum-trasher-panel.component';
+import { CommentBoxComponent } from './dashboadComponents/comment-box/comment-box.component';
 
 
 
@@ -68,6 +70,7 @@ import { PrimumTrasherPanelComponent } from './dashboadComponents/primum-trasher
     LargeTrasherVideoComponent,
     LargeTrasherPanelComponent,
     PrimumTrasherPanelComponent,
+    CommentBoxComponent,
    
     
  
@@ -76,7 +79,8 @@ import { PrimumTrasherPanelComponent } from './dashboadComponents/primum-trasher
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDialogModule
     
   ],
   providers: [],
