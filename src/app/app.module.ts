@@ -39,6 +39,7 @@ import { CommentBoxComponent } from './dashboadComponents/comment-box/comment-bo
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,6 +72,7 @@ import { CommentBoxComponent } from './dashboadComponents/comment-box/comment-bo
     LargeTrasherPanelComponent,
     PrimumTrasherPanelComponent,
     CommentBoxComponent,
+    
    
     
  

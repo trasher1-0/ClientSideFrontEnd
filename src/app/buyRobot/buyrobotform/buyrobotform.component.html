@@ -1,84 +1,72 @@
-<div class="card-header card-header-primary">
-    <h4 class="card-title">Edit Profile</h4>
-    <p class="card-category">Complete your profile</p>
-  </div>
-  <div class="card-body">
-    <form>
-      <div class="row">
-        <div class="col-md-5">
-          <div class="form-group">
-            <label class="bmd-label-floating">Company (disabled)</label>
-            <input type="text" class="form-control" disabled>
-          </div>
+
+<div class="card-body">
+    <div class="container">
+        <div>
+            <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Trasher Buying Invoice</b></h2>
         </div>
-        <div class="col-md-3">
-          <div class="form-group">
-            <label class="bmd-label-floating">Username</label>
-            <input type="text" class="form-control">
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="form-group">
-            <label class="bmd-label-floating">Email address</label>
-            <input type="email" class="form-control">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label class="bmd-label-floating">Fist Name</label>
-            <input type="text" class="form-control">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label class="bmd-label-floating">Last Name</label>
-            <input type="text" class="form-control">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="form-group">
-            <label class="bmd-label-floating">Adress</label>
-            <input type="text" class="form-control">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="form-group">
-            <label class="bmd-label-floating">City</label>
-            <input type="text" class="form-control">
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="form-group">
-            <label class="bmd-label-floating">Country</label>
-            <input type="text" class="form-control">
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="form-group">
-            <label class="bmd-label-floating">Postal Code</label>
-            <input type="text" class="form-control">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="form-group">
-            <label>About Me</label>
-            <div class="form-group">
-              <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-              <textarea class="form-control" rows="5"></textarea>
+        <hr>
+      <form>
+          <div class="row">
+            <div class="input-group input-group-icon">
+              <input type="text" placeholder="Full Name"/>
+              <div class="input-icon"><i class="fa fa-user"></i></div>
+            </div>
+            <div class="input-group input-group-icon">
+              <input type="email" placeholder="Email Adress"/>
+              <div class="input-icon"><i class="fa fa-envelope"></i></div>
+            </div>
+            <div class="input-group input-group-icon">
+              <input type="password" placeholder="Password"/>
+              <div class="input-icon"><i class="fa fa-key"></i></div>
             </div>
           </div>
-        </div>
+          <div class="row">
+            <div class="col-half">
+              <h4>Date </h4>
+              <div class="input-group">
+                <div class="col-third">
+                  <input type="text" placeholder="DD"/>
+                </div>
+                <div class="col-third">
+                  <input type="text" placeholder="MM"/>
+                </div>
+                <div class="col-third">
+                  <input type="text" placeholder="YYYY"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <h4>Payment Details</h4>
+            <div class="input-group">
+              <input type="radio" name="payment-method" value="card" id="payment-method-card" checked="true"/>
+              <label for="payment-method-card"><span><i class="fa fa-cc-visa"></i>Credit Card</span></label>
+            </div>
+            <div class="input-group input-group-icon">
+              <input type="text" placeholder="Card Number"/>
+              <div class="input-icon"><i class="fa fa-credit-card"></i></div>
+            </div>
+            <div class="col-half">
+              <div class="input-group input-group-icon">
+                <input type="text" placeholder="Card CVC"/>
+                <div class="input-icon"><i class="fa fa-user"></i></div>
+              </div>
+            </div>
+            <div class="col-half">
+              <div class="input-group">
+                <select>
+                  <option>01 Jan</option>
+                  <option>02 Jan</option>
+                </select>
+                <select>
+                  <option>2015</option>
+                  <option>2016</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
-      <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
-      <div class="clearfix"></div>
-    </form>
   </div>
   
