@@ -28,13 +28,13 @@ import { UserPageComponent } from './user-page/user-page.component';
 import { ChangeImageComponent } from './userComponents/change-image/change-image.component';
 import { BuyrobotformComponent } from './buyRobot/buyrobotform/buyrobotform.component';
 import { BuyRobotPageComponent } from './buy-robot-page/buy-robot-page.component';
-import { GetServiceFormComponent } from './getServiceFromTrasher/get-service-form/get-service-form.component';
 import { GetServicePageComponent } from './get-service-page/get-service-page.component';
 import { PrimumTrasherVideoComponent } from './dashboadComponents/primum-trasher-video/primum-trasher-video.component';
 import { LargeTrasherVideoComponent } from './dashboadComponents/large-trasher-video/large-trasher-video.component';
 import { LargeTrasherPanelComponent } from './dashboadComponents/large-trasher-panel/large-trasher-panel.component';
 import { PrimumTrasherPanelComponent } from './dashboadComponents/primum-trasher-panel/primum-trasher-panel.component';
 import { CommentBoxComponent } from './dashboadComponents/comment-box/comment-box.component';
+import { PligonMapComponent } from './getServiceFromRobot/pligon-map/pligon-map.component';
 
 
 
@@ -65,13 +65,13 @@ import { CommentBoxComponent } from './dashboadComponents/comment-box/comment-bo
     ChangeImageComponent,
     BuyrobotformComponent,
     BuyRobotPageComponent,
-    GetServiceFormComponent,
     GetServicePageComponent,
     PrimumTrasherVideoComponent,
     LargeTrasherVideoComponent,
     LargeTrasherPanelComponent,
     PrimumTrasherPanelComponent,
     CommentBoxComponent,
+    PligonMapComponent,
     
    
     
