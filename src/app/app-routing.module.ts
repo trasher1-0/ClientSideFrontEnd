@@ -22,6 +22,7 @@ import {NavigationbarComponent} from 'src/app/menu/navigationbar/navigationbar.c
 import {UserPageComponent} from 'src/app/user-page/user-page.component';
 import {BuyRobotPageComponent} from 'src/app/buy-robot-page/buy-robot-page.component';
 import {GetServicePageComponent} from 'src/app/get-service-page/get-service-page.component';
+import {BookingPageComponent} from 'src/app/booking-page/booking-page.component';
 
 import {PrimumTrasherPanelComponent} from 'src/app/dashboadComponents/primum-trasher-panel/primum-trasher-panel.component';
 import {LargeTrasherPanelComponent} from 'src/app/dashboadComponents/large-trasher-panel/large-trasher-panel.component'
@@ -38,7 +39,7 @@ const routes: Routes = [
   {path:'customer/feedback',component:FeedbackComponent},
   {path:'customer/help',component:HelpComponent},
   {path:'customer/getService',component:GetServicePageComponent},
-  {path:'customer/booking',component:BookingsComponent},
+  {path:'customer/booking',component:BookingPageComponent},
   {path:'nav',component:NavigationbarComponent}
 
 

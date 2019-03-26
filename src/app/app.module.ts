@@ -35,6 +35,9 @@ import { LargeTrasherPanelComponent } from './dashboadComponents/large-trasher-p
 import { PrimumTrasherPanelComponent } from './dashboadComponents/primum-trasher-panel/primum-trasher-panel.component';
 import { CommentBoxComponent } from './dashboadComponents/comment-box/comment-box.component';
 import { PligonMapComponent } from './getServiceFromRobot/pligon-map/pligon-map.component';
+import { CalenderComponent } from './bookingComponents/calender/calender.component';
+import { AvailableSlotsComponent } from './bookingComponents/available-slots/available-slots.component';
+import { BookingPageComponent } from './booking-page/booking-page.component';
 
 
 
@@ -72,6 +75,9 @@ import { PligonMapComponent } from './getServiceFromRobot/pligon-map/pligon-map.
     PrimumTrasherPanelComponent,
     CommentBoxComponent,
     PligonMapComponent,
+    CalenderComponent,
+    AvailableSlotsComponent,
+    BookingPageComponent,
     
    
     
