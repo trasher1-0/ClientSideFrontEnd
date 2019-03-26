@@ -67,7 +67,10 @@
   <!-- CSS Files -->
   <link href="/assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="/assets/demo/demo.css" rel="stylesheet" />
+	<link href="/assets/demo/demo.css" rel="stylesheet" />
+	
+	<!-- date picker-->
+	<link rel="stylesheet" href="/assets/dist/simplepicker.css">
 
 </head>
 
@@ -414,5 +417,30 @@
 <!--map js-->
 <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false'></script>
 <script src="/assets/js/index.js"></script>
+
+<!--date picker-->
+<script src="/assets/dist/simplepicker.js"></script>
+  <script>
+    let simplepicker = new SimplePicker({
+      zIndex: 10
+    });
+
+    simplepicker.open();
+
+    const $button = document.querySelector('button');
+    const $eventLog = document.querySelector('.event-log');
+    $button.addEventListener('click', (e) => {
+      simplepicker.open();
+    });
+
+    // $eventLog.innerHTML += '\n\n';
+    simplepicker.on('submit', (date, readableDate) => {
+      $eventLog.innerHTML += readableDate + '\n';
+    });
+
+    simplepicker.on('close', (date) => {
+      $eventLog.innerHTML += 'Picker Closed'  + '\n';
+    });
+  </script>
 
 </html>
