@@ -3,6 +3,14 @@ import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { FormsModule }   from '@angular/forms';
+import {MatCardModule} from '@angular/material/card';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTableModule} from '@angular/material/table';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,6 +46,9 @@ import { PligonMapComponent } from './getServiceFromRobot/pligon-map/pligon-map.
 import { CalenderComponent } from './bookingComponents/calender/calender.component';
 import { AvailableSlotsComponent } from './bookingComponents/available-slots/available-slots.component';
 import { BookingPageComponent } from './booking-page/booking-page.component';
+import { OneHourslotComponent } from './bookingComponents/one-hourslot/one-hourslot.component';
+import { TwoHourslotComponent } from './bookingComponents/two-hourslot/two-hourslot.component';
+import { CustomizeTimeComponent } from './bookingComponents/customize-time/customize-time.component';
 
 
 
@@ -78,18 +89,25 @@ import { BookingPageComponent } from './booking-page/booking-page.component';
     CalenderComponent,
     AvailableSlotsComponent,
     BookingPageComponent,
+    OneHourslotComponent,
+    TwoHourslotComponent,
+    CustomizeTimeComponent
     
-   
-    
- 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTabsModule,
-    MatDialogModule
-    
+    MatDialogModule,
+    FormsModule,   
+    MatDatepickerModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatTableModule,
+    MatBadgeModule,
+    MatCheckboxModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -418,29 +418,5 @@
 <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false'></script>
 <script src="/assets/js/index.js"></script>
 
-<!--date picker-->
-<script src="/assets/dist/simplepicker.js"></script>
-  <script>
-    let simplepicker = new SimplePicker({
-      zIndex: 10
-    });
-
-    simplepicker.open();
-
-    const $button = document.querySelector('button');
-    const $eventLog = document.querySelector('.event-log');
-    $button.addEventListener('click', (e) => {
-      simplepicker.open();
-    });
-
-    // $eventLog.innerHTML += '\n\n';
-    simplepicker.on('submit', (date, readableDate) => {
-      $eventLog.innerHTML += readableDate + '\n';
-    });
-
-    simplepicker.on('close', (date) => {
-      $eventLog.innerHTML += 'Picker Closed'  + '\n';
-    });
-  </script>
 
 </html>
