@@ -53,6 +53,8 @@ import { FeedbackBoxComponent } from './feedbackCompoents/feedback-box/feedback-
 import { ReplyBoxComponent } from './feedbackCompoents/reply-box/reply-box.component';
 import { MyfeedbackBoxComponent } from './feedbackCompoents/myfeedback-box/myfeedback-box.component';
 import { FeedbacksComponent } from './feedbackPage/feedbacks/feedbacks.component';
+import { HelpMenuComponent } from './helpPageComponents/help-menu/help-menu.component';
+import { HelpPageComponent } from './help-page/help-page.component';
 
 
 
@@ -102,7 +104,9 @@ import { FeedbacksComponent } from './feedbackPage/feedbacks/feedbacks.component
     FeedbackBoxComponent,
     ReplyBoxComponent,
     MyfeedbackBoxComponent,
-    FeedbacksComponent
+    FeedbacksComponent,
+    HelpMenuComponent,
+    HelpPageComponent
     
   ],
   imports: [

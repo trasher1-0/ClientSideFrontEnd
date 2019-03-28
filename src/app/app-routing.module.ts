@@ -24,6 +24,7 @@ import {BuyRobotPageComponent} from 'src/app/buy-robot-page/buy-robot-page.compo
 import {GetServicePageComponent} from 'src/app/get-service-page/get-service-page.component';
 import {BookingPageComponent} from 'src/app/booking-page/booking-page.component';
 import {FeedbacksComponent} from 'src/app/feedbackPage/feedbacks/feedbacks.component';
+import {HelpPageComponent} from 'src/app/help-page/help-page.component';
 
 
 import {PrimumTrasherPanelComponent} from 'src/app/dashboadComponents/primum-trasher-panel/primum-trasher-panel.component';
@@ -39,7 +40,7 @@ const routes: Routes = [
   {path:'customer/profile',component:UserPageComponent},
   {path:'customer/buyTrasher',component:BuyRobotPageComponent},
   {path:'customer/feedback',component:FeedbacksComponent},
-  {path:'customer/help',component:HelpComponent},
+  {path:'customer/help',component:HelpPageComponent},
   {path:'customer/getService',component:GetServicePageComponent},
   {path:'customer/booking',component:BookingPageComponent},
   {path:'nav',component:NavigationbarComponent}
