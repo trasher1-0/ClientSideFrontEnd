@@ -49,6 +49,13 @@ import { BookingPageComponent } from './booking-page/booking-page.component';
 import { OneHourslotComponent } from './bookingComponents/one-hourslot/one-hourslot.component';
 import { TwoHourslotComponent } from './bookingComponents/two-hourslot/two-hourslot.component';
 import { CustomizeTimeComponent } from './bookingComponents/customize-time/customize-time.component';
+import { FeedbackBoxComponent } from './feedbackCompoents/feedback-box/feedback-box.component';
+import { ReplyBoxComponent } from './feedbackCompoents/reply-box/reply-box.component';
+import { MyfeedbackBoxComponent } from './feedbackCompoents/myfeedback-box/myfeedback-box.component';
+import { FeedbacksComponent } from './feedbackPage/feedbacks/feedbacks.component';
+
+
+
 
 
 
@@ -91,7 +98,11 @@ import { CustomizeTimeComponent } from './bookingComponents/customize-time/custo
     BookingPageComponent,
     OneHourslotComponent,
     TwoHourslotComponent,
-    CustomizeTimeComponent
+    CustomizeTimeComponent,
+    FeedbackBoxComponent,
+    ReplyBoxComponent,
+    MyfeedbackBoxComponent,
+    FeedbacksComponent
     
   ],
   imports: [
