@@ -55,6 +55,12 @@ import { MyfeedbackBoxComponent } from './feedbackCompoents/myfeedback-box/myfee
 import { FeedbacksComponent } from './feedbackPage/feedbacks/feedbacks.component';
 import { HelpMenuComponent } from './helpPageComponents/help-menu/help-menu.component';
 import { HelpPageComponent } from './help-page/help-page.component';
+import { SystermIssueComponent } from './helpPageComponents/systerm-issue/systerm-issue.component';
+import { DilevaryIssueComponent } from './helpPageComponents/dilevary-issue/dilevary-issue.component';
+import { PaymentIssueComponent } from './helpPageComponents/payment-issue/payment-issue.component';
+import { UserGuideComponent } from './helpPageComponents/user-guide/user-guide.component';
+import { BookingIssueComponent } from './helpPageComponents/booking-issue/booking-issue.component';
+import { OtherIssueComponent } from './helpPageComponents/other-issue/other-issue.component';
 
 
 
@@ -106,7 +112,13 @@ import { HelpPageComponent } from './help-page/help-page.component';
     MyfeedbackBoxComponent,
     FeedbacksComponent,
     HelpMenuComponent,
-    HelpPageComponent
+    HelpPageComponent,
+    SystermIssueComponent,
+    DilevaryIssueComponent,
+    PaymentIssueComponent,
+    UserGuideComponent,
+    BookingIssueComponent,
+    OtherIssueComponent
     
   ],
   imports: [

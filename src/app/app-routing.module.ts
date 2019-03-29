@@ -26,6 +26,14 @@ import {BookingPageComponent} from 'src/app/booking-page/booking-page.component'
 import {FeedbacksComponent} from 'src/app/feedbackPage/feedbacks/feedbacks.component';
 import {HelpPageComponent} from 'src/app/help-page/help-page.component';
 
+// help page components
+
+import {BookingIssueComponent} from 'src/app/helpPageComponents/booking-issue/booking-issue.component';
+import {OtherIssueComponent} from 'src/app/helpPageComponents/other-issue/other-issue.component';
+import {DilevaryIssueComponent} from 'src/app/helpPageComponents/dilevary-issue/dilevary-issue.component';
+import {PaymentIssueComponent} from 'src/app/helpPageComponents/payment-issue/payment-issue.component';
+import {SystermIssueComponent} from 'src/app/helpPageComponents/systerm-issue/systerm-issue.component';
+import {UserGuideComponent} from 'src/app/helpPageComponents/user-guide/user-guide.component';
 
 import {PrimumTrasherPanelComponent} from 'src/app/dashboadComponents/primum-trasher-panel/primum-trasher-panel.component';
 import {LargeTrasherPanelComponent} from 'src/app/dashboadComponents/large-trasher-panel/large-trasher-panel.component'
@@ -40,7 +48,17 @@ const routes: Routes = [
   {path:'customer/profile',component:UserPageComponent},
   {path:'customer/buyTrasher',component:BuyRobotPageComponent},
   {path:'customer/feedback',component:FeedbacksComponent},
-  {path:'customer/help',component:HelpPageComponent},
+  {     path:'customer/help',
+        component:HelpPageComponent,
+        children:[
+            { path:'systemIssue', component:SystermIssueComponent},
+            { path:'delivaryIssue',component:DilevaryIssueComponent},
+            { path:'paymentIssue',component:PaymentIssueComponent},
+            { path:'userGuide', component:UserGuideComponent},
+            { path:'bookingIssue',component:BookingIssueComponent},
+            { path:'otherIssue',component:OtherIssueComponent}
+        ]
+  },
   {path:'customer/getService',component:GetServicePageComponent},
   {path:'customer/booking',component:BookingPageComponent},
   {path:'nav',component:NavigationbarComponent}
