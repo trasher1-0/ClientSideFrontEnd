@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PligonMapComponent } from './pligon-map.component';
+import { PoligonMapComponent } from './poligon-map.component';
 
-describe('PligonMapComponent', () => {
-  let component: PligonMapComponent;
-  let fixture: ComponentFixture<PligonMapComponent>;
+describe('PoligonMapComponent', () => {
+  let component: PoligonMapComponent;
+  let fixture: ComponentFixture<PoligonMapComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PligonMapComponent ]
+      declarations: [ PoligonMapComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PligonMapComponent);
+    fixture = TestBed.createComponent(PoligonMapComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

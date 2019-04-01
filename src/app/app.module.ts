@@ -42,7 +42,6 @@ import { LargeTrasherVideoComponent } from './dashboadComponents/large-trasher-v
 import { LargeTrasherPanelComponent } from './dashboadComponents/large-trasher-panel/large-trasher-panel.component';
 import { PrimumTrasherPanelComponent } from './dashboadComponents/primum-trasher-panel/primum-trasher-panel.component';
 import { CommentBoxComponent } from './dashboadComponents/comment-box/comment-box.component';
-import { PligonMapComponent } from './getServiceFromRobot/pligon-map/pligon-map.component';
 import { CalenderComponent } from './bookingComponents/calender/calender.component';
 import { AvailableSlotsComponent } from './bookingComponents/available-slots/available-slots.component';
 import { BookingPageComponent } from './booking-page/booking-page.component';
@@ -61,6 +60,8 @@ import { PaymentIssueComponent } from './helpPageComponents/payment-issue/paymen
 import { UserGuideComponent } from './helpPageComponents/user-guide/user-guide.component';
 import { BookingIssueComponent } from './helpPageComponents/booking-issue/booking-issue.component';
 import { OtherIssueComponent } from './helpPageComponents/other-issue/other-issue.component';
+import { ServiceFormComponent } from './getServiceFromRobot/service-form/service-form.component';
+import { PoligonMapComponent } from './getServiceFromRobot/poligon-map/poligon-map.component';
 
 
 
@@ -100,7 +101,6 @@ import { OtherIssueComponent } from './helpPageComponents/other-issue/other-issu
     LargeTrasherPanelComponent,
     PrimumTrasherPanelComponent,
     CommentBoxComponent,
-    PligonMapComponent,
     CalenderComponent,
     AvailableSlotsComponent,
     BookingPageComponent,
@@ -118,7 +118,9 @@ import { OtherIssueComponent } from './helpPageComponents/other-issue/other-issu
     PaymentIssueComponent,
     UserGuideComponent,
     BookingIssueComponent,
-    OtherIssueComponent
+    OtherIssueComponent,
+    ServiceFormComponent,
+    PoligonMapComponent
     
   ],
   imports: [
