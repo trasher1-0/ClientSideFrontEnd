@@ -62,6 +62,7 @@ import { BookingIssueComponent } from './helpPageComponents/booking-issue/bookin
 import { OtherIssueComponent } from './helpPageComponents/other-issue/other-issue.component';
 import { ServiceFormComponent } from './getServiceFromRobot/service-form/service-form.component';
 import { PoligonMapComponent } from './getServiceFromRobot/poligon-map/poligon-map.component';
+import { SmallTrasherDialogBoxComponent } from './dashboadComponents/small-trasher-dialog-box/small-trasher-dialog-box.component';
 
 
 
@@ -120,7 +121,8 @@ import { PoligonMapComponent } from './getServiceFromRobot/poligon-map/poligon-m
     BookingIssueComponent,
     OtherIssueComponent,
     ServiceFormComponent,
-    PoligonMapComponent
+    PoligonMapComponent,
+    SmallTrasherDialogBoxComponent
     
   ],
   imports: [
