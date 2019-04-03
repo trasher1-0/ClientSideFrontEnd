@@ -37,7 +37,7 @@ import {UserGuideComponent} from 'src/app/helpPageComponents/user-guide/user-gui
 
 import {PrimumTrasherPanelComponent} from 'src/app/dashboadComponents/primum-trasher-panel/primum-trasher-panel.component';
 import {LargeTrasherPanelComponent} from 'src/app/dashboadComponents/large-trasher-panel/large-trasher-panel.component'
-
+import {BookingFormComponent} from 'src/app/bookingComponents/booking-form/booking-form.component';
 
 const routes: Routes = [
 
@@ -61,6 +61,7 @@ const routes: Routes = [
   },
   {path:'customer/getService',component:GetServicePageComponent},
   {path:'customer/booking',component:BookingPageComponent},
+  {path:'customer/booking/bookingForm',component:BookingFormComponent},
   {path:'nav',component:NavigationbarComponent}
 
 

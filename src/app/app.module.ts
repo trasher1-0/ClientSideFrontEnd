@@ -64,6 +64,7 @@ import { ServiceFormComponent } from './getServiceFromRobot/service-form/service
 import { PoligonMapComponent } from './getServiceFromRobot/poligon-map/poligon-map.component';
 import { SmallTrasherDialogBoxComponent } from './dashboadComponents/small-trasher-dialog-box/small-trasher-dialog-box.component';
 import { PickupLocationMapComponent } from './buyRobot/pickup-location-map/pickup-location-map.component';
+import { BookingFormComponent } from './bookingComponents/booking-form/booking-form.component';
 
 
 @NgModule({
@@ -118,7 +119,8 @@ import { PickupLocationMapComponent } from './buyRobot/pickup-location-map/picku
     ServiceFormComponent,
     PoligonMapComponent,
     SmallTrasherDialogBoxComponent,
-    PickupLocationMapComponent
+    PickupLocationMapComponent,
+    BookingFormComponent
     
   ],
   imports: [
