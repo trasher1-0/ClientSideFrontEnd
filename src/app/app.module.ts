@@ -63,12 +63,7 @@ import { OtherIssueComponent } from './helpPageComponents/other-issue/other-issu
 import { ServiceFormComponent } from './getServiceFromRobot/service-form/service-form.component';
 import { PoligonMapComponent } from './getServiceFromRobot/poligon-map/poligon-map.component';
 import { SmallTrasherDialogBoxComponent } from './dashboadComponents/small-trasher-dialog-box/small-trasher-dialog-box.component';
-
-
-
-
-
-
+import { PickupLocationMapComponent } from './buyRobot/pickup-location-map/pickup-location-map.component';
 
 
 @NgModule({
@@ -122,7 +117,8 @@ import { SmallTrasherDialogBoxComponent } from './dashboadComponents/small-trash
     OtherIssueComponent,
     ServiceFormComponent,
     PoligonMapComponent,
-    SmallTrasherDialogBoxComponent
+    SmallTrasherDialogBoxComponent,
+    PickupLocationMapComponent
     
   ],
   imports: [
