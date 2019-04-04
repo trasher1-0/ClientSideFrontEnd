@@ -42,7 +42,6 @@ import { LargeTrasherVideoComponent } from './dashboadComponents/large-trasher-v
 import { LargeTrasherPanelComponent } from './dashboadComponents/large-trasher-panel/large-trasher-panel.component';
 import { PrimumTrasherPanelComponent } from './dashboadComponents/primum-trasher-panel/primum-trasher-panel.component';
 import { CommentBoxComponent } from './dashboadComponents/comment-box/comment-box.component';
-import { CalenderComponent } from './bookingComponents/calender/calender.component';
 import { AvailableSlotsComponent } from './bookingComponents/available-slots/available-slots.component';
 import { BookingPageComponent } from './booking-page/booking-page.component';
 import { OneHourslotComponent } from './bookingComponents/one-hourslot/one-hourslot.component';
@@ -65,6 +64,7 @@ import { PoligonMapComponent } from './getServiceFromRobot/poligon-map/poligon-m
 import { SmallTrasherDialogBoxComponent } from './dashboadComponents/small-trasher-dialog-box/small-trasher-dialog-box.component';
 import { PickupLocationMapComponent } from './buyRobot/pickup-location-map/pickup-location-map.component';
 import { BookingFormComponent } from './bookingComponents/booking-form/booking-form.component';
+import { CalenderComponent } from './bookingComponents/calender/calender.component';
 
 
 @NgModule({
@@ -98,7 +98,6 @@ import { BookingFormComponent } from './bookingComponents/booking-form/booking-f
     LargeTrasherPanelComponent,
     PrimumTrasherPanelComponent,
     CommentBoxComponent,
-    CalenderComponent,
     AvailableSlotsComponent,
     BookingPageComponent,
     OneHourslotComponent,
@@ -120,7 +119,8 @@ import { BookingFormComponent } from './bookingComponents/booking-form/booking-f
     PoligonMapComponent,
     SmallTrasherDialogBoxComponent,
     PickupLocationMapComponent,
-    BookingFormComponent
+    BookingFormComponent,
+    CalenderComponent
     
   ],
   imports: [
