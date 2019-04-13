@@ -36,6 +36,7 @@ import {PaymentIssueComponent} from 'src/app/helpPageComponents/payment-issue/pa
 import {SystermIssueComponent} from 'src/app/helpPageComponents/systerm-issue/systerm-issue.component';
 import {UserGuideComponent} from 'src/app/helpPageComponents/user-guide/user-guide.component';
 import {SocialEventPageComponent} from 'src/app/social-event-page/social-event-page.component';
+import {SocialServiceBookingFormComponent} from 'src/app/socialEventComponents/bookForEvent/social-service-booking-form/social-service-booking-form.component';
 
 import {PrimumTrasherPanelComponent} from 'src/app/dashboadComponents/primum-trasher-panel/primum-trasher-panel.component';
 import {LargeTrasherPanelComponent} from 'src/app/dashboadComponents/large-trasher-panel/large-trasher-panel.component'
@@ -51,6 +52,7 @@ const routes: Routes = [
   {path:'customer/buyTrasher',component:BuyRobotPageComponent},
   {path:'customer/feedback',component:FeedbacksComponent},
   {path:'customer/SocialEvents',component:SocialEventPageComponent},
+  {path:'customer/socialEvents/bookingForm',component:SocialServiceBookingFormComponent},
   {     path:'customer/help',
         component:HelpPageComponent,
         children:[
