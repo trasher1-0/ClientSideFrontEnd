@@ -65,6 +65,7 @@ import { SmallTrasherDialogBoxComponent } from './dashboadComponents/small-trash
 import { PickupLocationMapComponent } from './buyRobot/pickup-location-map/pickup-location-map.component';
 import { BookingFormComponent } from './bookingComponents/booking-form/booking-form.component';
 import { CalenderComponent } from './bookingComponents/calender/calender.component';
+import { SocialEventPageComponent } from './social-event-page/social-event-page.component';
 
 
 @NgModule({
@@ -120,7 +121,8 @@ import { CalenderComponent } from './bookingComponents/calender/calender.compone
     SmallTrasherDialogBoxComponent,
     PickupLocationMapComponent,
     BookingFormComponent,
-    CalenderComponent
+    CalenderComponent,
+    SocialEventPageComponent
     
   ],
   imports: [
