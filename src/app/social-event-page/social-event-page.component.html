@@ -1,3 +1,34 @@
-<p>
-  social-event-page works!
-</p>
+<div>
+  <app-social-events></app-social-events>
+    
+  <div class="main-panel">
+    <div class="content">
+        <mat-tab-group>
+            <mat-tab label="Just get service ">
+                <app-just-get-service-form></app-just-get-service-form>
+            </mat-tab>
+            <mat-tab label="Trasher Bookings"> 
+              <div >
+                <div class="row">
+    
+                  <div class="col-md-6">
+                      <div class="card">
+                        <app-calender></app-calender>
+                      </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                      <div class="card card-profile">
+                          <app-available-slots></app-available-slots>
+                      </div>
+                  </div>
+                </div>
+              </div>     
+            </mat-tab>
+        </mat-tab-group>
+        <!--<app-dashboadpanel></app-dashboadpanel>-->
+    </div>
+  </div>    
+</div>
+
+ 

@@ -35,6 +35,7 @@ import {DilevaryIssueComponent} from 'src/app/helpPageComponents/dilevary-issue/
 import {PaymentIssueComponent} from 'src/app/helpPageComponents/payment-issue/payment-issue.component';
 import {SystermIssueComponent} from 'src/app/helpPageComponents/systerm-issue/systerm-issue.component';
 import {UserGuideComponent} from 'src/app/helpPageComponents/user-guide/user-guide.component';
+import {SocialEventPageComponent} from 'src/app/social-event-page/social-event-page.component';
 
 import {PrimumTrasherPanelComponent} from 'src/app/dashboadComponents/primum-trasher-panel/primum-trasher-panel.component';
 import {LargeTrasherPanelComponent} from 'src/app/dashboadComponents/large-trasher-panel/large-trasher-panel.component'
@@ -49,7 +50,7 @@ const routes: Routes = [
   {path:'customer/profile',component:UserPageComponent},
   {path:'customer/buyTrasher',component:BuyRobotPageComponent},
   {path:'customer/feedback',component:FeedbacksComponent},
-  {path:'customer/SocialEvents',component:SocialEventsComponent},
+  {path:'customer/SocialEvents',component:SocialEventPageComponent},
   {     path:'customer/help',
         component:HelpPageComponent,
         children:[

@@ -1,3 +1,69 @@
-<p>
-  just-get-service-form works!
-</p>
+<div>
+  <form>
+    <div class="card-body">
+      <div class="container">
+          <div>
+              <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Trasher Service Invoice</b></h2>
+          </div>
+          <hr>
+          <p style="color:red">If area section map didn't load,refresh the page !</p>
+            <div class="row">
+              <div class="input-group input-group-icon">
+                <input type="text" placeholder="Customer Name"/>
+                <div class="input-icon"><i class="fa fa-user"></i></div>
+              </div>
+              <div class="input-group input-group-icon">
+                <input type="text" placeholder="Delivary Adress"/>
+                <div class="input-icon"><i class="fa fa-home"></i></div>
+              </div>
+              <div class="input-group input-group-icon">
+                <input type="text" placeholder="City or District"/>
+                <div class="input-icon"><i class="fa fa-building"></i></div>
+              </div>
+              <div class="input-group input-group-icon">
+                <input type="number" placeholder="Expected cleaning duration ( 1 hour section or 2 hour section)"/>
+                <div class="input-icon"><i class="  fa fa-clock-o"></i></div>
+              </div>
+            </div>
+            <hr>
+            <h2 style="text-align: center;color:rgb(34, 154, 235);">Payment Details</h2>
+            <h4 style="color:rgb(235, 34, 34);">(* We aditionaly charge 250 LKR )</h4>
+              <div class="row">
+                <label>Select your bank</label>
+                <select>
+                  <option>
+                    <p>Peoples' Bank</p>
+                  </option>
+                  <option>
+                      <p>Bank of celon</p>
+                  </option>
+                  <option>
+                      <p>Commercial Bank</p>
+                  </option>
+                  <option>
+                      <p>Sampath Bank</p>
+                  </option>
+                  <option>
+                      <p>Haton National Bank</p>
+                  </option>
+                </select>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="input-group input-group-icon">
+                  <input type="text" placeholder="Card Number"/>
+                  <div class="input-icon"><i class="fa fa-credit-card"></i></div>
+                </div>
+              </div>
+        </div>
+        <hr>
+        <div >
+          <div class="container">
+            <app-poligon-map></app-poligon-map>
+            <button type="button" style="float: center;" class="btn btn-info" mat-button (click)="openDialog()"><h6><b>Pikup Location</b></h6></button>
+          </div>
+        </div>
+    </div>
+  </form>
+</div>
+
