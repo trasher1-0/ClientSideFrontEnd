@@ -4,7 +4,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
@@ -66,7 +66,9 @@ import { PickupLocationMapComponent } from './buyRobot/pickup-location-map/picku
 import { BookingFormComponent } from './bookingComponents/booking-form/booking-form.component';
 import { CalenderComponent } from './bookingComponents/calender/calender.component';
 import { SocialEventPageComponent } from './social-event-page/social-event-page.component';
-
+import { SocialServiceBookingFormComponent } from './socialEventComponents/bookForEvent/social-service-booking-form/social-service-booking-form.component';
+import { JustGetServiceFormComponent } from './socialEventComponents/justGetService/just-get-service-form/just-get-service-form.component';
+import {SocialEventsComponent} from './menu/social-events/social-events.component';
 
 @NgModule({
   declarations: [
@@ -122,7 +124,10 @@ import { SocialEventPageComponent } from './social-event-page/social-event-page.
     PickupLocationMapComponent,
     BookingFormComponent,
     CalenderComponent,
-    SocialEventPageComponent
+    SocialEventPageComponent,
+    SocialServiceBookingFormComponent,
+    JustGetServiceFormComponent,
+    SocialEventsComponent
     
   ],
   imports: [

@@ -25,6 +25,7 @@ import {GetServicePageComponent} from 'src/app/get-service-page/get-service-page
 import {BookingPageComponent} from 'src/app/booking-page/booking-page.component';
 import {FeedbacksComponent} from 'src/app/feedbackPage/feedbacks/feedbacks.component';
 import {HelpPageComponent} from 'src/app/help-page/help-page.component';
+import {SocialEventsComponent} from 'src/app/menu/social-events/social-events.component';
 
 // help page components
 
@@ -48,6 +49,7 @@ const routes: Routes = [
   {path:'customer/profile',component:UserPageComponent},
   {path:'customer/buyTrasher',component:BuyRobotPageComponent},
   {path:'customer/feedback',component:FeedbacksComponent},
+  {path:'customer/SocialEvents',component:SocialEventsComponent},
   {     path:'customer/help',
         component:HelpPageComponent,
         children:[
