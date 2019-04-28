@@ -73,6 +73,7 @@ import { SocialServiceBookingFormComponent } from './socialEventComponents/bookF
 import { JustGetServiceFormComponent } from './socialEventComponents/justGetService/just-get-service-form/just-get-service-form.component';
 import {SocialEventsComponent} from './menu/social-events/social-events.component';
 import { PreviousInvoicesComponent } from './userComponents/previous-invoices/previous-invoices.component';
+import { OtherActiviesComponent } from './userComponents/other-activies/other-activies.component';
 
 @NgModule({
   declarations: [
@@ -132,7 +133,8 @@ import { PreviousInvoicesComponent } from './userComponents/previous-invoices/pr
     SocialServiceBookingFormComponent,
     JustGetServiceFormComponent,
     SocialEventsComponent,
-    PreviousInvoicesComponent
+    PreviousInvoicesComponent,
+    OtherActiviesComponent
     
   ],
   imports: [
