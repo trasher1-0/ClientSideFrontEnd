@@ -10,6 +10,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 
 
@@ -70,6 +72,7 @@ import { SocialEventPageComponent } from './social-event-page/social-event-page.
 import { SocialServiceBookingFormComponent } from './socialEventComponents/bookForEvent/social-service-booking-form/social-service-booking-form.component';
 import { JustGetServiceFormComponent } from './socialEventComponents/justGetService/just-get-service-form/just-get-service-form.component';
 import {SocialEventsComponent} from './menu/social-events/social-events.component';
+import { PreviousInvoicesComponent } from './userComponents/previous-invoices/previous-invoices.component';
 
 @NgModule({
   declarations: [
@@ -128,7 +131,8 @@ import {SocialEventsComponent} from './menu/social-events/social-events.componen
     SocialEventPageComponent,
     SocialServiceBookingFormComponent,
     JustGetServiceFormComponent,
-    SocialEventsComponent
+    SocialEventsComponent,
+    PreviousInvoicesComponent
     
   ],
   imports: [
@@ -143,7 +147,9 @@ import {SocialEventsComponent} from './menu/social-events/social-events.componen
     MatToolbarModule,
     MatTableModule,
     MatBadgeModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatFormFieldModule
 
   ],
   providers: [],
