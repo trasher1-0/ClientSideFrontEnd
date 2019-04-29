@@ -9,7 +9,7 @@ import {PickupLocationMapComponent} from 'src/app/buyRobot/pickup-location-map/p
 })
 export class BuyrobotformComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog) {}
 
   openDialog() {
     const dialogRef = this.dialog.open(PickupLocationMapComponent);

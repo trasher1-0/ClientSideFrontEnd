@@ -74,6 +74,9 @@ import { JustGetServiceFormComponent } from './socialEventComponents/justGetServ
 import {SocialEventsComponent} from './menu/social-events/social-events.component';
 import { PreviousInvoicesComponent } from './userComponents/previous-invoices/previous-invoices.component';
 import { OtherActiviesComponent } from './userComponents/other-activies/other-activies.component';
+import { PickupLocationComponent } from './getServiceFromRobot/pickup-location/pickup-location.component';
+import { BookingFormViewComponent } from './bookingComponents/booking-form-view/booking-form-view.component';
+import { SocialEventFromViewComponent } from './socialEventComponents/social-event-from-view/social-event-from-view.component';
 
 @NgModule({
   declarations: [
@@ -134,7 +137,10 @@ import { OtherActiviesComponent } from './userComponents/other-activies/other-ac
     JustGetServiceFormComponent,
     SocialEventsComponent,
     PreviousInvoicesComponent,
-    OtherActiviesComponent
+    OtherActiviesComponent,
+    PickupLocationComponent,
+    BookingFormViewComponent,
+    SocialEventFromViewComponent
     
   ],
   imports: [

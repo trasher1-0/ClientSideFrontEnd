@@ -41,6 +41,8 @@ import {SocialServiceBookingFormComponent} from 'src/app/socialEventComponents/b
 import {PrimumTrasherPanelComponent} from 'src/app/dashboadComponents/primum-trasher-panel/primum-trasher-panel.component';
 import {LargeTrasherPanelComponent} from 'src/app/dashboadComponents/large-trasher-panel/large-trasher-panel.component'
 import {BookingFormComponent} from 'src/app/bookingComponents/booking-form/booking-form.component';
+import {BookingFormViewComponent} from 'src/app/bookingComponents/booking-form-view/booking-form-view.component';
+import {SocialEventFromViewComponent} from 'src/app/socialEventComponents/social-event-from-view/social-event-from-view.component';
 
 const routes: Routes = [
 
@@ -52,7 +54,7 @@ const routes: Routes = [
   {path:'customer/buyTrasher',component:BuyRobotPageComponent},
   {path:'customer/feedback',component:FeedbacksComponent},
   {path:'customer/SocialEvents',component:SocialEventPageComponent},
-  {path:'customer/socialEvents/bookingForm',component:SocialServiceBookingFormComponent},
+  {path:'customer/socialEvents/bookingForm',component:SocialEventFromViewComponent},
   {     path:'customer/help',
         component:HelpPageComponent,
         children:[
@@ -66,7 +68,7 @@ const routes: Routes = [
   },
   {path:'customer/getService',component:GetServicePageComponent},
   {path:'customer/booking',component:BookingPageComponent},
-  {path:'customer/booking/bookingForm',component:BookingFormComponent},
+  {path:'customer/booking/bookingForm',component:BookingFormViewComponent},
   {path:'nav',component:NavigationbarComponent}
 
 
