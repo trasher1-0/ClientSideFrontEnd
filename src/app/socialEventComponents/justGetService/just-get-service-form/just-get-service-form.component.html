@@ -21,9 +21,23 @@
                 <div class="input-icon"><i class="fa fa-building"></i></div>
               </div>
               <div class="input-group input-group-icon">
-                <input type="number" placeholder="Expected cleaning duration ( 1 hour section or 2 hour section)"/>
-                <div class="input-icon"><i class="  fa fa-clock-o"></i></div>
-              </div>
+                  <input type="date" placeholder="Select the date" vlaue="2014-02-09"/>
+                  <div class="input-icon"><i class="fa fa-calendar"></i></div>
+                </div>
+                <button class="button button2" onclick="myFunction()">Serch available time slots</button>
+                 <div *ngIf="availableTimeSlots(); then timeSlotBox;else worningLabel">
+                 </div>
+                 <ng-template #timeSlotBox>
+                    <div class="input-group input-group-icon">
+                      <input type="date" placeholder="Select the date" vlaue="2014-02-09"/>
+                      <div class="input-icon"><i class="fa fa-calendar"></i></div>
+                    </div>
+                 </ng-template>
+                 <ng-template $worningLabel>
+                  <div class="input-group input-group-icon">
+                    <label>Pick a date !</label>
+                  </div>
+                 </ng-template>
             </div>
             <hr>
             <h2 style="text-align: center;color:rgb(34, 154, 235);">Payment Details</h2>

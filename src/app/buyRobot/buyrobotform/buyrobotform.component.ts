@@ -21,5 +21,13 @@ export class BuyrobotformComponent implements OnInit {
 
   ngOnInit() {
   }
+ 
+  availableTimeSlots(){
+    var i=0;
+    i++;
+    if(i==1){
+      return true;
+    }
+  }
 
 }
