@@ -29,13 +29,31 @@
             <div *ngIf="availableTimeSlots(); then timeSlotBox;else worningLabel"></div>
             
             <ng-template #timeSlotBox>
-                <div *ngFor="let slot of availableSlots ; index as i">
-                  <label class="con">{{slot}}
-                    <input type="checkbox">
-                      <span class="checkmark"></span>
-                  </label>
+              <div>
+                <label class="con">8.00 AM - 9.00 AM
+                  <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
               </div>
-            </ng-template>
+              <div>
+                <label class="con">10.00 AM - 11.00 AM
+                  <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+              </div>
+              <div>
+                <label class="con">12.00 PM - 2.00 PM
+                  <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+              </div>
+              <div>
+                <label class="con">3.00 PM - 4.00 PM
+                  <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+              </div>
+          </ng-template>
             <hr>
             <h2 style="text-align: center;color:rgb(34, 154, 235);">Payment Details</h2>
       
