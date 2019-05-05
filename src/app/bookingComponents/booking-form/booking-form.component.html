@@ -23,22 +23,19 @@
                 <div class="input-group input-group-icon">
                     <input type="date" placeholder="Select the date" vlaue="2014-02-09"/>
                     <div class="input-icon"><i class="fa fa-calendar"></i></div>
-                  </div>
-                  <button class="button button2" onclick="myFunction()">Serch available time slots</button>
-                   <div *ngIf="availableTimeSlots(); then timeSlotBox;else worningLabel">
-                   </div>
-                   <ng-template #timeSlotBox>
-                      <div class="input-group input-group-icon">
-                        <input type="date" placeholder="Select the date" vlaue="2014-02-09"/>
-                        <div class="input-icon"><i class="fa fa-calendar"></i></div>
-                      </div>
-                   </ng-template>
-                   <ng-template $worningLabel>
-                    <div class="input-group input-group-icon">
-                      <label>Pick a date !</label>
+                </div>
+                  <button class="button button2" (click)="isClick()">Search available time slots</button>
+                </div>
+                 <div *ngIf="availableTimeSlots(); then timeSlotBox;else worningLabel"></div>
+              
+                <ng-template #timeSlotBox>
+                    <div *ngFor="let slot of availableSlots ; index as i">
+                      <label class="con">{{slot}}
+                        <input type="checkbox">
+                          <span class="checkmark"></span>
+                      </label>
                     </div>
-                   </ng-template>
-              </div>
+                </ng-template>
               <hr>
               <h2 style="text-align: center;color:rgb(34, 154, 235);">Payment Details</h2>
         
@@ -96,5 +93,5 @@
         
     </form>
   </div>
-  
+
   
