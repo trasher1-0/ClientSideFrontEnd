@@ -10,6 +10,18 @@ body {
   color: #b9b9b9;
   background-color: #e3e3e3;
 }
+
+agm-map{
+  height:500px;
+  width : 100%;
+ 
+}
+
+map {
+  height: 500px;
+  width:100%;
+}
+
 h4 {
   color: rgb(34, 154, 235);
 }
@@ -357,3 +369,18 @@ h3 a:hover {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
+
+  .button1 {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  .button3 {background-color: #008CBA;
+            border-radius: 5px;} /* Blue */

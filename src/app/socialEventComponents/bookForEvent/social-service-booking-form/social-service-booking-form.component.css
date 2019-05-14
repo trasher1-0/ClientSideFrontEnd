@@ -3,6 +3,18 @@
 *:after {
   box-sizing: border-box;
 }
+
+agm-map{
+  height:500px;
+  width : 100%;
+ 
+}
+
+map {
+  height: 500px;
+  width:100%;
+}
+
 body {
   padding: 1em;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -357,3 +369,18 @@ h3 a:hover {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
+
+  .button1 {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  .button3 {background-color: #008CBA;
+            border-radius: 5px;} /* Blue */

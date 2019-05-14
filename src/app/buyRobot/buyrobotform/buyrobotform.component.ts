@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material';
-import {PickupLocationMapComponent} from 'src/app/buyRobot/pickup-location-map/pickup-location-map.component';
+
 
 @Component({
   selector: 'app-buyrobotform',
@@ -9,25 +9,27 @@ import {PickupLocationMapComponent} from 'src/app/buyRobot/pickup-location-map/p
 })
 export class BuyrobotformComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) {}
+  lat: number = 6.9037023;
+  lng: number = 79.8576826;
+  locationChoosen=false;
 
-  openDialog() {
-    const dialogRef = this.dialog.open(PickupLocationMapComponent);
+  constructor() {}
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
+  
 
   ngOnInit() {
   }
  
-  availableTimeSlots(){
-    var i=0;
-    i++;
-    if(i==1){
-      return true;
-    }
-  }
+  onClickChooseLocation(event){
+    this.lat=event.coords.lat
+    this.lng=event.coords.lng
+    this.locationChoosen=true
+    console.log(event.coords.lat)
+    console.log(event.coords.lng)
+   }
+
+   reload(){
+    window.location.reload();
+   }
 
 }

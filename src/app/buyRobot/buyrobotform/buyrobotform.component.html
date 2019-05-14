@@ -61,10 +61,20 @@
           <hr>
           <div >
             <div class="card-body">
-              <app-pickup-location-map></app-pickup-location-map>
-              <button type="button" style="float: center;" class="btn btn-info"><h6><b>Submit</b></h6></button>
+              <div>
+                <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Select the Delevary location </b></h2>
+              </div>
+              <hr>
+          
+              <agm-map [latitude]="lat" [longitude]="lng" [zoom]=12 (mapClick)="onClickChooseLocation($event)">
+                <agm-marker *ngIf="locationChoosen" [latitude]="lat" [longitude]="lng"></agm-marker>
+              </agm-map>
+
             </div>
           </div>
+          <a class="nav-link" routerLink="/customer/dashboad">
+              <button class="button button2"  style="align-self: auto;" (click)="reload()"> SUBMIT </button>
+          </a>
         </form>
       </div>
   </div>

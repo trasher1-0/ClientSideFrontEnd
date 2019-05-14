@@ -1,10 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
+
+
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { FormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
@@ -65,7 +68,6 @@ import { OtherIssueComponent } from './helpPageComponents/other-issue/other-issu
 import { ServiceFormComponent } from './getServiceFromRobot/service-form/service-form.component';
 import { PoligonMapComponent } from './getServiceFromRobot/poligon-map/poligon-map.component';
 import { SmallTrasherDialogBoxComponent } from './dashboadComponents/small-trasher-dialog-box/small-trasher-dialog-box.component';
-import { PickupLocationMapComponent } from './buyRobot/pickup-location-map/pickup-location-map.component';
 import { BookingFormComponent } from './bookingComponents/booking-form/booking-form.component';
 import { CalenderComponent } from './bookingComponents/calender/calender.component';
 import { SocialEventPageComponent } from './social-event-page/social-event-page.component';
@@ -74,7 +76,6 @@ import { JustGetServiceFormComponent } from './socialEventComponents/justGetServ
 import {SocialEventsComponent} from './menu/social-events/social-events.component';
 import { PreviousInvoicesComponent } from './userComponents/previous-invoices/previous-invoices.component';
 import { OtherActiviesComponent } from './userComponents/other-activies/other-activies.component';
-import { PickupLocationComponent } from './getServiceFromRobot/pickup-location/pickup-location.component';
 import { BookingFormViewComponent } from './bookingComponents/booking-form-view/booking-form-view.component';
 import { SocialEventFromViewComponent } from './socialEventComponents/social-event-from-view/social-event-from-view.component';
 
@@ -129,7 +130,6 @@ import { SocialEventFromViewComponent } from './socialEventComponents/social-eve
     ServiceFormComponent,
     PoligonMapComponent,
     SmallTrasherDialogBoxComponent,
-    PickupLocationMapComponent,
     BookingFormComponent,
     CalenderComponent,
     SocialEventPageComponent,
@@ -138,7 +138,6 @@ import { SocialEventFromViewComponent } from './socialEventComponents/social-eve
     SocialEventsComponent,
     PreviousInvoicesComponent,
     OtherActiviesComponent,
-    PickupLocationComponent,
     BookingFormViewComponent,
     SocialEventFromViewComponent
     
@@ -157,7 +156,11 @@ import { SocialEventFromViewComponent } from './socialEventComponents/social-eve
     MatBadgeModule,
     MatCheckboxModule,
     MatDatepickerModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCdFL8YVqFUcdLcMYJwEtKrCcgR6sEeaDE',
+      libraries: ['drawing']
+    })
 
   ],
   providers: [],

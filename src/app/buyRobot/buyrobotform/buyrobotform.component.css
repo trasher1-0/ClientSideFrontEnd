@@ -102,6 +102,13 @@ input:checked + label:after {
   opacity: 1;
 }
 
+          
+agm-map{
+  height:500px;
+  width : 100%;
+ 
+}
+
 select:first-of-type {
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
@@ -280,13 +287,15 @@ h3 a:hover {
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
-  padding: 5px 10px;
+  padding: 15px 25px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 10px;
+  font-size: 18px;
   margin: 4px 2px;
   cursor: pointer;
 }
 .button2 {background-color: #008CBA;
-          border-radius: 12px;} /* Blue */
+          border-radius: 5px;} /* Blue */
+
+

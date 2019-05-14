@@ -6,7 +6,6 @@
                 <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Trasher Booking Invoice</b></h2>
             </div>
             <hr>
-            <p style="color:red">If area section map didn't load,refresh the page !</p>
               <div class="row">
                 <div class="input-group input-group-icon">
                   <input type="text" placeholder="Customer Name"/>
@@ -28,32 +27,32 @@
                 </div>
                  <div *ngIf="availableTimeSlots(); then timeSlotBox;else worningLabel"></div>
               
-                <ng-template #timeSlotBox>
-                    <div>
-                      <label class="con">8.00 AM - 9.00 AM
-                        <input type="checkbox">
-                          <span class="checkmark"></span>
-                      </label>
-                    </div>
-                    <div>
-                      <label class="con">10.00 AM - 11.00 AM
-                        <input type="checkbox">
-                          <span class="checkmark"></span>
-                      </label>
-                    </div>
-                    <div>
-                      <label class="con">12.00 PM - 2.00 PM
-                        <input type="checkbox">
-                          <span class="checkmark"></span>
-                      </label>
-                    </div>
-                    <div>
-                      <label class="con">3.00 PM - 4.00 PM
-                        <input type="checkbox">
-                          <span class="checkmark"></span>
-                      </label>
-                    </div>
-                </ng-template>
+                 <ng-template #timeSlotBox>
+                  <div>
+                    <label class="con">8.00 AM - 9.00 AM
+                      <input type="checkbox" name="8-9 slot">
+                        <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div>
+                    <label class="con">10.00 AM - 11.00 AM
+                      <input type="checkbox" name="10-11 slot">
+                        <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div>
+                    <label class="con">12.00 PM - 2.00 PM
+                      <input type="checkbox" name="12-2 slot">
+                        <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div>
+                    <label class="con">3.00 PM - 4.00 PM
+                      <input type="checkbox" name="3-4 slot">
+                        <span class="checkmark"></span>
+                    </label>
+                  </div>
+              </ng-template>
               <hr>
               <h2 style="text-align: center;color:rgb(34, 154, 235);">Payment Details</h2>
         
@@ -88,22 +87,40 @@
           <hr>
           <div >
             <div class="container">
-              <app-poligon-map></app-poligon-map>
-            
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><b>Pikup Location</b></button>
+              <div>
+                <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Select the cleaning area </b></h2>
+              </div>
+              <hr>
+              <agm-map 
+                      [latitude]="center.lat" 
+                      [longitude]="center.lng" 
+                      (mapReady)="onMapReady($event)"
+                      [zoom]=13> 
+              
+              </agm-map>
             </div>
-          </div>
+        </div>
       </div>
-
+      
+      <button type="button" class="button1 button3"  data-toggle="modal" data-target=".bd-example-modal-lg" style="align-self: auto;"> Pickup Location </button>
       <!--pickup locaiton model-->
 
       <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="card-body">
-                    <div class="container">
-                      <app-poligon-map></app-poligon-map>
+                  <div class="container">
+                    <div>
+                      <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Select the pickup location </b></h2>
                     </div>
+                    <hr>
+                    <agm-map [latitude]="lat" [longitude]="lng" [zoom]=7 (mapClick)="onClickChooseLocation($event)">
+                      <agm-marker *ngIf="locationChoosen" [latitude]="lat" [longitude]="lng"></agm-marker>
+                    </agm-map>
+                    <a class="nav-link" routerLink="/customer/dashboad">
+                      <button class="button1 button3"  style="align-self: auto;" (click)="reload()"> SUBMIT </button>
+                     </a>
+                  </div>
                 </div>
             </div>
           </div>
