@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 # NewClientSide
+=======
+<<<<<<< HEAD
+# TensorMapChallenge
+>>>>>>> f43020f99d840fb03591afdb134f85465c650965
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.7.
 
@@ -25,3 +30,9 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+<<<<<<< HEAD
+=======
+=======
+# tensorMapChallenge
+>>>>>>> b9b2e172bfabab2f74b0bb547e2e145c3160a0be
+>>>>>>> f43020f99d840fb03591afdb134f85465c650965
