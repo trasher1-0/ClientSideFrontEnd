@@ -1,5 +1,5 @@
 <div>
-  <form>
+  <form #form="ngForm" (submit)="onSubmit(form)">
     <div class="card-body">
       <div class="container">
           <div>
@@ -8,47 +8,78 @@
           <hr>
             <div class="row">
               <div class="input-group input-group-icon">
-                <input type="text" placeholder="Customer Name"/>
+                <input  type="text" 
+                        placeholder="Customer Name"
+                        name="customer_name"
+                        id="customer_name"
+                        required
+                        [(ngModel)]='getService.getServiceModel.customer_name'/>
                 <div class="input-icon"><i class="fa fa-user"></i></div>
               </div>
+
               <div class="input-group input-group-icon">
-                <input type="text" placeholder="Delivary Adress"/>
+                <input  type="text" 
+                        placeholder="Delivary Adress"
+                        name="address"
+                        id="address"
+                        required
+                        [(ngModel)]='getService.getServiceModel.address'/>
                 <div class="input-icon"><i class="fa fa-home"></i></div>
               </div>
+
               <div class="input-group input-group-icon">
-                <input type="text" placeholder="City or District"/>
+                <input  type="text" 
+                        placeholder="City or District"
+                        name="city"
+                        id="city"
+                        required
+                        [(ngModel)]='getService.getServiceModel.city'/>
                 <div class="input-icon"><i class="fa fa-building"></i></div>
               </div>
+
               <div class="input-group input-group-icon">
-                  <input type="date" placeholder="Select the date" vlaue="2014-02-09"/>
+                  <input type="date" 
+                         placeholder="Select the date" 
+                         name="date"
+                         id="date"
+                         required
+                         [(ngModel)]='getService.getServiceModel.date'/>
                   <div class="input-icon"><i class="fa fa-calendar"></i></div>
               </div>
-                <button class="button button2" (click)="isClick()">Search available time slots</button>
+                <label class="serchLabel info" (click)="isClick()">Search available time slots</label>
             </div>
             <div *ngIf="availableTimeSlots(); then timeSlotBox;else worningLabel"></div>
             
             <ng-template #timeSlotBox>
-              <div>
-                <label class="con">8.00 AM - 9.00 AM
-                  <input type="checkbox" name="8-9 slot">
+              <div >
+                <label class="con" >8.00 AM - 9.00 AM 
+                  <input type="checkbox" 
+                          name="8-9 slot"
+                          id="8-9 slot">
                     <span class="checkmark"></span>
                 </label>
               </div>
               <div>
                 <label class="con">10.00 AM - 11.00 AM
-                  <input type="checkbox" name="10-11 slot">
+                  <input type="checkbox" 
+                         name="10-11 slot"
+                         id="10-11 slot">
                     <span class="checkmark"></span>
                 </label>
               </div>
               <div>
                 <label class="con">12.00 PM - 2.00 PM
-                  <input type="checkbox" name="12-2 slot">
+                  <input type="checkbox" 
+                          name="12-2 slot"
+                          id="12-2 slot">
                     <span class="checkmark"></span>
                 </label>
               </div>
               <div>
                 <label class="con">3.00 PM - 4.00 PM
-                  <input type="checkbox" name="3-4 slot">
+                  <input type="checkbox" 
+                         name="3-4 slot"
+                         id="3-4 slot">
                     <span class="checkmark"></span>
                 </label>
               </div>
@@ -118,9 +149,9 @@
                   <agm-map [latitude]="lat" [longitude]="lng" [zoom]=7 (mapClick)="onClickChooseLocation($event)">
                     <agm-marker *ngIf="locationChoosen" [latitude]="lat" [longitude]="lng"></agm-marker>
                   </agm-map>
-                  <a class="nav-link" routerLink="/customer/dashboad">
-                    <button class="button1 button3"  style="align-self: auto;" (click)="reload()"> SUBMIT </button>
-                   </a>
+                  
+                    <button type="submit" class="button1 button3"  style="align-self: auto;" (click)="reload()"> SUBMIT </button>
+             
                 </div>
               </div>
           </div>

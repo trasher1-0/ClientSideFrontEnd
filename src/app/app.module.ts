@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
+import { AngularFireModule} from '@angular/fire';
+import { AngularFirestoreModule} from '@angular/fire/firestore';
+import { environment} from 'src/environments/environment';
 
 
 import {MatTabsModule} from '@angular/material/tabs';
@@ -160,7 +163,9 @@ import { SocialEventFromViewComponent } from './socialEventComponents/social-eve
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCdFL8YVqFUcdLcMYJwEtKrCcgR6sEeaDE',
       libraries: ['drawing']
-    })
+    }),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
 
   ],
   providers: [],
