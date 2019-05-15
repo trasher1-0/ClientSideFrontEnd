@@ -1,0 +1,29 @@
+<div>
+    <app-bookings></app-bookings>
+    
+    <div class="main-panel">
+      <div class="content">
+          <div >
+            <div class="row">
+
+              <div class="col-md-6">
+                  <div class="card">
+                    <app-calender></app-calender>
+                  </div>
+              </div>
+              
+              <div class="col-md-6">
+                  <div class="card card-profile">
+                      <app-available-slots></app-available-slots>
+                  </div>
+                  <div class="card card-profile">
+                    <a routerLink="/customer/booking/bookingForm">
+                      <button type="button"  class="btn btn-info" style="float:center;"><h4><b>New Booking</b></h4></button>
+                    </a>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+</div>
