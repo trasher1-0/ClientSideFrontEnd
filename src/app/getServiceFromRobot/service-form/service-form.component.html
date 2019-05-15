@@ -55,7 +55,9 @@
                 <label class="con" >8.00 AM - 9.00 AM 
                   <input type="checkbox" 
                           name="8-9 slot"
-                          id="8-9 slot">
+                          id="8-9 slot"
+                          value="8.00 AM - 9.00 AM"
+                          (change)="onCheckboxChange($event)">
                     <span class="checkmark"></span>
                 </label>
               </div>
@@ -63,7 +65,9 @@
                 <label class="con">10.00 AM - 11.00 AM
                   <input type="checkbox" 
                          name="10-11 slot"
-                         id="10-11 slot">
+                         id="10-11 slot"
+                         value="10.00 AM - 11.00 AM"
+                         (change)="onCheckboxChange($event)">
                     <span class="checkmark"></span>
                 </label>
               </div>
@@ -71,7 +75,9 @@
                 <label class="con">12.00 PM - 2.00 PM
                   <input type="checkbox" 
                           name="12-2 slot"
-                          id="12-2 slot">
+                          id="12-2 slot"
+                          value="12.00 PM - 2.00 PM"
+                          (change)="onCheckboxChange($event)">
                     <span class="checkmark"></span>
                 </label>
               </div>
@@ -79,7 +85,9 @@
                 <label class="con">3.00 PM - 4.00 PM
                   <input type="checkbox" 
                          name="3-4 slot"
-                         id="3-4 slot">
+                         id="3-4 slot"
+                         value="3.00 PM - 4.00 PM"
+                         (change)="onCheckboxChange($event)">
                     <span class="checkmark"></span>
                 </label>
               </div>
@@ -150,8 +158,8 @@
                     <agm-marker *ngIf="locationChoosen" [latitude]="lat" [longitude]="lng"></agm-marker>
                   </agm-map>
                   
-                    <button type="submit" class="button1 button3"  style="align-self: auto;" (click)="reload()"> SUBMIT </button>
-             
+                    <button type="submit" class="button1 button3"  style="align-self: auto;" > SUBMIT </button>
+                
                 </div>
               </div>
           </div>

@@ -22,13 +22,7 @@ export class ServiceFormComponent implements OnInit {
   lat: number = 6.9037023;
   lng: number = 79.8576826;
   locationChoosen=false;
-
-  public selectedTimeSlots=[];
-  public firstTimeSlot=false;
-  public scecondTimeSlot=false;
-  public thirdTimeSlot=false;
-  public forthTimeSlot=false;
-
+  public selectedSlots=[];
 
   ngOnInit() {
     this.resetForm();
@@ -39,7 +33,18 @@ export class ServiceFormComponent implements OnInit {
 
   }
 
+   index;
   // checking available time slots 
+  onCheckboxChange(event){
+    if(event.target.checked) {
+        this.selectedSlots.push(event.target.value);
+    }   
+    
+   
+   // console.log(this.selectedSlots);
+  }
+
+  
 
   k=0;
 
@@ -116,13 +121,17 @@ export class ServiceFormComponent implements OnInit {
       customer_name:'',
       address : '',
       city : '' ,
-      date : ''
+      date : '',
+      timeSlots:null,
+      pickupLocation:null
     }
     
   }
 
   onSubmit(form){
    let data = form.value;
+   data["timeSlots"]=this.selectedSlots;
+   data["pickupLocation"]={"lat":this.lat , "lng":this.lng}
    this.fireStore.collection('getServiceInvoices').add(data);
    this.resetForm(form);
   }

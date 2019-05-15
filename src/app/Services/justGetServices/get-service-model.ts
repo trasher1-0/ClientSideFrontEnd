@@ -4,4 +4,6 @@ export class GetServiceModel {
     address :String;
     city : String ;
     date : String ;
+    timeSlots: any;
+    pickupLocation:any;
 }
