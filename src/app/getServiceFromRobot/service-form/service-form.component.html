@@ -7,6 +7,30 @@
           </div>
           <hr>
             <div class="row">
+                <input  type="hidden" 
+                        name="id" 
+                        id="id" 
+                        [(ngModel)]="getService.getServiceModel.id">
+              <div class="input-group input-group-icon">
+                  <input  type="text" 
+                          placeholder="Customer ID"
+                          name="customer_Id"
+                          id="customer_id"
+                          required
+                          [(ngModel)]='getService.getServiceModel.customer_id'/>
+                  <div class="input-icon"><i class="fa fa-user"></i></div>
+              </div>
+
+              <div class="input-group input-group-icon">
+                  <input  type="text" 
+                          placeholder="Service Invoice ID"
+                          name="invoice_id"
+                          id="invoice_id"
+                          required
+                          [(ngModel)]='getService.getServiceModel.invoice_id'/>
+                  <div class="input-icon"><i class="fa fa-user"></i></div>
+              </div>
+
               <div class="input-group input-group-icon">
                 <input  type="text" 
                         placeholder="Customer Name"
@@ -152,7 +176,7 @@
                     <agm-marker *ngIf="locationChoosen" [latitude]="lat" [longitude]="lng"></agm-marker>
                   </agm-map>
                   
-                    <button type="submit" class="button1 button3"  style="align-self: auto;" > SUBMIT </button>
+                    <button  class="button1 button3"  style="align-self: auto;" > SUBMIT </button>
                 
                 </div>
               </div>

@@ -23,6 +23,7 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
   lng: number = 79.8576826;
   locationChoosen=false;
   public selectedSlots=[];
+  public polygonCoords=[[]];
 
   map: any;
   drawingManager: any;
@@ -77,6 +78,16 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
     window.location.reload();
   }
 
+  // pickup location map intergrated
+
+  onClickChooseLocation(event){
+    this.lat=event.coords.lat
+    this.lng=event.coords.lng
+    this.locationChoosen=true
+    console.log(this.lat);
+    console.log(this.lng);
+  }
+
 
   // polygon map intergrated
 
@@ -100,19 +111,12 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
       // Polygon drawn
       if (event.type === google.maps.drawing.OverlayType.POLYGON) {
         //this is the coordinate, you can assign it to a variable or pass into another function.
-        alert(event.overlay.getPath().getArray());
+       // this.polygonCoords.push((event.overlay.getPath().getArray()));
+       //alert(this.polygonCoords);
+       this.polygonCoords=(event.overlay.getPath().getArray());
+       //console.log(event);
       }
     });
-  }
-
-  // pickup location map intergrated
-
-  onClickChooseLocation(event){
-    this.lat=event.coords.lat
-    this.lng=event.coords.lng
-    this.locationChoosen=true
-    console.log(this.lat);
-    console.log(this.lng);
   }
 
   // backend codes
@@ -123,12 +127,15 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
     }
     this.getService.getServiceModel={
       id:null,
+      customer_id:null,
+      invoice_id:null,
       customer_name:'',
       address : '',
       city : '' ,
       date : '',
       timeSlots:null,
-      pickupLocation:null
+      pickupLocation:null,
+      polygonCoords:null
     }
   }
 
@@ -138,6 +145,8 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
    let data = form.value;
    data["timeSlots"]=this.selectedSlots;
    data["pickupLocation"]={"lat":this.lat , "lng":this.lng}
+  // data["polygonCoords"]=this.polygonCoords;
+ //  console.log(data);
    this.fireStore.collection('getServiceInvoices').add(data);
    this.resetForm(form);
   }
