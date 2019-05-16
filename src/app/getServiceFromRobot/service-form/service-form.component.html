@@ -131,13 +131,7 @@
               <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Select the cleaning area </b></h2>
             </div>
             <hr>
-            <agm-map 
-                    [latitude]="center.lat" 
-                    [longitude]="center.lng" 
-                    (mapReady)="onMapReady($event)"
-                    [zoom]=13> 
-            
-            </agm-map>
+            <div id="map"></div>
           </div>
         </div>
     </div>
