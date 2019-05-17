@@ -6,6 +6,7 @@ import { AgmCoreModule } from '@agm/core';
 import { AngularFireModule} from '@angular/fire';
 import { AngularFirestoreModule} from '@angular/fire/firestore';
 import { environment} from 'src/environments/environment';
+import { RouterModule} from '@angular/router';
 
 
 import {MatTabsModule} from '@angular/material/tabs';
@@ -154,6 +155,7 @@ import { ServiceInvoiceViewComponent } from './userComponents/service-invoice-vi
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     BrowserAnimationsModule,
     MatTabsModule,
     MatDialogModule,
