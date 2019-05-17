@@ -1,0 +1,134 @@
+<div>
+    <app-user></app-user>
+    
+    <div class="main-panel">
+      <div class="content">
+          <div>
+              <div class="card">
+                <div>
+                    <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Trasher Service Invoice</b></h2>
+                </div>
+                <hr>
+                <div class="row">
+
+                      <div class="col-md-4">
+                          <div class="card">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-10">
+                                <div class="input-group ">
+                                    <h4><b>Invoice ID</b></h4>
+                                </div>
+                                <hr>
+                                <div class="input-group ">
+                                    <h4><b>Customer ID</b></h4>
+                                </div>
+                                <hr>
+                                <div class="input-group ">
+                                    <h4><b>Customer Name</b></h4>
+                                </div>
+                                <hr>
+                                <div class="input-group ">
+                                    <h4><b>Delivary Address</b></h4>
+                                </div>
+                                <hr>
+                                <div class="input-group ">
+                                    <h4><b>City or Destrict</b></h4>
+                                </div>
+                                <hr>
+                                <div class="input-group ">
+                                    <h4><b>Submited Date</b></h4>
+                                </div>
+                                <hr>
+                                <div class="input-group ">
+                                    <h4><b>Selected Time Slots</b></h4>
+                                </div>
+                            </div>
+                          </div>
+                      </div>
+
+                      <div class="col-md-7">
+                          <div class="card">
+                              <div class="col-md-4"></div>
+                              <div class="col-md-10">
+                                  <div class="input-group ">
+                                      <h4>JGSE-1</h4>
+                                  </div>
+                                  <hr>
+                                  <div class="input-group ">
+                                        <h4>JGSE-1</h4>
+                                  </div>
+                                  <hr>
+                                  <div class="input-group ">
+                                    <h4>JGSE-1</h4>
+                                  </div>
+                                  <hr>
+                                  <div class="input-group ">
+                                        <h4>JGSE-1</h4>
+                                  </div>
+                                  <hr>
+                                  <div class="input-group ">
+                                        <h4>JGSE-1</h4>
+                                  </div>
+                                  <hr>
+                                  <div class="input-group ">
+                                       <h4>JGSE-1</h4>
+                                  </div>
+                                  <hr>
+                                  <div class="input-group ">
+                                       <h4>JGSE-1</h4>
+                                  </div>
+                              </div>
+                            </div>
+                      </div>
+                </div>
+                    <div class="card">
+                        <div class="col-md-11">
+                            <div>
+                                <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Selected Cleaning Area</b></h2>
+                            </div>
+                            <hr>
+                            <agm-map [latitude]="lat" 
+                                        [longitude]="lng" 
+                                        [zoom]=15 
+                                        (mapClick)="onClickChooseLocation($event)">
+                            </agm-map>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="col-md-11">
+                            <div>
+                                <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Selected Pickup Location</b></h2>
+                            </div>
+                            <hr>
+                            <agm-map [latitude]="lat" 
+                                        [longitude]="lng" 
+                                        [zoom]=13 
+                                        (mapClick)="onClickChooseLocation($event)">
+                                    <agm-marker 
+                                        *ngIf="locationChoosen" 
+                                        [latitude]="lat" 
+                                        [longitude]="lng">
+                                    </agm-marker>
+                            </agm-map>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <button class="button button2">Go Back</button>
+                            </div>
+                            <div class="col-md-7">
+                                <button class="button button2">Edit Invoice Informations</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          </div>
+      </div>
+    </div>
+</div>
+
+
+

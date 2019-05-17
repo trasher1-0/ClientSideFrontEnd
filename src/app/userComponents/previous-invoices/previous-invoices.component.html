@@ -2,7 +2,7 @@
   <div class="col-md-4">
       <div class="card" *ngFor="let serviceInvoice of AllServiceInvoices">
         <div>
-            <a routerLink="/customer/user/previousInvoices/{{serviceInvoice.id}}">
+            <a routerLink='/customer/serviceInvoice/view/{{serviceInvoice.invoice_id}}'>
               <mat-card>
                 <div class="col-md-2"></div>
                   <div >

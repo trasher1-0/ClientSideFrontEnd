@@ -85,6 +85,7 @@ import { SocialEventFromViewComponent } from './socialEventComponents/social-eve
 // services 
 
 import {GettingInvoiceService} from 'src/app/Services/justGetServices/getting-invoice.service';
+import { ServiceInvoiceViewComponent } from './userComponents/service-invoice-view/service-invoice-view.component';
 
 
 @NgModule({
@@ -147,7 +148,8 @@ import {GettingInvoiceService} from 'src/app/Services/justGetServices/getting-in
     PreviousInvoicesComponent,
     OtherActiviesComponent,
     BookingFormViewComponent,
-    SocialEventFromViewComponent
+    SocialEventFromViewComponent,
+    ServiceInvoiceViewComponent
   ],
   imports: [
     BrowserModule,
