@@ -38,5 +38,9 @@ export class ServiceInvoiceViewComponent implements OnInit {
   // this.getInvoiceInfo(this.invoice_id);
   }
 
+  onEdit(invoice : GetServiceModel){
+    this.serviceInvoice.getServiceModel=Object.assign({},invoice);
+  }
+
 
 }

@@ -7,6 +7,7 @@ import { AngularFireModule} from '@angular/fire';
 import { AngularFirestoreModule} from '@angular/fire/firestore';
 import { environment} from 'src/environments/environment';
 import { RouterModule} from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
 
 
 import {MatTabsModule} from '@angular/material/tabs';
@@ -87,7 +88,7 @@ import { SocialEventFromViewComponent } from './socialEventComponents/social-eve
 
 import {GettingInvoiceService} from 'src/app/Services/justGetServices/getting-invoice.service';
 import { ServiceInvoiceViewComponent } from './userComponents/service-invoice-view/service-invoice-view.component';
-
+import {BuyInvoiceService} from 'src/app/Services/BuyingServices/buy-invoice.service';
 
 @NgModule({
   declarations: [
@@ -173,11 +174,13 @@ import { ServiceInvoiceViewComponent } from './userComponents/service-invoice-vi
       libraries: ['drawing']
     }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    ToastrModule.forRoot()
 
   ],
   providers: [
-    GettingInvoiceService
+    GettingInvoiceService,
+    BuyInvoiceService
   ],
   bootstrap: [AppComponent]
 })

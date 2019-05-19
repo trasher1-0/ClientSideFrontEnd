@@ -12,7 +12,10 @@ export class GettingInvoiceService {
   constructor(private fireStore:AngularFirestore) { }
 
   getAllServiceInvoices(){
-    console.log(this.fireStore.collection<any>("getServiceInvoices").snapshotChanges());
+  // console.log(this.fireStore.collection<any>("getServiceInvoices").snapshotChanges());
     return this.fireStore.collection<any>("getServiceInvoices").snapshotChanges();
   }
+
+  
+
 }

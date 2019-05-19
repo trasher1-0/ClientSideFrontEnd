@@ -1,31 +1,77 @@
-
 <div class="card-body">
     <div class="container">
         <div>
             <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Trasher Buying Invoice</b></h2>
         </div>
         <hr>
-      <form>
+      <form #form="ngForm" (submit)="onSubmit(form)">
           <div class="row">
+              <input  type="hidden" 
+                      name="id" 
+                      id="id"
+                      [(ngModel)]="buyInvoice.BuyingInvoice.id" >
+
             <div class="input-group input-group-icon">
-              <input type="text" placeholder="Customer Name"/>
+                <input  type="text" 
+                        placeholder="Customer ID"
+                        name="customer_id"
+                        id="customer_id"
+                        required
+                        [(ngModel)]='buyInvoice.BuyingInvoice.customer_id'/>
+                <div class="input-icon"><i class="fa fa-user"></i></div>
+            </div>
+
+            <div class="input-group input-group-icon">
+                <input  type="text" 
+                        placeholder="Buying Invoice ID"
+                        name="invoice_id"
+                        id="invoice_id"
+                        required
+                        [(ngModel)]='buyInvoice.BuyingInvoice.invoice_id'/>
+                <div class="input-icon"><i class="fa fa-user"></i></div>
+            </div>
+
+            <div class="input-group input-group-icon">
+              <input  type="text" 
+                      placeholder="Customer Name"
+                      id="customer_name"
+                      name="customer_name"
+                      [(ngModel)]='buyInvoice.BuyingInvoice.customer_name'/>
               <div class="input-icon"><i class="fa fa-user"></i></div>
             </div>
             <div class="input-group input-group-icon">
-              <input type="text" placeholder="Delivary Adress"/>
+              <input  type="text" 
+                      placeholder="Delivary Adress"
+                      name="address"
+                      id="address"
+                      [(ngModel)]='buyInvoice.BuyingInvoice.address'/>
               <div class="input-icon"><i class="fa fa-home"></i></div>
             </div>
             <div class="input-group input-group-icon">
-              <input type="text" placeholder="City or District"/>
+              <input  type="text" 
+                      placeholder="City or District"
+                      name="city"
+                      id="city"
+                      [(ngModel)]='buyInvoice.BuyingInvoice.city'/>
               <div class="input-icon"><i class="fa fa-building"></i></div>
             </div>
             <div class="input-group input-group-icon">
-              <input type="number" placeholder="Quentity" min="1"/>
+              <input  type="number" 
+                      placeholder="Quentity" 
+                      min="1"
+                      name="quantity"
+                      id="quantity"
+                      [(ngModel)]='buyInvoice.BuyingInvoice.quantity'/>
               <div class="input-icon"><i class="fa fa-cart-plus"></i></div>
             </div>
           
             <div class="input-group input-group-icon">
-              <input type="date" placeholder="Select the date" vlaue="2014-02-09"/>
+              <input   type="date" 
+                        placeholder="Select the date" 
+                        vlaue="2014-02-09"
+                        name="date"
+                        id="date"
+                        [(ngModel)]='buyInvoice.BuyingInvoice.date'/>
               <div class="input-icon"><i class="fa fa-calendar"></i></div>
             </div>
           </div>
@@ -72,9 +118,9 @@
 
             </div>
           </div>
-          <a class="nav-link" routerLink="/customer/dashboad">
+         
               <button class="button button2"  style="align-self: auto;" (click)="reload()"> SUBMIT </button>
-          </a>
+
         </form>
       </div>
   </div>

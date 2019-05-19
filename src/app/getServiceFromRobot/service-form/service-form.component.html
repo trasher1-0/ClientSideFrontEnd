@@ -176,8 +176,7 @@
                     <agm-marker *ngIf="locationChoosen" [latitude]="lat" [longitude]="lng"></agm-marker>
                   </agm-map>
                   
-                    <button  class="button1 button3"  style="align-self: auto;" > SUBMIT </button>
-                
+                    <button  class="button1 button3"  style="align-self: auto;" (click)="reload()" > SUBMIT </button>
                 </div>
               </div>
           </div>

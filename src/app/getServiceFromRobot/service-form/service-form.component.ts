@@ -2,6 +2,7 @@ import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { MapLoaderService } from 'src/app/map.loader';
 import { EmailValidator, NgForm, FormsModule } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { ToastrService} from 'ngx-toastr';
 declare var google: any;
 
 
@@ -27,10 +28,12 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
 
   map: any;
   drawingManager: any;
+  timeSlots: any[] =[];
 
 
   ngOnInit() {
     this.resetForm();
+   
   }
 
   ngAfterViewInit() {
@@ -40,7 +43,10 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
   }
 
   constructor(private getService:GettingInvoiceService,
-              private fireStore:AngularFirestore) {
+              private fireStore:AngularFirestore,
+              private toster:ToastrService) {
+
+         
 
   }
 
@@ -57,6 +63,7 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
   k=0;
 
   isClick(){
+    console.log(this.getService.getServiceModel.date)
     if(this.k ==0){
       this.k=(this.k+1);
       return this.k;
@@ -149,6 +156,8 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
  //  console.log(data);
    this.fireStore.collection('getServiceInvoices').add(data);
    this.resetForm(form);
+   this.toster.success("Service Invoice", "Submited Successfully !")
   }
 
+ 
 }

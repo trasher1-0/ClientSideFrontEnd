@@ -12,6 +12,7 @@ import { Router} from '@angular/router';
 export class PreviousInvoicesComponent implements OnInit {
 
   AllServiceInvoices : GetServiceModel[];
+ 
 
   constructor(private serviceInvoice:GettingInvoiceService,
               private router: Router) { 
@@ -22,7 +23,7 @@ export class PreviousInvoicesComponent implements OnInit {
             ...item.payload.doc.data() } as GetServiceModel ;
         })
       });
-    // console.log(this.AllServiceInvoices);
+
   }
 
   ngOnInit() {
@@ -31,5 +32,20 @@ export class PreviousInvoicesComponent implements OnInit {
   onSelect(serviceInvoice){
     this.router.navigate(['/customer/serviceInvoice/view',serviceInvoice.invoice_id]);
   }
+
+  i=0;
+
+  isNull(){
+    if(this.i == 0 ){
+      return true;
+    }
+  }
+
+  isGet(){
+      this.i=(this.i+1);
+      return true;
+  }
+
+
 
 }
