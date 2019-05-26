@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-small-trasher-dialog-box',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SmallTrasherDialogBoxComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(
+    public dialogRef : MatDialogRef<SmallTrasherDialogBoxComponent>
+  ) { }
 
   ngOnInit() {
+  }
+
+  onClose(){
+    this.dialogRef.close();
   }
 
 }

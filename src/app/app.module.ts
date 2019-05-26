@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { AngularFireModule} from '@angular/fire';
+import { AngularFireDatabaseModule} from '@angular/fire/database';
 import { AngularFirestoreModule} from '@angular/fire/firestore';
 import { environment} from 'src/environments/environment';
 import { RouterModule} from '@angular/router';
@@ -89,6 +90,8 @@ import { SocialEventFromViewComponent } from './socialEventComponents/social-eve
 import {GettingInvoiceService} from 'src/app/Services/justGetServices/getting-invoice.service';
 import { ServiceInvoiceViewComponent } from './userComponents/service-invoice-view/service-invoice-view.component';
 import {BuyInvoiceService} from 'src/app/Services/BuyingServices/buy-invoice.service';
+import { SmallTrasherCommentService } from './Services/dashboadServices/small-trasher-comment.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -162,8 +165,10 @@ import {BuyInvoiceService} from 'src/app/Services/BuyingServices/buy-invoice.ser
     MatDialogModule,
     FormsModule,   
     MatDatepickerModule,
+    HttpClientModule,
     MatCardModule,
     MatToolbarModule,
+    ReactiveFormsModule,
     MatTableModule,
     MatBadgeModule,
     MatCheckboxModule,
@@ -175,13 +180,16 @@ import {BuyInvoiceService} from 'src/app/Services/BuyingServices/buy-invoice.ser
     }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    AngularFireDatabaseModule,
     ToastrModule.forRoot()
 
   ],
   providers: [
     GettingInvoiceService,
-    BuyInvoiceService
+    BuyInvoiceService,
+    SmallTrasherCommentService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[SmallTrasherDialogBoxComponent]
 })
 export class AppModule { }

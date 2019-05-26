@@ -24,7 +24,7 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
   lng: number = 79.8576826;
   locationChoosen=false;
   public selectedSlots=[];
-  public polygonCoords=[[]];
+  public polygonCoords:any;
 
   map: any;
   drawingManager: any;
@@ -120,7 +120,8 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
         //this is the coordinate, you can assign it to a variable or pass into another function.
        // this.polygonCoords.push((event.overlay.getPath().getArray()));
        //alert(this.polygonCoords);
-       this.polygonCoords=(event.overlay.getPath().getArray());
+       this.polygonCoords=event.overlay.getPath().getArray();
+       console.log(this.polygonCoords);
        //console.log(event);
       }
     });
