@@ -88,10 +88,16 @@ import { SocialEventFromViewComponent } from './socialEventComponents/social-eve
 // services 
 
 import {GettingInvoiceService} from 'src/app/Services/justGetServices/getting-invoice.service';
+<<<<<<< HEAD
+=======
 import { ServiceInvoiceViewComponent } from './userComponents/service-invoice-view/service-invoice-view.component';
 import {BuyInvoiceService} from 'src/app/Services/BuyingServices/buy-invoice.service';
+<<<<<<< HEAD
 import { SmallTrasherCommentService } from './Services/dashboadServices/small-trasher-comment.service';
 import { HttpClientModule } from '@angular/common/http';
+=======
+>>>>>>> de760a288037aae20f338c37ed129a51665f72af
+>>>>>>> ef780d6c81489287ca6a47d4c60770dac12c39f8
 
 @NgModule({
   declarations: [
@@ -185,9 +191,17 @@ import { HttpClientModule } from '@angular/common/http';
 
   ],
   providers: [
+<<<<<<< HEAD
+    GettingInvoiceService
+=======
     GettingInvoiceService,
+<<<<<<< HEAD
     BuyInvoiceService,
     SmallTrasherCommentService
+=======
+    BuyInvoiceService
+>>>>>>> de760a288037aae20f338c37ed129a51665f72af
+>>>>>>> ef780d6c81489287ca6a47d4c60770dac12c39f8
   ],
   bootstrap: [AppComponent],
   entryComponents:[SmallTrasherDialogBoxComponent]

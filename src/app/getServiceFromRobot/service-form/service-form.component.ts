@@ -1,8 +1,14 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
+<<<<<<< HEAD
+import { MapLoaderService } from './map.loader';
+import { EmailValidator, NgForm, FormsModule } from '@angular/forms';
+import { AngularFirestore } from '@angular/fire/firestore';
+=======
 import { MapLoaderService } from 'src/app/map.loader';
 import { EmailValidator, NgForm, FormsModule } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastrService} from 'ngx-toastr';
+>>>>>>> de760a288037aae20f338c37ed129a51665f72af
 declare var google: any;
 
 
@@ -33,6 +39,12 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
 
   ngOnInit() {
     this.resetForm();
+<<<<<<< HEAD
+  }
+
+  constructor(private getService:GettingInvoiceService,
+              private fireStore:AngularFirestore) {
+=======
    
   }
 
@@ -47,6 +59,7 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
               private toster:ToastrService) {
 
          
+>>>>>>> de760a288037aae20f338c37ed129a51665f72af
 
   }
 
@@ -135,6 +148,22 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
     }
     this.getService.getServiceModel={
       id:null,
+<<<<<<< HEAD
+      customer_name:'',
+      address : '',
+      city : '' ,
+      date : ''
+    }
+    
+  }
+
+  onSubmit(form){
+   let data = form.value;
+   this.fireStore.collection('getServiceInvoices').add(data);
+   this.resetForm(form);
+  }
+
+=======
       customer_id:null,
       invoice_id:null,
       customer_name:'',
@@ -161,4 +190,5 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
   }
 
  
+>>>>>>> de760a288037aae20f338c37ed129a51665f72af
 }
