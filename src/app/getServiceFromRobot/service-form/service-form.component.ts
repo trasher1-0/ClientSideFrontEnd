@@ -1,10 +1,14 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
-import { MapLoaderService } from './map.loader'
+import { MapLoaderService } from './map.loader';
+import { EmailValidator, NgForm, FormsModule } from '@angular/forms';
+import { AngularFirestore } from '@angular/fire/firestore';
 declare var google: any;
 
 
 import { keyframes } from '@angular/animations';
 import {GettingInvoiceService} from 'src/app/Services/justGetServices/getting-invoice.service';
+import {GetServiceModel} from 'src/app/Services/justGetServices/get-service-model';
+import { firestore } from 'firebase';
 
 
 @Component({
@@ -27,9 +31,11 @@ export class ServiceFormComponent implements OnInit {
 
 
   ngOnInit() {
+    this.resetForm();
   }
 
-  constructor(private getService:GettingInvoiceService) {
+  constructor(private getService:GettingInvoiceService,
+              private fireStore:AngularFirestore) {
 
   }
 
@@ -100,5 +106,25 @@ export class ServiceFormComponent implements OnInit {
   }
 
   // backend codes
+
+  resetForm(form ? : NgForm){
+    if(form != null){
+        form.resetForm();
+    }
+    this.getService.getServiceModel={
+      id:null,
+      customer_name:'',
+      address : '',
+      city : '' ,
+      date : ''
+    }
+    
+  }
+
+  onSubmit(form){
+   let data = form.value;
+   this.fireStore.collection('getServiceInvoices').add(data);
+   this.resetForm(form);
+  }
 
 }

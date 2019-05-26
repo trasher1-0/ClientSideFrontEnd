@@ -82,6 +82,10 @@ import { OtherActiviesComponent } from './userComponents/other-activies/other-ac
 import { BookingFormViewComponent } from './bookingComponents/booking-form-view/booking-form-view.component';
 import { SocialEventFromViewComponent } from './socialEventComponents/social-event-from-view/social-event-from-view.component';
 
+// services 
+
+import {GettingInvoiceService} from 'src/app/Services/justGetServices/getting-invoice.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -168,7 +172,9 @@ import { SocialEventFromViewComponent } from './socialEventComponents/social-eve
     AngularFirestoreModule
 
   ],
-  providers: [],
+  providers: [
+    GettingInvoiceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
