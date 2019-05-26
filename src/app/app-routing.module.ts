@@ -44,8 +44,10 @@ import {BookingFormComponent} from 'src/app/bookingComponents/booking-form/booki
 import {BookingFormViewComponent} from 'src/app/bookingComponents/booking-form-view/booking-form-view.component';
 import {SocialEventFromViewComponent} from 'src/app/socialEventComponents/social-event-from-view/social-event-from-view.component';
 
-const routes: Routes = [
+// import invoices view page components
+import { ServiceInvoiceViewComponent} from 'src/app/userComponents/service-invoice-view/service-invoice-view.component';
 
+const routes: Routes = [
   {path:'',component:ClientHomeComponent},
   {path:'customer/login',component:LoginComponent},
   {path:'customer/signup',component:SignupComponent},
@@ -69,14 +71,13 @@ const routes: Routes = [
   {path:'customer/getService',component:GetServicePageComponent},
   {path:'customer/booking',component:BookingPageComponent},
   {path:'customer/booking/bookingForm',component:BookingFormViewComponent},
+  {path:'customer/serviceInvoice/view/:id' , component:ServiceInvoiceViewComponent},
   {path:'nav',component:NavigationbarComponent}
-
 
 ];
 
 @NgModule({
-  imports: 
-  [
+  imports: [
     RouterModule.forRoot(routes),
     CommonModule
   ],

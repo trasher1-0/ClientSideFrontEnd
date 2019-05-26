@@ -6,6 +6,8 @@ import { AgmCoreModule } from '@agm/core';
 import { AngularFireModule} from '@angular/fire';
 import { AngularFirestoreModule} from '@angular/fire/firestore';
 import { environment} from 'src/environments/environment';
+import { RouterModule} from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
 
 
 import {MatTabsModule} from '@angular/material/tabs';
@@ -85,6 +87,11 @@ import { SocialEventFromViewComponent } from './socialEventComponents/social-eve
 // services 
 
 import {GettingInvoiceService} from 'src/app/Services/justGetServices/getting-invoice.service';
+<<<<<<< HEAD
+=======
+import { ServiceInvoiceViewComponent } from './userComponents/service-invoice-view/service-invoice-view.component';
+import {BuyInvoiceService} from 'src/app/Services/BuyingServices/buy-invoice.service';
+>>>>>>> de760a288037aae20f338c37ed129a51665f72af
 
 @NgModule({
   declarations: [
@@ -146,12 +153,13 @@ import {GettingInvoiceService} from 'src/app/Services/justGetServices/getting-in
     PreviousInvoicesComponent,
     OtherActiviesComponent,
     BookingFormViewComponent,
-    SocialEventFromViewComponent
-    
+    SocialEventFromViewComponent,
+    ServiceInvoiceViewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     BrowserAnimationsModule,
     MatTabsModule,
     MatDialogModule,
@@ -169,11 +177,17 @@ import {GettingInvoiceService} from 'src/app/Services/justGetServices/getting-in
       libraries: ['drawing']
     }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    ToastrModule.forRoot()
 
   ],
   providers: [
+<<<<<<< HEAD
     GettingInvoiceService
+=======
+    GettingInvoiceService,
+    BuyInvoiceService
+>>>>>>> de760a288037aae20f338c37ed129a51665f72af
   ],
   bootstrap: [AppComponent]
 })

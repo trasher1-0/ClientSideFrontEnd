@@ -1,0 +1,154 @@
+<div>
+    <app-user></app-user>
+    
+    <div class="main-panel">
+      <div class="content">
+          <div>
+              <div class="card">
+                <div>
+                    <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Trasher Service Invoice</b></h2>
+                </div>
+                <hr>
+                <div class="row">
+
+                      <div class="col-md-4">
+                          <div class="card">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-10">
+                                <div class="input-group ">
+                                    <h4><b>Invoice ID</b></h4>
+                                </div>
+                                <hr>
+                                <div class="input-group ">
+                                    <h4><b>Customer ID</b></h4>
+                                </div>
+                                <hr>
+                                <div class="input-group ">
+                                    <h4><b>Customer Name</b></h4>
+                                </div>
+                                <hr>
+                                <div class="input-group ">
+                                    <h4><b>Delivary Address</b></h4>
+                                </div>
+                                <hr>
+                                <div class="input-group ">
+                                    <h4><b>City or Destrict</b></h4>
+                                </div>
+                                <hr>
+                                <div class="input-group ">
+                                    <h4><b>Submited Date</b></h4>
+                                </div>
+                                <hr>
+                                <div class="input-group ">
+                                    <h4><b>Selected Time Slots</b></h4>
+                                </div>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="col-md-7">
+                            <div class="card">
+                                <div class="col-md-4"></div>
+                                    <div class="col-md-10">
+                                        <div *ngFor="let invoice of ServiceInvoices">
+                                            <div *ngIf="invoice.invoice_id == invoice_id">
+                                                <div class="input-group ">
+                                                    <h4>{{invoice.invoice_id}}</h4>
+                                                </div>
+                                                <hr>
+                                                <div class="input-group ">
+                                                    <h4>{{invoice.customer_Id}}</h4>
+                                                </div>
+                                                <hr>
+                                                <div class="input-group ">
+                                                <h4>{{invoice.customer_name}}</h4>
+                                                </div>
+                                                <hr>
+                                                <div class="input-group ">
+                                                    <h4>{{invoice.address}}</h4>
+                                                </div>
+                                                <hr>
+                                                <div class="input-group ">
+                                                    <h4>{{invoice.city}}</h4>
+                                                </div>
+                                                <hr>
+                                                <div class="input-group ">
+                                                    <h4>{{invoice.date}}</h4>
+                                                </div>
+                                                <hr>
+                                                <div class="input-group " >
+                                                    <h4 *ngFor="let timeSlot of invoice.timeSlots">{{timeSlot}}  ,  </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                      </div>     
+                
+                    <div class="card">
+                        <div class="col-md-11">
+                            <div>
+                                <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Selected Cleaning Area</b></h2>
+                            </div>
+                            <hr>
+                            <div *ngFor="let invoice of ServiceInvoices">
+                                    <div *ngIf="invoice.invoice_id == invoice_id">
+                                        <agm-map    [latitude]='lat'
+                                                    [longitude]='lng' 
+                                                    [zoom]=15 
+                                                    (mapClick)="onClickChooseLocation($event)">
+                                        </agm-map>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="col-md-11">
+                            <div>
+                                <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Selected Pickup Location</b></h2>
+                            </div>
+                            <hr>
+                           <div *ngFor="let invoice of ServiceInvoices">
+                                    <div *ngIf="invoice.invoice_id == invoice_id">
+                                        <agm-map [latitude]="lat" 
+                                                    [longitude]="lng" 
+                                                    [zoom]=7 
+                                                    (mapClick)="onClickChooseLocation($event)">
+                                                <agm-marker 
+                                                    *ngIf="locationChoosen" 
+                                                    latitude={{invoice.pickupLocation.lat}} 
+                                                    longitude={{invoice.pickupLocation.lng}}>
+                                                </agm-marker>
+                                        </agm-map>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <a routerLink='/customer/profile'>
+                                    <button class="button button2">Go Back</button>
+                                </a>
+                            </div>
+                            <div class="col-md-7">
+                                <a routerLink="/customer/getService/edit">
+                                    <div *ngFor="let invoice of ServiceInvoices">
+                                        <div *ngIf="invoice.invoice_id == invoice_id">
+                                            <button class="button button2" (click)="onEdit(invoice)">Edit Invoice Informations</button>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          </div>
+      </div>
+    </div>
+</div>
+
+
+

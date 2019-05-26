@@ -1,22 +1,42 @@
-<a routerLink="/customer/user/previousInvoices">
-    <div class="card">
-        <mat-card>
-          <div class="col-md-2"></div>
-            <div >
-                    <div class="row">
-                        <div class="col-md-1"></div>
-                        <mat-card><img src="../assets/images/location.png" width="100" height="100"></mat-card>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-1"></div>
-                      <h3><b>Service Invoice</b></h3>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-1"></div>
-                        <p><b>date</b></p>
-                    </div>
-            </div>
-          <div class="col-md-2"></div>
-        </mat-card>
+<div class="row" >
+    <div class="col-md-4" *ngFor="let serviceInvoice of AllServiceInvoices">
+          <div *ngIf="serviceInvoice.customer_Id == 1">
+              <div *ngIf="isGet()"></div>
+              <div class="card" >
+                  <div (click)="onSelect(serviceInvoice)">
+                      <a>
+                        <mat-card>
+                          <div class="col-md-2"></div>
+                            <div >
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <mat-card><img src="../assets/images/imageLogo.jpg" width="100" height="100"></mat-card>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-1"></div>
+                                  <h3><b>Service Invoice</b></h3>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <p><b>Submited Date : {{serviceInvoice.date}}</b></p>
+                                </div>
+                            </div>
+                          <div class="col-md-2"></div>
+                        </mat-card>
+                      </a>
+                  </div>
+                </div>
+          </div>
     </div>
-</a>
+
+    <div *ngIf="isNull()">
+        <div class="col-md-4"></div>
+        <div class="col-md-6">
+          <div >
+              <img src="../assets/video/found.gif" height="200px" width="100%">
+            </div>
+        </div>
+    </div>
+</div>
+  
+

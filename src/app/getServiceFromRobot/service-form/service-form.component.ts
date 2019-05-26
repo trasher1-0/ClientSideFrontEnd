@@ -1,7 +1,14 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { MapLoaderService } from './map.loader';
 import { EmailValidator, NgForm, FormsModule } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
+=======
+import { MapLoaderService } from 'src/app/map.loader';
+import { EmailValidator, NgForm, FormsModule } from '@angular/forms';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { ToastrService} from 'ngx-toastr';
+>>>>>>> de760a288037aae20f338c37ed129a51665f72af
 declare var google: any;
 
 
@@ -16,34 +23,60 @@ import { firestore } from 'firebase';
   templateUrl: './service-form.component.html',
   styleUrls: ['./service-form.component.css']
 })
-export class ServiceFormComponent implements OnInit {
+export class ServiceFormComponent implements OnInit,AfterViewInit {
 
   public availableSlots=["8.00 AM -9.00 AM","10.00 AM - 11 .00 AM","12.00 PM -2 .00 PM","3.00 PM - 4.00 PM"];
   lat: number = 6.9037023;
   lng: number = 79.8576826;
   locationChoosen=false;
+  public selectedSlots=[];
+  public polygonCoords=[[]];
 
-  public selectedTimeSlots=[];
-  public firstTimeSlot=false;
-  public scecondTimeSlot=false;
-  public thirdTimeSlot=false;
-  public forthTimeSlot=false;
+  map: any;
+  drawingManager: any;
+  timeSlots: any[] =[];
 
 
   ngOnInit() {
     this.resetForm();
+<<<<<<< HEAD
   }
 
   constructor(private getService:GettingInvoiceService,
               private fireStore:AngularFirestore) {
+=======
+   
+  }
+
+  ngAfterViewInit() {
+    MapLoaderService.load().then(() => {
+      this.drawPolygon();
+    })
+  }
+
+  constructor(private getService:GettingInvoiceService,
+              private fireStore:AngularFirestore,
+              private toster:ToastrService) {
+
+         
+>>>>>>> de760a288037aae20f338c37ed129a51665f72af
 
   }
 
   // checking available time slots 
+  onCheckboxChange(event){
+    if(event.target.checked) {
+        this.selectedSlots.push(event.target.value);
+    }
+   // console.log(this.selectedSlots);
+  }
+
+  // search available time slots
 
   k=0;
 
   isClick(){
+    console.log(this.getService.getServiceModel.date)
     if(this.k ==0){
       this.k=(this.k+1);
       return this.k;
@@ -60,42 +93,12 @@ export class ServiceFormComponent implements OnInit {
     }
   }
 
-  // polygon map intergrated
-
-  map: any;
-  drawingManager: any;
-
-  center: any = {
-    lat:this.lat,
-    lng: this.lng
-  };
-
-  onMapReady(map) {
-    this.initDrawingManager(map);
-  }
-
-  initDrawingManager(map: any) {
-    const options = {
-      drawingControl: true,
-      drawingControlOptions: {
-        drawingModes: ["polygon"]
-      },
-      polygonOptions: {
-        draggable: true,
-        editable: true
-      },
-      drawingMode: google.maps.drawing.OverlayType.POLYGON
-    };
-
-    const drawingManager = new google.maps.drawing.DrawingManager(options);
-    drawingManager.setMap(map);
-  }
-
+  // window reload
   reload(){
     window.location.reload();
   }
 
-  // pickup locaion map intergrated
+  // pickup location map intergrated
 
   onClickChooseLocation(event){
     this.lat=event.coords.lat
@@ -103,6 +106,37 @@ export class ServiceFormComponent implements OnInit {
     this.locationChoosen=true
     console.log(this.lat);
     console.log(this.lng);
+  }
+
+
+  // polygon map intergrated
+
+  drawPolygon() {
+    this.map = new google.maps.Map(document.getElementById('map'), {
+      center: { lat: this.lat, lng: this.lng },
+      zoom: 8
+    });
+
+    this.drawingManager = new google.maps.drawing.DrawingManager({
+      drawingMode: google.maps.drawing.OverlayType.POLYGON,
+      drawingControl: true,
+      drawingControlOptions: {
+        position: google.maps.ControlPosition.TOP_CENTER,
+        drawingModes: ['polygon']
+      }
+    });
+
+    this.drawingManager.setMap(this.map);
+    google.maps.event.addListener(this.drawingManager, 'overlaycomplete', (event) => {
+      // Polygon drawn
+      if (event.type === google.maps.drawing.OverlayType.POLYGON) {
+        //this is the coordinate, you can assign it to a variable or pass into another function.
+       // this.polygonCoords.push((event.overlay.getPath().getArray()));
+       //alert(this.polygonCoords);
+       this.polygonCoords=(event.overlay.getPath().getArray());
+       //console.log(event);
+      }
+    });
   }
 
   // backend codes
@@ -113,6 +147,7 @@ export class ServiceFormComponent implements OnInit {
     }
     this.getService.getServiceModel={
       id:null,
+<<<<<<< HEAD
       customer_name:'',
       address : '',
       city : '' ,
@@ -127,4 +162,32 @@ export class ServiceFormComponent implements OnInit {
    this.resetForm(form);
   }
 
+=======
+      customer_id:null,
+      invoice_id:null,
+      customer_name:'',
+      address : '',
+      city : '' ,
+      date : '',
+      timeSlots:null,
+      pickupLocation:null,
+      polygonCoords:null
+    }
+  }
+
+  // submit and update the form 
+
+  onSubmit(form){
+   let data = form.value;
+   data["timeSlots"]=this.selectedSlots;
+   data["pickupLocation"]={"lat":this.lat , "lng":this.lng}
+  // data["polygonCoords"]=this.polygonCoords;
+ //  console.log(data);
+   this.fireStore.collection('getServiceInvoices').add(data);
+   this.resetForm(form);
+   this.toster.success("Service Invoice", "Submited Successfully !")
+  }
+
+ 
+>>>>>>> de760a288037aae20f338c37ed129a51665f72af
 }

@@ -1,13 +1,12 @@
-export class GetServiceModel {
+export class BuyServiceModel {
     id : String ;
     customer_id:Number;
     invoice_id:Number;
     customer_name : String ;
     address :String;
     city : String ;
+    quantity : Number;
     date : String ;
-    timeSlots: any;
     pickupLocation:any;
-    polygonCoords:any;
-
+   
 }

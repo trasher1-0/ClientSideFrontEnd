@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "tensorMapChallenge": {
+    "newClientSide": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/tensorMapChallenge",
+            "outputPath": "dist/newClientSide",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -58,18 +58,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "tensorMapChallenge:build"
+            "browserTarget": "newClientSide:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "tensorMapChallenge:build:production"
+              "browserTarget": "newClientSide:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "tensorMapChallenge:build"
+            "browserTarget": "newClientSide:build"
           }
         },
         "test": {
@@ -103,7 +103,7 @@
         }
       }
     },
-    "tensorMapChallenge-e2e": {
+    "newClientSide-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -112,11 +112,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "tensorMapChallenge:serve"
+            "devServerTarget": "newClientSide:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "tensorMapChallenge:serve:production"
+              "devServerTarget": "newClientSide:serve:production"
             }
           }
         },
@@ -132,5 +132,5 @@
       }
     }
   },
-  "defaultProject": "tensorMapChallenge"
+  "defaultProject": "newClientSide"
 }
