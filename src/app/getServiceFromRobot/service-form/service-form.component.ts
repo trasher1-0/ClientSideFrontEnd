@@ -1,14 +1,7 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
-<<<<<<< HEAD
+import { EmailValidator, NgForm, FormsModule } from '@angular/forms';
 import { MapLoaderService } from './map.loader';
-import { EmailValidator, NgForm, FormsModule } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
-=======
-import { MapLoaderService } from 'src/app/map.loader';
-import { EmailValidator, NgForm, FormsModule } from '@angular/forms';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { ToastrService} from 'ngx-toastr';
->>>>>>> de760a288037aae20f338c37ed129a51665f72af
 declare var google: any;
 
 
@@ -39,28 +32,16 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
 
   ngOnInit() {
     this.resetForm();
-<<<<<<< HEAD
   }
 
   constructor(private getService:GettingInvoiceService,
               private fireStore:AngularFirestore) {
-=======
-   
-  }
 
-  ngAfterViewInit() {
+  }
+   ngAfterViewInit() {
     MapLoaderService.load().then(() => {
       this.drawPolygon();
     })
-  }
-
-  constructor(private getService:GettingInvoiceService,
-              private fireStore:AngularFirestore,
-              private toster:ToastrService) {
-
-         
->>>>>>> de760a288037aae20f338c37ed129a51665f72af
-
   }
 
   // checking available time slots 
@@ -148,7 +129,6 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
     }
     this.getService.getServiceModel={
       id:null,
-<<<<<<< HEAD
       customer_name:'',
       address : '',
       city : '' ,
@@ -163,32 +143,4 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
    this.resetForm(form);
   }
 
-=======
-      customer_id:null,
-      invoice_id:null,
-      customer_name:'',
-      address : '',
-      city : '' ,
-      date : '',
-      timeSlots:null,
-      pickupLocation:null,
-      polygonCoords:null
-    }
-  }
-
-  // submit and update the form 
-
-  onSubmit(form){
-   let data = form.value;
-   data["timeSlots"]=this.selectedSlots;
-   data["pickupLocation"]={"lat":this.lat , "lng":this.lng}
-  // data["polygonCoords"]=this.polygonCoords;
- //  console.log(data);
-   this.fireStore.collection('getServiceInvoices').add(data);
-   this.resetForm(form);
-   this.toster.success("Service Invoice", "Submited Successfully !")
-  }
-
- 
->>>>>>> de760a288037aae20f338c37ed129a51665f72af
 }
