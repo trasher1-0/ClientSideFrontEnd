@@ -9,15 +9,13 @@
             <div class="row">
                 <input  type="hidden" 
                         name="id" 
-                        id="id" 
-                        [(ngModel)]="getService.getServiceModel.id">
+                        id="id" >
               <div class="input-group input-group-icon">
                   <input  type="text" 
                           placeholder="Customer ID"
                           name="customer_Id"
                           id="customer_id"
-                          required
-                          [(ngModel)]='getService.getServiceModel.customer_id'/>
+                          required/>
                   <div class="input-icon"><i class="fa fa-user"></i></div>
               </div>
 
@@ -26,8 +24,7 @@
                           placeholder="Service Invoice ID"
                           name="invoice_id"
                           id="invoice_id"
-                          required
-                          [(ngModel)]='getService.getServiceModel.invoice_id'/>
+                          required/>
                   <div class="input-icon"><i class="fa fa-user"></i></div>
               </div>
 
@@ -36,8 +33,7 @@
                         placeholder="Customer Name"
                         name="customer_name"
                         id="customer_name"
-                        required
-                        [(ngModel)]='getService.getServiceModel.customer_name'/>
+                        required/>
                 <div class="input-icon"><i class="fa fa-user"></i></div>
               </div>
 
@@ -46,8 +42,7 @@
                         placeholder="Delivary Adress"
                         name="address"
                         id="address"
-                        required
-                        [(ngModel)]='getService.getServiceModel.address'/>
+                        required/>
                 <div class="input-icon"><i class="fa fa-home"></i></div>
               </div>
 
@@ -56,8 +51,7 @@
                         placeholder="City or District"
                         name="city"
                         id="city"
-                        required
-                        [(ngModel)]='getService.getServiceModel.city'/>
+                        required/>
                 <div class="input-icon"><i class="fa fa-building"></i></div>
               </div>
 
@@ -66,8 +60,7 @@
                          placeholder="Select the date" 
                          name="date"
                          id="date"
-                         required
-                         [(ngModel)]='getService.getServiceModel.date'/>
+                         required/>
                   <div class="input-icon"><i class="fa fa-calendar"></i></div>
               </div>
                 <label class="serchLabel info" (click)="isClick()">Search available time slots</label>

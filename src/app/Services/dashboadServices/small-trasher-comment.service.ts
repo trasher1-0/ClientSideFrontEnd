@@ -21,6 +21,10 @@ export class SmallTrasherCommentService {
     })
   }
 
+  populateForm(comment:any){
+    this.form.setValue(comment);
+  }
+
   getSmallComments(){
     return this.http.get(this.base_Url+"/dashboad/comments/smallTrasher");
   }
@@ -30,10 +34,7 @@ export class SmallTrasherCommentService {
   }
 
   addComments(comment:any){
-    return this.http.post("http://localhost:8080/backend/api/customer/trasher/comments/send",comment);
+    return this.http.post(this.base_Url+"/customer/trasher/comments/send",comment);
   }
 
-  populateForm(comment:any){
-    this.form.setValue(comment);
-  }
 }

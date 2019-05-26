@@ -1,6 +1,6 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { EmailValidator, NgForm, FormsModule } from '@angular/forms';
-import { MapLoaderService } from './map.loader';
+import { MapLoaderService } from 'src/app/map.loader';
 import { AngularFirestore } from '@angular/fire/firestore';
 declare var google: any;
 
@@ -31,7 +31,7 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
 
 
   ngOnInit() {
-    this.resetForm();
+    //this.resetForm();
   }
 
   constructor(private getService:GettingInvoiceService,
@@ -123,24 +123,11 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
 
   // backend codes
 
-  resetForm(form ? : NgForm){
-    if(form != null){
-        form.resetForm();
-    }
-    this.getService.getServiceModel={
-      id:null,
-      customer_name:'',
-      address : '',
-      city : '' ,
-      date : ''
-    }
-    
-  }
-
+  
   onSubmit(form){
    let data = form.value;
    this.fireStore.collection('getServiceInvoices').add(data);
-   this.resetForm(form);
+   //this.resetForm(form);
   }
 
 }

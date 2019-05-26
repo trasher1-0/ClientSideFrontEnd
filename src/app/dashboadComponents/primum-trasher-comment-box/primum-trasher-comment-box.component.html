@@ -1,0 +1,43 @@
+<div class="card card-chart"> 
+  <div class="nav-item active">
+      <h1 class="mt-0 font-weight-bold blue-text" style="color:rgb(34, 154, 235);"><b>Comments</b></h1>
+  </div>
+  <hr>
+  <div *ngFor="let comment of primumComments">
+    <div *ngFor="let customer of customers">
+       <div *ngIf="comment.customer_id == customer.id">
+          <div class="media">
+              <div *ngIf="customer.prof_pic != null">
+                  <img class="d-flex rounded-circle avatar z-depth-1-half mr-3" >
+              </div>
+              <div *ngIf="customer.prof_pic == null">
+                  <img class="d-flex rounded-circle avatar z-depth-1-half mr-3" src="../assets/images/noImage.png">
+              </div>
+
+              <div class="media-body">
+                
+                  <h3 class="mt-0 font-weight-bold blue-text">{{customer.user_name}}</h3>
+                  <p>{{comment.comment}}</p>
+                  <div id="reply"></div>
+              </div>
+          </div>
+       </div>
+    </div>
+</div>
+</div>
+
+<div class="card card-chart"> 
+  <hr>
+    <form [formGroup]="service.form" (submit)="onSubmit()">
+        <div id="replyBox" class="media mt-3 shadow-textarea">
+            <img class="d-flex rounded-circle avatar z-depth-1-half mr-3"  src="../assets/images/noImage2.png">
+            <div class="media-body">
+              <h3 class="mt-0 font-weight-bold blue-text">Client 2</h3>
+              <div class="form-group basic-textarea rounded-corners">
+                <textarea class="form-control z-depth-1" formControlName="comment" rows="3" placeholder="Write your comment..."></textarea>
+              </div>
+            </div>
+        </div>
+        <button type="submit"  class="btn btn-info" ><h4><b>Comment</b></h4></button>
+    </form>
+  </div>
