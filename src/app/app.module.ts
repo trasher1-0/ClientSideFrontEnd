@@ -94,6 +94,8 @@ import { PrimumTrasherCommentBoxComponent } from './dashboadComponents/primum-tr
 import { LargeTrasherCommentBoxComponent } from './dashboadComponents/large-trasher-comment-box/large-trasher-comment-box.component';
 import {CommentService} from 'src/app/Services/commentService/comment.service';
 import {CustomerService} from  'src/app/Services/customerService/customer.service';
+import { PrimumTrasherDialogBoxComponent } from './dashboadComponents/primum-trasher-dialog-box/primum-trasher-dialog-box.component';
+import { LargeTrasherDialogBoxComponent } from './dashboadComponents/large-trasher-dialog-box/large-trasher-dialog-box.component';
 
 
 @NgModule({
@@ -159,7 +161,9 @@ import {CustomerService} from  'src/app/Services/customerService/customer.servic
     SocialEventFromViewComponent,
     ServiceInvoiceViewComponent,
     PrimumTrasherCommentBoxComponent,
-    LargeTrasherCommentBoxComponent
+    LargeTrasherCommentBoxComponent,
+    PrimumTrasherDialogBoxComponent,
+    LargeTrasherDialogBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -195,6 +199,9 @@ import {CustomerService} from  'src/app/Services/customerService/customer.servic
 
   ],
   bootstrap: [AppComponent],
-  entryComponents:[SmallTrasherDialogBoxComponent]
+  entryComponents:[SmallTrasherDialogBoxComponent,
+                   PrimumTrasherDialogBoxComponent,
+                   LargeTrasherDialogBoxComponent
+                  ]
 })
 export class AppModule { }
