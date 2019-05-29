@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute,RouterStateSnapshot, Router} from '@angular/router';
-import { GettingInvoiceService} from 'src/app/Services/justGetServices/getting-invoice.service';
-import { GetServiceModel} from 'src/app/Services/justGetServices/get-service-model';
 
 
 @Component({
@@ -16,9 +14,9 @@ export class ServiceInvoiceViewComponent implements OnInit {
   locationChoosen=true;
   invoice_id;
 
-  ServiceInvoices : GetServiceModel[];
-  invoiceInfo: GetServiceModel;
-
+ // ServiceInvoices : GetServiceModel[];
+ // invoiceInfo: GetServiceModel;
+/*
   constructor(private route:ActivatedRoute ,
               private serviceInvoice:GettingInvoiceService,
               private router: Router) { 
@@ -30,7 +28,10 @@ export class ServiceInvoiceViewComponent implements OnInit {
                   ...item.payload.doc.data() } as GetServiceModel ;
                 })
           });
-  }
+  }*/
+
+  constructor(private router:Router,
+              private route:ActivatedRoute){}
 
   ngOnInit() {
     this.invoice_id=this.route.snapshot.params.id;
@@ -38,9 +39,9 @@ export class ServiceInvoiceViewComponent implements OnInit {
   // this.getInvoiceInfo(this.invoice_id);
   }
 
-  onEdit(invoice : GetServiceModel){
+ /* onEdit(invoice : GetServiceModel){
     this.serviceInvoice.getServiceModel=Object.assign({},invoice);
   }
-
+*/
 
 }

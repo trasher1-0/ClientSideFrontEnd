@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SocialEventService } from './social-event.service';
+import { CommentService } from './comment.service';
 
-describe('SocialEventService', () => {
+describe('CommentService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: SocialEventService = TestBed.get(SocialEventService);
+    const service: CommentService = TestBed.get(CommentService);
     expect(service).toBeTruthy();
   });
 });

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {PrimumTrasherCommentService} from 'src/app/Services/dashboadServices/primum-trasher-comment.service';
-import { SmallTrasherCommentService} from 'src/app/Services/dashboadServices/small-trasher-comment.service';
+import {CommentService} from 'src/app/Services/commentService/comment.service';
+import {CustomerService} from 'src/app/Services/customerService/customer.service';
 
 @Component({
   selector: 'app-primum-trasher-comment-box',
@@ -9,22 +9,40 @@ import { SmallTrasherCommentService} from 'src/app/Services/dashboadServices/sma
 })
 export class PrimumTrasherCommentBoxComponent implements OnInit {
 
-  constructor(private primumTrasherSavice : PrimumTrasherCommentService,
-              private service:SmallTrasherCommentService) { }
+  constructor(private service:CommentService,
+              private customerService:CustomerService) { }
 
   public primumComments;
   public customers;
   
 
   ngOnInit() {
-    this.primumTrasherSavice.getPrimumComments().subscribe(data=>{
+    this.service.getPrimumComments().subscribe(data=>{
       this.primumComments=data;
       console.log(this.primumComments);
     })
-    this.service.getCustomers().subscribe(data =>{
+    this.customerService.getCustomers().subscribe(data =>{
       this.customers=data;
       console.log(this.customers);
     })
+  }
+
+  onSubmit(){
+    if(this.service.form.valid){
+      const comment={
+        'customer_id':3,
+        'comment':this.service.form.get('comment').value,
+        'trasher_type':2
+      }
+      this.service.addComments(comment).subscribe(data=>{
+        console.log(data);
+      });
+      this.resetForm();
+
+    }
+  }
+  resetForm(){
+    this.service.form.reset();
   }
 
 }

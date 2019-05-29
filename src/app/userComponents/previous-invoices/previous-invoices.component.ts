@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {GetServiceModel} from 'src/app/Services/justGetServices/get-service-model';
-import {GettingInvoiceService} from 'src/app/Services/justGetServices/getting-invoice.service';
 import { identifierModuleUrl } from '@angular/compiler';
 import { Router} from '@angular/router';
 
@@ -11,9 +9,9 @@ import { Router} from '@angular/router';
 })
 export class PreviousInvoicesComponent implements OnInit {
 
-  AllServiceInvoices : GetServiceModel[];
+ // AllServiceInvoices : GetServiceModel[];
  
-
+/*
   constructor(private serviceInvoice:GettingInvoiceService,
               private router: Router) { 
       this.serviceInvoice.getAllServiceInvoices().subscribe(actionArray =>{
@@ -24,7 +22,11 @@ export class PreviousInvoicesComponent implements OnInit {
         })
       });
 
-  }
+  }*/
+
+  constructor(
+    private router: Router
+  ){}
 
   ngOnInit() {
   }

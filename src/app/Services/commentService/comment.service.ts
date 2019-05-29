@@ -5,7 +5,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Injectable({
   providedIn: 'root'
 })
-export class SmallTrasherCommentService {
+export class CommentService {
 
   public base_Url="http://localhost:8080/backend/api";
 
@@ -25,16 +25,20 @@ export class SmallTrasherCommentService {
     this.form.setValue(comment);
   }
 
+
   getSmallComments(){
     return this.http.get(this.base_Url+"/dashboad/comments/smallTrasher");
   }
 
-  getCustomers(){
-    return this.http.get(this.base_Url+"/customers");
+  getPrimumComments(){
+    return this.http.get(this.base_Url+"/dashboad/comments/primumTrasher");
+  }
+
+  getLargeComments(){
+    return this.http.get(this.base_Url+"/dashboad/comments/largeTrasher");
   }
 
   addComments(comment:any){
     return this.http.post(this.base_Url+"/customer/trasher/comments/send",comment);
   }
-
 }

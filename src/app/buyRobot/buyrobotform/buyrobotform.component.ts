@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material';
-import { BuyInvoiceService} from 'src/app/Services/BuyingServices/buy-invoice.service';
 import {firestore} from 'firebase';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { NgModel, NgForm } from '@angular/forms';
@@ -18,7 +17,7 @@ export class BuyrobotformComponent implements OnInit {
   lng: number = 79.8576826;
   locationChoosen=false;
 
-  constructor(private buyInvoice : BuyInvoiceService,
+  constructor(
               private fireStore: AngularFirestore,
               private toster:ToastrService ) {}
 
@@ -43,25 +42,25 @@ export class BuyrobotformComponent implements OnInit {
      if(form != null ){
        form.resetForm();
      }
-     this.buyInvoice.BuyingInvoice={
-       id:null,
-       customer_id :null,
-       invoice_id :null,
-       customer_name :'',
-       address : '',
-       city :'',
-       quantity :null,
-       date : '',
-       pickupLocation:null
+   //  this.buyInvoice.BuyingInvoice={
+   //    id:null,
+   //    customer_id :null,
+   //    invoice_id :null,
+   //    customer_name :'',
+   //    address : '',
+   //    city :'',
+   //    quantity :null,
+   //    date : '',
+   //    pickupLocation:null
      }
    }
 
-   onSubmit(form){
-     let data=form.value;
-     data["pickupLocation"]={"lat":this.lat , "lng":this.lng};
-     this.fireStore.collection("buyingInvoices").add(data);
-     this.resetForm(form);
-     this.toster.success("Trasher Buying Invoice", "Submited Sucessfully !");
-   }
+  // onSubmit(form){
+  //   let data=form.value;
+  //   data["pickupLocation"]={"lat":this.lat , "lng":this.lng};
+  //   this.fireStore.collection("buyingInvoices").add(data);
+  //   this.resetForm(form);
+  //   this.toster.success("Trasher Buying Invoice", "Submited Sucessfully !");
+  // }
 
-}
+

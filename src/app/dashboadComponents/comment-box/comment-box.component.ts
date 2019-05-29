@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SmallTrasherCommentService } from 'src/app/Services/dashboadServices/small-trasher-comment.service';
 import { HelpServiceService } from 'src/app/help-service.service';
+import {CommentService} from 'src/app/Services/commentService/comment.service';
+import {CustomerService} from 'src/app/Services/customerService/customer.service';
 
 @Component({
   selector: 'app-comment-box',
@@ -9,8 +10,9 @@ import { HelpServiceService } from 'src/app/help-service.service';
 })
 export class CommentBoxComponent implements OnInit {
 
-  constructor(private service : SmallTrasherCommentService,
-    private helpService:HelpServiceService) { }
+  constructor(private service : CommentService,
+              private customerService:CustomerService,
+              private helpService:HelpServiceService) { }
 
   public smallComments;
   public customers;
@@ -21,7 +23,7 @@ export class CommentBoxComponent implements OnInit {
       this.smallComments=data;
       console.log(this.smallComments);
     })
-    this.service.getCustomers().subscribe(data =>{
+    this.customerService.getCustomers().subscribe(data =>{
       this.customers=data;
       console.log(this.customers);
     })
@@ -32,11 +34,12 @@ export class CommentBoxComponent implements OnInit {
   onSubmit(){
     if(this.service.form.valid){
       const comment={
-        'customer_id':1,
-        'comment':this.service.form.get('comment').value
+        'customer_id':3,
+        'comment':this.service.form.get('comment').value,
+        'trasher_type':1
       }
       this.service.addComments(comment).subscribe(data=>{
-        console.log(data);
+        this.smallComments=data;
       });
       this.resetForm();
 

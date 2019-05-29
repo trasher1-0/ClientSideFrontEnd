@@ -87,15 +87,14 @@ import { SocialEventFromViewComponent } from './socialEventComponents/social-eve
 
 // services 
 
-import {GettingInvoiceService} from 'src/app/Services/justGetServices/getting-invoice.service';
+
 import { ServiceInvoiceViewComponent } from './userComponents/service-invoice-view/service-invoice-view.component';
-import {BuyInvoiceService} from 'src/app/Services/BuyingServices/buy-invoice.service';
-import { SmallTrasherCommentService } from './Services/dashboadServices/small-trasher-comment.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PrimumTrasherCommentBoxComponent } from './dashboadComponents/primum-trasher-comment-box/primum-trasher-comment-box.component';
 import { LargeTrasherCommentBoxComponent } from './dashboadComponents/large-trasher-comment-box/large-trasher-comment-box.component';
-import { PrimumTrasherCommentService} from 'src/app/Services/dashboadServices/primum-trasher-comment.service';
-import { LargeTrasherCommentService} from 'src/app/Services/dashboadServices/large-trasher-comment.service';
+import {CommentService} from 'src/app/Services/commentService/comment.service';
+import {CustomerService} from  'src/app/Services/customerService/customer.service';
+
 
 @NgModule({
   declarations: [
@@ -191,12 +190,8 @@ import { LargeTrasherCommentService} from 'src/app/Services/dashboadServices/lar
 
   ],
   providers: [
-    GettingInvoiceService,
-    GettingInvoiceService,
-    BuyInvoiceService,
-    SmallTrasherCommentService,
-    PrimumTrasherCommentService,
-    LargeTrasherCommentService
+    CommentService,
+    CustomerService
 
   ],
   bootstrap: [AppComponent],

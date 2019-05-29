@@ -6,8 +6,6 @@ declare var google: any;
 
 
 import { keyframes } from '@angular/animations';
-import {GettingInvoiceService} from 'src/app/Services/justGetServices/getting-invoice.service';
-import {GetServiceModel} from 'src/app/Services/justGetServices/get-service-model';
 import { firestore } from 'firebase';
 
 
@@ -34,7 +32,7 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
     //this.resetForm();
   }
 
-  constructor(private getService:GettingInvoiceService,
+  constructor(
               private fireStore:AngularFirestore) {
 
   }
@@ -57,7 +55,7 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
   k=0;
 
   isClick(){
-    console.log(this.getService.getServiceModel.date)
+   // console.log(this.getService.getServiceModel.date)
     if(this.k ==0){
       this.k=(this.k+1);
       return this.k;
