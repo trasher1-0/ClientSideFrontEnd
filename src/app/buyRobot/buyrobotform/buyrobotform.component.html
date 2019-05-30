@@ -4,49 +4,34 @@
             <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Trasher Buying Invoice</b></h2>
         </div>
         <hr>
-      <form #form="ngForm" (submit)="onSubmit(form)">
+        <form [formGroup]="service.form" (submit)="onSubmit()">
         
-              <input  type="hidden" 
-                      name="id" 
-                      id="id" >
-
-            <div class="input-group input-group-icon">
-                <input  type="text" 
-                        placeholder="Customer ID"
-                        name="customer_id"
-                        id="customer_id"
-                        required/>
-                <div class="input-icon"><i class="fa fa-user"></i></div>
-            </div>
-
-            <div class="input-group input-group-icon">
-                <input  type="text" 
-                        placeholder="Buying Invoice ID"
-                        name="invoice_id"
-                        id="invoice_id"
-                        required />
-                <div class="input-icon"><i class="fa fa-user"></i></div>
-            </div>
-
+            <input  type="hidden" 
+                    name="id" 
+                    id="id" 
+                    >
             <div class="input-group input-group-icon">
               <input  type="text" 
                       placeholder="Customer Name"
                       id="customer_name"
-                      name="customer_name"/>
+                      name="customer_name"
+                      formControlName="customer_name"/>
               <div class="input-icon"><i class="fa fa-user"></i></div>
             </div>
             <div class="input-group input-group-icon">
               <input  type="text" 
                       placeholder="Delivary Adress"
                       name="address"
-                      id="address"/>
+                      id="address"
+                      formControlName="address"/>
               <div class="input-icon"><i class="fa fa-home"></i></div>
             </div>
             <div class="input-group input-group-icon">
               <input  type="text" 
                       placeholder="City or District"
                       name="city"
-                      id="city"/>
+                      id="city"
+                      formControlName="city"/>
               <div class="input-icon"><i class="fa fa-building"></i></div>
             </div>
             <div class="input-group input-group-icon">
@@ -54,7 +39,8 @@
                       placeholder="Quentity" 
                       min="1"
                       name="quantity"
-                      id="quantity"/>
+                      id="quantity"
+                      formControlName="quantity"/>
               <div class="input-icon"><i class="fa fa-cart-plus"></i></div>
             </div>
           
@@ -63,7 +49,8 @@
                         placeholder="Select the date" 
                         vlaue="2014-02-09"
                         name="date"
-                        id="date"/>
+                        id="date"
+                        formControlName="date"/>
               <div class="input-icon"><i class="fa fa-calendar"></i></div>
             </div>
         
@@ -110,9 +97,16 @@
 
             </div>
           </div>
-         
-              <button class="button button2"  style="align-self: auto;" (click)="reload()"> SUBMIT </button>
-
+              <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-8">
+                    <a RouterLink="/customer/dashboad">
+                      <button class="button button3" > Cancel  </button>
+                    </a>
+                    <button  type="submit" class="button button2"> Submit </button>
+                </div>
+                
+              </div>
         </form>
       </div>
   </div>

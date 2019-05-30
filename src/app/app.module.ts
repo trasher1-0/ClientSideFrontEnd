@@ -97,7 +97,7 @@ import {CustomerService} from  'src/app/Services/customerService/customer.servic
 import { RattingService } from './Services/rattingService/ratting.service';
 import { PrimumTrasherDialogBoxComponent } from './dashboadComponents/primum-trasher-dialog-box/primum-trasher-dialog-box.component';
 import { LargeTrasherDialogBoxComponent } from './dashboadComponents/large-trasher-dialog-box/large-trasher-dialog-box.component';
-
+import {InvoiceService} from 'src/app/Services/invoiceService/invoice.service';
 
 @NgModule({
   declarations: [
@@ -197,7 +197,8 @@ import { LargeTrasherDialogBoxComponent } from './dashboadComponents/large-trash
   providers: [
     CommentService,
     CustomerService,
-    RattingService
+    RattingService,
+    InvoiceService
 
   ],
   bootstrap: [AppComponent],

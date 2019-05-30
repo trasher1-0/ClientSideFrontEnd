@@ -4,6 +4,7 @@ import {firestore} from 'firebase';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { NgModel, NgForm } from '@angular/forms';
 import { ToastrService} from 'ngx-toastr';
+import { InvoiceService} from 'src/app/Services/invoiceService/invoice.service';
 
 
 @Component({
@@ -16,10 +17,12 @@ export class BuyrobotformComponent implements OnInit {
   lat: number = 6.9037023;
   lng: number = 79.8576826;
   locationChoosen=false;
+  public invoice;
 
   constructor(
               private fireStore: AngularFirestore,
-              private toster:ToastrService ) {}
+              private toster:ToastrService ,
+              private service:InvoiceService) {}
 
   
 
@@ -34,14 +37,37 @@ export class BuyrobotformComponent implements OnInit {
     console.log(event.coords.lng)
    }
 
-   reload(){
-    window.location.reload();
-   }
+   onSubmit(){
+     console.log("cliekd");
+   // if(this.service.form.valid){
+     // console.log(this.service.form.value);
+      const invoice={
+        'customer_id':3,
+        'customer_name':this.service.form.get('customer_name').value,
+        "invoice_type":"Buying Invoice",
+        'address':this.service.form.get('address').value,
+        "city":this.service.form.get('city').value,
+        "date":this.service.form.get('date').value,
+        "quantity":parseInt(this.service.form.get('quantity').value)
+      }
+    //  console.log(invoice);
+      this.service.addInvoice(invoice).subscribe(data=>{
+        this.invoice=data;
+      });
+      this.resetForm();
 
-   resetForm(form ? : NgForm){
-     if(form != null ){
-       form.resetForm();
-     }
+   //  }
+  }
+  resetForm(){
+    this.service.form.reset();
+  }
+
+  
+
+  // resetForm(form ? : NgForm){
+  //   if(form != null ){
+  //     form.resetForm();
+  //   }
    //  this.buyInvoice.BuyingInvoice={
    //    id:null,
    //    customer_id :null,
@@ -52,8 +78,8 @@ export class BuyrobotformComponent implements OnInit {
    //    quantity :null,
    //    date : '',
    //    pickupLocation:null
-     }
-   }
+    // }
+  // }
 
   // onSubmit(form){
   //   let data=form.value;
@@ -63,4 +89,4 @@ export class BuyrobotformComponent implements OnInit {
   //   this.toster.success("Trasher Buying Invoice", "Submited Sucessfully !");
   // }
 
-
+}
