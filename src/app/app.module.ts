@@ -94,6 +94,7 @@ import { PrimumTrasherCommentBoxComponent } from './dashboadComponents/primum-tr
 import { LargeTrasherCommentBoxComponent } from './dashboadComponents/large-trasher-comment-box/large-trasher-comment-box.component';
 import {CommentService} from 'src/app/Services/commentService/comment.service';
 import {CustomerService} from  'src/app/Services/customerService/customer.service';
+import { RattingService } from './Services/rattingService/ratting.service';
 import { PrimumTrasherDialogBoxComponent } from './dashboadComponents/primum-trasher-dialog-box/primum-trasher-dialog-box.component';
 import { LargeTrasherDialogBoxComponent } from './dashboadComponents/large-trasher-dialog-box/large-trasher-dialog-box.component';
 
@@ -195,7 +196,8 @@ import { LargeTrasherDialogBoxComponent } from './dashboadComponents/large-trash
   ],
   providers: [
     CommentService,
-    CustomerService
+    CustomerService,
+    RattingService
 
   ],
   bootstrap: [AppComponent],

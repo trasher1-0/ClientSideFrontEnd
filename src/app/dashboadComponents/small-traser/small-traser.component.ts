@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { SmallTrasherDialogBoxComponent } from '../small-trasher-dialog-box/small-trasher-dialog-box.component';
+import { RattingService } from 'src/app/Services/rattingService/ratting.service';
+
 
 @Component({
   selector: 'app-small-traser',
@@ -9,9 +11,20 @@ import { SmallTrasherDialogBoxComponent } from '../small-trasher-dialog-box/smal
 })
 export class SmallTraserComponent implements OnInit {
 
-  constructor(private dialog:MatDialog) { }
+  public smallTrasherRattings;
+
+  constructor(private dialog:MatDialog,
+              private service:RattingService) { }
 
   ngOnInit() {
+    this.service.getSmallTrasherRattings().subscribe(data=>{
+      this.smallTrasherRattings=data;
+      console.log(this.smallTrasherRattings);
+    })
+  }
+
+  isRated(){
+    return true;
   }
 
   popup(){
@@ -22,5 +35,19 @@ export class SmallTraserComponent implements OnInit {
     dialogConfig.width="60%";
     this.dialog.open(SmallTrasherDialogBoxComponent,dialogConfig);
   }
+
+
+  onSubmit(){
+    if(this.service.form.valid){
+      const ratting={
+        'customer_id':3,
+        'rated_value':parseInt(this.service.form.get('ratting').value),
+        'trasher_type':1
+      }
+      //console.log(this.service.form.get('ratting').value);
+      this.service.addRatting(ratting);
+    }
+  }
+
 
 }
