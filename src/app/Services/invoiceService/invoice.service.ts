@@ -57,7 +57,7 @@ export class InvoiceService {
   }
 
   addInvoice(invoice:any){
-   // console.log(invoice);
+    console.log(invoice);
     
     return this.http.post(this.base_Url+"/customer/invoice/send",invoice);
   }

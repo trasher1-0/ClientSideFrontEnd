@@ -95,6 +95,7 @@ import { PrimumTrasherDialogBoxComponent } from './dashboadComponents/primum-tra
 import { LargeTrasherDialogBoxComponent } from './dashboadComponents/large-trasher-dialog-box/large-trasher-dialog-box.component';
 import {InvoiceService} from 'src/app/Services/invoiceService/invoice.service';
 import { PickupLocationComponent } from './getServiceFromRobot/pickup-location/pickup-location.component';
+import { LocationComponent } from 'src/app/bookingComponents/location/location.component';
 
 
 
@@ -160,7 +161,8 @@ import { PickupLocationComponent } from './getServiceFromRobot/pickup-location/p
     LargeTrasherCommentBoxComponent,
     PrimumTrasherDialogBoxComponent,
     LargeTrasherDialogBoxComponent,
-    PickupLocationComponent
+    PickupLocationComponent,
+    LocationComponent
   ],
   imports: [
     BrowserModule,
@@ -201,7 +203,8 @@ import { PickupLocationComponent } from './getServiceFromRobot/pickup-location/p
   entryComponents:[SmallTrasherDialogBoxComponent,
                    PrimumTrasherDialogBoxComponent,
                    LargeTrasherDialogBoxComponent,
-                   PickupLocationComponent
+                   PickupLocationComponent,
+                   LocationComponent
                   ]
 })
 export class AppModule { }
