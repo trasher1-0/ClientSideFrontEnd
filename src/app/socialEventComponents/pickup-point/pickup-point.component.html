@@ -1,0 +1,18 @@
+<div >
+    <div >
+      <div class="card">
+        <h3 style="text-align: center;color:rgb(34, 154, 235);"><b>Select the Delevary location </b></h3>
+      </div>
+     
+     <agm-map [latitude]="lat" [longitude]="lng" [zoom]=12 (mapClick)="onClickChooseLocation($event)">
+        <agm-marker *ngIf="locationChoosen" [latitude]="lat" [longitude]="lng"></agm-marker>
+      </agm-map>
+      
+  </div>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-8">
+        <label class="button1 button3" (click)="onClose()" >Cancel</label>
+        <button type="submit"  class="button button2" ><h4><b>Submit</b></h4></button>
+    </div>
+  </div>

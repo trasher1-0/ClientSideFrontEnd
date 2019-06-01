@@ -29,6 +29,15 @@ export class InvoiceService {
     time_slots:new FormControl('',[Validators.required]),
   });
 
+  socialEventForm:FormGroup=new FormGroup({
+    customer_id:new FormControl('',[Validators.required]),
+    customer_name:new FormControl('',[Validators.required]),
+    address:new FormControl('',[Validators.required]),
+    city:new FormControl('',[Validators.required]),
+    date:new FormControl('',[Validators.required]),
+    time_slots:new FormControl('',[Validators.required]),
+  });
+
 
   initializeFormGroup(){
     this.form.setValue({
@@ -43,7 +52,16 @@ export class InvoiceService {
     this.serviceForm.setValue({
       'customer_id':null,
       'customer_name':'',
-      "invoice_type":"buy invoice",
+      "invoice_type":'',
+      'address':'',
+      "city":'',
+      "date":'',
+      "time_slots":null
+    }),
+    this.socialEventForm.setValue({
+      'customer_id':null,
+      'customer_name':'',
+      "invoice_type":'',
       'address':'',
       "city":'',
       "date":'',

@@ -96,6 +96,7 @@ import { LargeTrasherDialogBoxComponent } from './dashboadComponents/large-trash
 import {InvoiceService} from 'src/app/Services/invoiceService/invoice.service';
 import { PickupLocationComponent } from './getServiceFromRobot/pickup-location/pickup-location.component';
 import { LocationComponent } from 'src/app/bookingComponents/location/location.component';
+import { PickupPointComponent } from './socialEventComponents/pickup-point/pickup-point.component';
 
 
 
@@ -162,7 +163,8 @@ import { LocationComponent } from 'src/app/bookingComponents/location/location.c
     PrimumTrasherDialogBoxComponent,
     LargeTrasherDialogBoxComponent,
     PickupLocationComponent,
-    LocationComponent
+    LocationComponent,
+    PickupPointComponent
   ],
   imports: [
     BrowserModule,
@@ -204,7 +206,8 @@ import { LocationComponent } from 'src/app/bookingComponents/location/location.c
                    PrimumTrasherDialogBoxComponent,
                    LargeTrasherDialogBoxComponent,
                    PickupLocationComponent,
-                   LocationComponent
+                   LocationComponent,
+                   PickupPointComponent
                   ]
 })
 export class AppModule { }

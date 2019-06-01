@@ -1,54 +1,84 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { MapLoaderService } from 'src/app/map.loader';
+import { AngularFirestore } from '@angular/fire/firestore';
 declare var google: any;
+import { MatDialog, MatDialogConfig } from '@angular/material';
+
+import {InvoiceService} from 'src/app/Services/invoiceService/invoice.service';
+import { PickupPointComponent} from 'src/app/socialEventComponents/pickup-point/pickup-point.component';
 
 @Component({
   selector: 'app-just-get-service-form',
   templateUrl: './just-get-service-form.component.html',
   styleUrls: ['./just-get-service-form.component.css']
 })
-export class JustGetServiceFormComponent implements OnInit {
+export class JustGetServiceFormComponent implements OnInit,AfterViewInit {
+ 
   public availableSlots=["8.00 AM -9.00 AM","9.00 AM - 10 .00 AM","10.00 AM -11 .00 AM"];
 
-  
   lat: number = 6.9037023;
   lng: number = 79.8576826;
   locationChoosen=false;
+  public selectedSlots=[];
+  public polygonCoords:any;
+  public invoice;
+
+  map: any;
+  drawingManager: any;
+  timeSlots: any[] =[];
+
+  constructor(private dialog:MatDialog,
+    private service:InvoiceService) {
+
+}
 
   ngOnInit() {
   }
 
-  constructor() {
-
+  ngAfterViewInit() {
+    MapLoaderService.load().then(() => {
+      this.drawPolygon();
+    })
   }
+   // polygon map intergrated
 
-  map: any;
-  drawingManager: any;
+   drawPolygon() {
+    this.map = new google.maps.Map(document.getElementById('map'), {
+      center: { lat: this.lat, lng: this.lng },
+      zoom: 8
+    });
 
-  center: any = {
-    lat:this.lat,
-    lng: this.lng
-  };
-
-  onMapReady(map) {
-    this.initDrawingManager(map);
-  }
-
-  initDrawingManager(map: any) {
-    const options = {
+    this.drawingManager = new google.maps.drawing.DrawingManager({
+      drawingMode: google.maps.drawing.OverlayType.POLYGON,
       drawingControl: true,
       drawingControlOptions: {
-        drawingModes: ["polygon"]
-      },
-      polygonOptions: {
-        draggable: true,
-        editable: true
-      },
-      drawingMode: google.maps.drawing.OverlayType.POLYGON
-    };
+        position: google.maps.ControlPosition.TOP_CENTER,
+        drawingModes: ['polygon']
+      }
+    });
 
-    const drawingManager = new google.maps.drawing.DrawingManager(options);
-    drawingManager.setMap(map);
+    this.drawingManager.setMap(this.map);
+    google.maps.event.addListener(this.drawingManager, 'overlaycomplete', (event) => {
+      // Polygon drawn
+      if (event.type === google.maps.drawing.OverlayType.POLYGON) {
+        //this is the coordinate, you can assign it to a variable or pass into another function.
+       // this.polygonCoords.push((event.overlay.getPath().getArray()));
+       //alert(this.polygonCoords);
+       this.polygonCoords=event.overlay.getPath().getArray();
+       console.log(this.polygonCoords);
+       //console.log(event);
+      }
+    });
   }
+  
+  // checking available time slots 
+  onCheckboxChange(event){
+    if(event.target.checked) {
+        this.selectedSlots.push(event.target.value);
+    }
+     console.log(this.selectedSlots);
+  }
+  
 
   onClickChooseLocation(event){
     this.lat=event.coords.lat
@@ -58,12 +88,9 @@ export class JustGetServiceFormComponent implements OnInit {
     console.log(this.lng);
    }
 
-   reload(){
-     window.location.reload();
-   }
-
   k=0;
 
+ 
   isClick(){
     if(this.k ==0){
       this.k=(this.k+1);
@@ -80,4 +107,41 @@ export class JustGetServiceFormComponent implements OnInit {
       return true;
     }
   }
+
+
+  popup(){
+    console.log("Popup");
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.autoFocus=true;
+    dialogConfig.disableClose=true;
+    dialogConfig.width="70%";
+    this.dialog.open(PickupPointComponent,dialogConfig);
+  }
+
+  onSubmit(){
+    console.log("cliekd");
+  // if(this.service.form.valid){
+    // console.log(this.service.form.value);
+     const invoice={
+       'customer_id':3,
+       'customer_name':this.service.socialEventForm.get('customer_name').value,
+       "invoice_type":"Social Event Invoice",
+       'address':this.service.socialEventForm.get('address').value,
+       "city":this.service.socialEventForm.get('city').value,
+       "date":this.service.socialEventForm.get('date').value,
+       "time_slots":this.selectedSlots
+     }
+   //  console.log(invoice);
+     this.service.addInvoice(invoice).subscribe(data=>{
+       this.invoice=data;
+      // console.log(data)
+     });
+     this.resetForm();
+
+  //  }
+ }
+ resetForm(){
+   this.service.socialEventForm.reset();
+ }
+
 }
