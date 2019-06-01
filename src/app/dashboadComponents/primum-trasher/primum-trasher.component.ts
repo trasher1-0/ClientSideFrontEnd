@@ -12,6 +12,7 @@ export class PrimumTrasherComponent implements OnInit {
 
 
   public primumTrasherRattings;
+  public ratting;
 
   constructor(private dialog:MatDialog,
               private service:RattingService) { }
@@ -46,7 +47,10 @@ export class PrimumTrasherComponent implements OnInit {
         'trasher_type':2
       }
       //console.log(this.service.form.get('ratting').value);
-      this.service.addRatting(ratting);
+      this.service.addRatting(ratting).subscribe(data=>{
+        this.ratting=data;
+       // console.log(data)
+      });
     }
   }
 

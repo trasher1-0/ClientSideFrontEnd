@@ -12,6 +12,7 @@ import { RattingService } from 'src/app/Services/rattingService/ratting.service'
 export class SmallTraserComponent implements OnInit {
 
   public smallTrasherRattings;
+  public ratting;
 
   constructor(private dialog:MatDialog,
               private service:RattingService) { }
@@ -45,7 +46,10 @@ export class SmallTraserComponent implements OnInit {
         'trasher_type':1
       }
       //console.log(this.service.form.get('ratting').value);
-      this.service.addRatting(ratting);
+      this.service.addRatting(ratting).subscribe(data=>{
+        this.ratting=data;
+       // console.log(data)
+      });;
     }
   }
 

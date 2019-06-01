@@ -3,14 +3,13 @@
 *:after {
   box-sizing: border-box;
 }
-
 agm-map{
   height:500px;
   width : 100%;
  
 }
 
-map {
+#map {
   height: 500px;
   width:100%;
 }
@@ -127,7 +126,7 @@ select:active {
   outline: 0;
 }
 select option {
-  background-color: rgb(127, 141, 155);
+  background-color: rgb(200, 200, 200);
   color: #fff;
 }
 .input-group {
@@ -370,17 +369,27 @@ h3 a:hover {
     transform: rotate(45deg);
   }
 
+  .serchLabel {
+    color: white;
+    padding: 6px;
+    font-family: Arial;
+    border-radius: 5px;
+  }
+  .info {background-color: #2196F3;} /* Blue */
+
   .button1 {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
-    padding: 15px 25px;
+    padding: 8px 12px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 18px;
+    font-size: 14px;
     margin: 4px 2px;
     cursor: pointer;
   }
   .button3 {background-color: #008CBA;
             border-radius: 5px;} /* Blue */
+  
+  

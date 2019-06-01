@@ -12,6 +12,7 @@ import { RattingService } from 'src/app/Services/rattingService/ratting.service'
 export class LargeTrasherComponent implements OnInit {
 
   public largeTrasherRattings;
+  public ratting;
 
   constructor(private dialog:MatDialog,
               private service:RattingService) { }
@@ -43,7 +44,10 @@ export class LargeTrasherComponent implements OnInit {
         'trasher_type':3
       }
       //console.log(this.service.form.get('ratting').value);
-      this.service.addRatting(ratting);
+      this.service.addRatting(ratting).subscribe(data=>{
+        this.ratting=data;
+       // console.log(data)
+      });
     }
   }
 

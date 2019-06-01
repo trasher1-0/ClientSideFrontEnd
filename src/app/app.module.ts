@@ -97,6 +97,7 @@ import {InvoiceService} from 'src/app/Services/invoiceService/invoice.service';
 import { PickupLocationComponent } from './getServiceFromRobot/pickup-location/pickup-location.component';
 import { LocationComponent } from 'src/app/bookingComponents/location/location.component';
 import { PickupPointComponent } from './socialEventComponents/pickup-point/pickup-point.component';
+import { PickupPointForBookingComponent } from './socialEventComponents/pickup-point-for-booking/pickup-point-for-booking.component';
 
 
 
@@ -164,7 +165,8 @@ import { PickupPointComponent } from './socialEventComponents/pickup-point/picku
     LargeTrasherDialogBoxComponent,
     PickupLocationComponent,
     LocationComponent,
-    PickupPointComponent
+    PickupPointComponent,
+    PickupPointForBookingComponent
   ],
   imports: [
     BrowserModule,
@@ -207,7 +209,8 @@ import { PickupPointComponent } from './socialEventComponents/pickup-point/picku
                    LargeTrasherDialogBoxComponent,
                    PickupLocationComponent,
                    LocationComponent,
-                   PickupPointComponent
+                   PickupPointComponent,
+                   PickupPointForBookingComponent
                   ]
 })
 export class AppModule { }
