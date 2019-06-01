@@ -56,9 +56,6 @@ import { PrimumTrasherPanelComponent } from './dashboadComponents/primum-trasher
 import { CommentBoxComponent } from './dashboadComponents/comment-box/comment-box.component';
 import { AvailableSlotsComponent } from './bookingComponents/available-slots/available-slots.component';
 import { BookingPageComponent } from './booking-page/booking-page.component';
-import { OneHourslotComponent } from './bookingComponents/one-hourslot/one-hourslot.component';
-import { TwoHourslotComponent } from './bookingComponents/two-hourslot/two-hourslot.component';
-import { CustomizeTimeComponent } from './bookingComponents/customize-time/customize-time.component';
 import { FeedbackBoxComponent } from './feedbackCompoents/feedback-box/feedback-box.component';
 import { ReplyBoxComponent } from './feedbackCompoents/reply-box/reply-box.component';
 import { MyfeedbackBoxComponent } from './feedbackCompoents/myfeedback-box/myfeedback-box.component';
@@ -72,7 +69,6 @@ import { UserGuideComponent } from './helpPageComponents/user-guide/user-guide.c
 import { BookingIssueComponent } from './helpPageComponents/booking-issue/booking-issue.component';
 import { OtherIssueComponent } from './helpPageComponents/other-issue/other-issue.component';
 import { ServiceFormComponent } from './getServiceFromRobot/service-form/service-form.component';
-import { PoligonMapComponent } from './getServiceFromRobot/poligon-map/poligon-map.component';
 import { SmallTrasherDialogBoxComponent } from './dashboadComponents/small-trasher-dialog-box/small-trasher-dialog-box.component';
 import { BookingFormComponent } from './bookingComponents/booking-form/booking-form.component';
 import { CalenderComponent } from './bookingComponents/calender/calender.component';
@@ -98,6 +94,9 @@ import { RattingService } from './Services/rattingService/ratting.service';
 import { PrimumTrasherDialogBoxComponent } from './dashboadComponents/primum-trasher-dialog-box/primum-trasher-dialog-box.component';
 import { LargeTrasherDialogBoxComponent } from './dashboadComponents/large-trasher-dialog-box/large-trasher-dialog-box.component';
 import {InvoiceService} from 'src/app/Services/invoiceService/invoice.service';
+import { PickupLocationComponent } from './getServiceFromRobot/pickup-location/pickup-location.component';
+
+
 
 @NgModule({
   declarations: [
@@ -132,9 +131,6 @@ import {InvoiceService} from 'src/app/Services/invoiceService/invoice.service';
     CommentBoxComponent,
     AvailableSlotsComponent,
     BookingPageComponent,
-    OneHourslotComponent,
-    TwoHourslotComponent,
-    CustomizeTimeComponent,
     FeedbackBoxComponent,
     ReplyBoxComponent,
     MyfeedbackBoxComponent,
@@ -148,7 +144,6 @@ import {InvoiceService} from 'src/app/Services/invoiceService/invoice.service';
     BookingIssueComponent,
     OtherIssueComponent,
     ServiceFormComponent,
-    PoligonMapComponent,
     SmallTrasherDialogBoxComponent,
     BookingFormComponent,
     CalenderComponent,
@@ -164,7 +159,8 @@ import {InvoiceService} from 'src/app/Services/invoiceService/invoice.service';
     PrimumTrasherCommentBoxComponent,
     LargeTrasherCommentBoxComponent,
     PrimumTrasherDialogBoxComponent,
-    LargeTrasherDialogBoxComponent
+    LargeTrasherDialogBoxComponent,
+    PickupLocationComponent
   ],
   imports: [
     BrowserModule,
@@ -204,7 +200,8 @@ import {InvoiceService} from 'src/app/Services/invoiceService/invoice.service';
   bootstrap: [AppComponent],
   entryComponents:[SmallTrasherDialogBoxComponent,
                    PrimumTrasherDialogBoxComponent,
-                   LargeTrasherDialogBoxComponent
+                   LargeTrasherDialogBoxComponent,
+                   PickupLocationComponent
                   ]
 })
 export class AppModule { }

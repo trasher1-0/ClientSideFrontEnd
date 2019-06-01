@@ -102,30 +102,15 @@
         </div>
       </div>
       
-      <button type="button" class="button1 button3"  data-toggle="modal" data-target=".bd-example-modal-lg" style="align-self: auto;"> Pickup Location </button>
-      <!--pickup locaiton model-->
-
-      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="card-body">
-                  <div class="container">
-                    <div>
-                      <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Select the pickup location </b></h2>
-                    </div>
-                    <hr>
-                    <agm-map [latitude]="lat" [longitude]="lng" [zoom]=7 (mapClick)="onClickChooseLocation($event)">
-                      <agm-marker *ngIf="locationChoosen" [latitude]="lat" [longitude]="lng"></agm-marker>
-                    </agm-map>
-                    <a class="nav-link" routerLink="/customer/dashboad">
-                      <button class="button1 button3"  style="align-self: auto;" (click)="reload()"> SUBMIT </button>
-                     </a>
-                  </div>
-                </div>
-            </div>
+      <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-7">
+              <a (click)="popup()">
+                  <label class="button1 button3"  >Select Pickup Location </label>
+              </a>
           </div>
-      </div>
-        
+        </div> 
+  
     </form>
   </div>
 

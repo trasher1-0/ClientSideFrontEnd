@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 declare var google: any;
-
+import { MatDialog, MatDialogConfig } from '@angular/material';
 
 @Component({
   selector: 'app-booking-form',
@@ -18,9 +18,12 @@ export class BookingFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  constructor() {
+  constructor(private dialog:MatDialog,) {
 
   }
+
+ 
+
 
   map: any;
   drawingManager: any;

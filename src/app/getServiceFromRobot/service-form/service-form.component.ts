@@ -3,7 +3,9 @@ import { EmailValidator, NgForm, FormsModule } from '@angular/forms';
 import { MapLoaderService } from 'src/app/map.loader';
 import { AngularFirestore } from '@angular/fire/firestore';
 declare var google: any;
-
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { PickupLocationComponent } from 'src/app/getServiceFromRobot/pickup-location/pickup-location.component';
+import { InvoiceService} from 'src/app/Services/invoiceService/invoice.service';
 
 import { keyframes } from '@angular/animations';
 import { firestore } from 'firebase';
@@ -22,6 +24,7 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
   locationChoosen=false;
   public selectedSlots=[];
   public polygonCoords:any;
+  public invoice;
 
   map: any;
   drawingManager: any;
@@ -32,10 +35,21 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
     //this.resetForm();
   }
 
-  constructor(
-              private fireStore:AngularFirestore) {
+  constructor(private dialog:MatDialog,
+              private fireStore:AngularFirestore,
+              private service:InvoiceService) {
 
   }
+
+  popup(){
+    console.log("Popup");
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.autoFocus=true;
+    dialogConfig.disableClose=true;
+    dialogConfig.width="70%";
+    this.dialog.open(PickupLocationComponent,dialogConfig);
+  }
+
    ngAfterViewInit() {
     MapLoaderService.load().then(() => {
       this.drawPolygon();
@@ -47,7 +61,7 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
     if(event.target.checked) {
         this.selectedSlots.push(event.target.value);
     }
-   // console.log(this.selectedSlots);
+     console.log(this.selectedSlots);
   }
 
   // search available time slots
@@ -70,11 +84,6 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
     if(this.k ==1){
       return true;
     }
-  }
-
-  // window reload
-  reload(){
-    window.location.reload();
   }
 
   // pickup location map intergrated
@@ -121,11 +130,31 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
 
   // backend codes
 
-  
-  onSubmit(form){
-   let data = form.value;
-   this.fireStore.collection('getServiceInvoices').add(data);
-   //this.resetForm(form);
-  }
+  onSubmit(){
+    console.log("cliekd");
+  // if(this.service.form.valid){
+    // console.log(this.service.form.value);
+     const invoice={
+       'customer_id':3,
+       'customer_name':this.service.serviceForm.get('customer_name').value,
+       "invoice_type":"Service Invoice",
+       'address':this.service.serviceForm.get('address').value,
+       "city":this.service.serviceForm.get('city').value,
+       "date":this.service.serviceForm.get('date').value,
+       "time_slots":this.selectedSlots
+     }
+   //  console.log(invoice);
+     this.service.addInvoice(invoice).subscribe(data=>{
+       this.invoice=data;
+      // console.log(data)
+     });
+     this.resetForm();
+
+  //  }
+ }
+ resetForm(){
+   this.service.serviceForm.reset();
+ }
+
 
 }

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CustomizeTimeComponent } from './customize-time.component';
+import { PickupLocationComponent } from './pickup-location.component';
 
-describe('CustomizeTimeComponent', () => {
-  let component: CustomizeTimeComponent;
-  let fixture: ComponentFixture<CustomizeTimeComponent>;
+describe('PickupLocationComponent', () => {
+  let component: PickupLocationComponent;
+  let fixture: ComponentFixture<PickupLocationComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CustomizeTimeComponent ]
+      declarations: [ PickupLocationComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CustomizeTimeComponent);
+    fixture = TestBed.createComponent(PickupLocationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

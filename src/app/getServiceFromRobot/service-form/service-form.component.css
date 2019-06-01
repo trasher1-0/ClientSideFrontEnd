@@ -381,11 +381,11 @@ h3 a:hover {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
-    padding: 15px 25px;
+    padding: 8px 12px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 18px;
+    font-size: 14px;
     margin: 4px 2px;
     cursor: pointer;
   }

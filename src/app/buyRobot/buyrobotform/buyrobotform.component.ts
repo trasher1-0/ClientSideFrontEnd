@@ -62,31 +62,4 @@ export class BuyrobotformComponent implements OnInit {
     this.service.form.reset();
   }
 
-  
-
-  // resetForm(form ? : NgForm){
-  //   if(form != null ){
-  //     form.resetForm();
-  //   }
-   //  this.buyInvoice.BuyingInvoice={
-   //    id:null,
-   //    customer_id :null,
-   //    invoice_id :null,
-   //    customer_name :'',
-   //    address : '',
-   //    city :'',
-   //    quantity :null,
-   //    date : '',
-   //    pickupLocation:null
-    // }
-  // }
-
-  // onSubmit(form){
-  //   let data=form.value;
-  //   data["pickupLocation"]={"lat":this.lat , "lng":this.lng};
-  //   this.fireStore.collection("buyingInvoices").add(data);
-  //   this.resetForm(form);
-  //   this.toster.success("Trasher Buying Invoice", "Submited Sucessfully !");
-  // }
-
 }

@@ -20,6 +20,16 @@ export class InvoiceService {
     quantity:new FormControl('',[Validators.required])
   });
 
+  serviceForm:FormGroup=new FormGroup({
+    customer_id:new FormControl('',[Validators.required]),
+    customer_name:new FormControl('',[Validators.required]),
+    address:new FormControl('',[Validators.required]),
+    city:new FormControl('',[Validators.required]),
+    date:new FormControl('',[Validators.required]),
+    time_slots:new FormControl('',[Validators.required]),
+  });
+
+
   initializeFormGroup(){
     this.form.setValue({
       'customer_id':null,
@@ -29,15 +39,26 @@ export class InvoiceService {
       "city":'',
       "date":'',
       "quantity":null
+    }),
+    this.serviceForm.setValue({
+      'customer_id':null,
+      'customer_name':'',
+      "invoice_type":"buy invoice",
+      'address':'',
+      "city":'',
+      "date":'',
+      "time_slots":null
     })
   }
 
+  
   populateForm(invoice:any){
     this.form.setValue(invoice);
   }
 
   addInvoice(invoice:any){
-    console.log(invoice);
+   // console.log(invoice);
+    
     return this.http.post(this.base_Url+"/customer/invoice/send",invoice);
   }
 
