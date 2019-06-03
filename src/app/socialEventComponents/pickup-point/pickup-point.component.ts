@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
+import {InvoiceService} from 'src/app/Services/invoiceService/invoice.service';
 
 @Component({
   selector: 'app-pickup-point',
@@ -12,7 +13,8 @@ export class PickupPointComponent implements OnInit {
   lng: number = 79.8576826;
   locationChoosen=false;
 
-  constructor(public dialogRef : MatDialogRef<PickupPointComponent>) { 
+  constructor(public dialogRef : MatDialogRef<PickupPointComponent>,
+              public service:InvoiceService) { 
 
   }
 
@@ -29,6 +31,13 @@ export class PickupPointComponent implements OnInit {
 
    onClose(){
     this.dialogRef.close();
+  }
+
+  onSubmit(){
+    const location={
+      "location":{"lat":this.lat,"lng":this.lng}
+    }
+    this.service.getDelivaryLocation(location);
   }
 
 }

@@ -48,8 +48,8 @@ export class SmallTraserComponent implements OnInit {
       //console.log(this.service.form.get('ratting').value);
       this.service.addRatting(ratting).subscribe(data=>{
         this.ratting=data;
-       // console.log(data)
-      });;
+        // console.log("data is : "+data['HttpErrorResponse']['error']);
+      });
     }
   }
 

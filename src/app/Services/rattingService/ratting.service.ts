@@ -27,7 +27,7 @@ export class RattingService {
 
 
   addRatting(ratting:any){
-    console.log(ratting);
+   // console.log(ratting);
     return this.http.post(this.base_Url+"/customer/trasher/rattings/send",ratting);
   }
 

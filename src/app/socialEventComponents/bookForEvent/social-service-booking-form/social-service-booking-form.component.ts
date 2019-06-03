@@ -20,8 +20,10 @@ export class SocialServiceBookingFormComponent implements OnInit,AfterViewInit {
   lng: number = 79.8576826;
   locationChoosen=false;
   public selectedSlots=[];
-  public polygonCoords:any;
+  public polygonCoords=[];
   public invoice;
+  public gardenCoords:any;
+
 
   map: any;
   drawingManager: any;
@@ -64,9 +66,16 @@ export class SocialServiceBookingFormComponent implements OnInit,AfterViewInit {
         //this is the coordinate, you can assign it to a variable or pass into another function.
        // this.polygonCoords.push((event.overlay.getPath().getArray()));
        //alert(this.polygonCoords);
-       this.polygonCoords=event.overlay.getPath().getArray();
-       console.log(this.polygonCoords);
-       //console.log(event);
+       this.gardenCoords=event.overlay.getPath().getArray();
+       let i=0;
+      while(i<this.gardenCoords.length){
+        this.polygonCoords.push({
+          'lat':this.gardenCoords[i].lat(),
+         'lng':this.gardenCoords[i].lng()
+        });
+        i=i+1;
+      }
+     console.log(this.polygonCoords);
       }
     });
   }
@@ -125,23 +134,27 @@ export class SocialServiceBookingFormComponent implements OnInit,AfterViewInit {
      const invoice={
        'customer_id':3,
        'customer_name':this.service.socialEventForm.get('customer_name').value,
-       "invoice_type":"Social Event Booking Invoice",
+       "invoice_type":"Social Event Invoice",
        'address':this.service.socialEventForm.get('address').value,
        "city":this.service.socialEventForm.get('city').value,
        "date":this.service.socialEventForm.get('date').value,
-       "time_slots":this.selectedSlots
+       "time_slots":this.selectedSlots,
+     }
+
+     const polygon={
+      "poligon":this.polygonCoords
      }
    //  console.log(invoice);
-     this.service.addInvoice(invoice).subscribe(data=>{
-       this.invoice=data;
+     this.service.getInvoiceInfo(invoice);
+     this.service.getPoligonCoords(polygon);
       // console.log(data)
-     });
+     
      this.resetForm();
 
   //  }
  }
  resetForm(){
-   this.service.socialEventForm.reset();
+   this.service.serviceForm.reset();
  }
 
 }

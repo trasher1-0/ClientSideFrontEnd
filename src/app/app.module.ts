@@ -85,7 +85,7 @@ import { SocialEventFromViewComponent } from './socialEventComponents/social-eve
 
 
 import { ServiceInvoiceViewComponent } from './userComponents/service-invoice-view/service-invoice-view.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 import { PrimumTrasherCommentBoxComponent } from './dashboadComponents/primum-trasher-comment-box/primum-trasher-comment-box.component';
 import { LargeTrasherCommentBoxComponent } from './dashboadComponents/large-trasher-comment-box/large-trasher-comment-box.component';
 import {CommentService} from 'src/app/Services/commentService/comment.service';
@@ -196,6 +196,7 @@ import { UserNamePasswordUpdateComponent } from './user-name-password-update/use
     FormsModule,   
     MatDatepickerModule,
     HttpClientModule,
+  
     MatCardModule,
     MatToolbarModule,
     ReactiveFormsModule,
