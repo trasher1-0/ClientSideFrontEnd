@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+
 
 @Component({
   selector: 'app-login',
@@ -8,7 +8,7 @@ import { MatDialogRef } from '@angular/material';
 })
 export class LoginComponent implements OnInit {
 
-  constructor( public dialogRef : MatDialogRef<LoginComponent>) {
+  constructor() {
     
    }
 

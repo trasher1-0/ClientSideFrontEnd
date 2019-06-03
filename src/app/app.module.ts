@@ -104,6 +104,8 @@ import { HeadBannerComponent } from './clientHomeComponents/head-banner/head-ban
 import { MailUsComponent } from './clientHomeComponents/mail-us/mail-us.component';
 import { OurServicesComponent } from './clientHomeComponents/our-services/our-services.component';
 import { PhotoGallaryComponent } from './clientHomeComponents/photo-gallary/photo-gallary.component';
+import { AuthComponent } from './auth/auth.component';
+import { BackgroundComponent } from './background/background.component';
 
 
 
@@ -178,7 +180,9 @@ import { PhotoGallaryComponent } from './clientHomeComponents/photo-gallary/phot
     HeadBannerComponent,
     MailUsComponent,
     OurServicesComponent,
-    PhotoGallaryComponent
+    PhotoGallaryComponent,
+    AuthComponent,
+    BackgroundComponent
   ],
   imports: [
     BrowserModule,

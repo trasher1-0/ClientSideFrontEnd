@@ -46,9 +46,12 @@ import {SocialEventFromViewComponent} from 'src/app/socialEventComponents/social
 
 // import invoices view page components
 import { ServiceInvoiceViewComponent} from 'src/app/userComponents/service-invoice-view/service-invoice-view.component';
+import {AuthComponent} from  'src/app/auth/auth.component';
+import{ BackgroundComponent} from 'src/app/background/background.component';
 
 const routes: Routes = [
   {path:'',component:ClientHomeComponent},
+  {path:'customer/auth',component:BackgroundComponent},
   {path:'customer/login',component:LoginComponent},
   {path:'customer/signup',component:SignupComponent},
   {path:'customer/dashboad',component:ClientDashComponent},
