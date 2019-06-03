@@ -1,9 +1,9 @@
 <div >
     <div >
-      <div class="card">
-        <h3 style="text-align: center;color:rgb(34, 154, 235);"><b>Select the Delevary location </b></h3>
-      </div>
-     
+      <div>
+          <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Select the Delevary location </b></h2>
+        </div>
+        <hr>
      <agm-map [latitude]="lat" [longitude]="lng" [zoom]=12 (mapClick)="onClickChooseLocation($event)">
         <agm-marker *ngIf="locationChoosen" [latitude]="lat" [longitude]="lng"></agm-marker>
       </agm-map>

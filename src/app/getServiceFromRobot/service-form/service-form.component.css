@@ -377,6 +377,22 @@ h3 a:hover {
   }
   .info {background-color: #2196F3;} /* Blue */
 
+  .button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 13px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  .button2 {background-color: #008CBA;
+            border-radius: 5px;} /* Blue */
+  
+  
   .button1 {
     background-color: #4CAF50; /* Green */
     border: none;
@@ -385,11 +401,10 @@ h3 a:hover {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 14px;
+    font-size: 15px;
     margin: 4px 2px;
     cursor: pointer;
   }
-  .button3 {background-color: #008CBA;
-            border-radius: 5px;} /* Blue */
-  
-  
+  .button3 {background-color: rgb(228, 31, 31);
+    border-radius: 5px;} /* Blue */
+    

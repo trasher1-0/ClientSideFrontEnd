@@ -1,93 +1,94 @@
-<div class="card card-chart">
-    <a (click)="popup()">
-      <div class="card-header card-header">
-        <img src="../assets/images/small.jpg" height="200px" width=100%>
-      </div>
-    </a>
-    <div class="card-body">
-      <h2 class="card-title" align="center"><b>Small Trasher</b></h2>
-      <hr>
-      <div *ngIf="isRated();then ifContent else elsecontent"></div>
-      <ng-template #ifContent>
-          <form [formGroup]="service.form" (submit)="onSubmit()">
-              <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-10">
-                  <fieldset class="rating">
-                    <input type="radio" id="star5" name="rating" value=5 formControlName="ratting"/><label for="star5" title="Rocks!">5 stars</label>
-                    <input type="radio" id="star4" name="rating" value=4 formControlName="ratting"/><label for="star4" title="Pretty good">4 stars</label>
-                    <input type="radio" id="star3" name="rating" value=3 formControlName="ratting"/><label for="star3" title="Meh">3 stars</label>
-                    <input type="radio" id="star2" name="rating" value=2 formControlName="ratting"/><label for="star2" title="Kinda bad">2 stars</label>
-                    <input type="radio" id="star1" name="rating" value=1 formControlName="ratting"/><label for="star1" title="Sucks big time">1 star</label>
-                  </fieldset>
+
+  <div class="card card-chart">
+      <a (click)="popup()">
+        <div class="card-header card-header">
+          <img src="../assets/images/small.jpg" height="200px" width=100%>
+        </div>
+      </a>
+      <div class="card-body">
+        <h2 class="card-title" align="center"><b>Small Trasher</b></h2>
+        <hr>
+        <div *ngIf="isRated();then ifContent else elsecontent"></div>
+        <ng-template #ifContent>
+            <form [formGroup]="service.form" (submit)="onSubmit()">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="col-md-2"></div>
+                    <fieldset class="rating">
+                      <input type="radio" id="star5" name="rating" value=5 formControlName="ratting"/><label for="star5" title="Rocks!">5 stars</label>
+                      <input type="radio" id="star4" name="rating" value=4 formControlName="ratting"/><label for="star4" title="Pretty good">4 stars</label>
+                      <input type="radio" id="star3" name="rating" value=3 formControlName="ratting"/><label for="star3" title="Meh">3 stars</label>
+                      <input type="radio" id="star2" name="rating" value=2 formControlName="ratting"/><label for="star2" title="Kinda bad">2 stars</label>
+                      <input type="radio" id="star1" name="rating" value=1 formControlName="ratting"/><label for="star1" title="Sucks big time">1 star</label>
+                    </fieldset>
+                    <div class="col-md-3">
+                      <button type="submit" class="button"><b>Rate Now</b></button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
-                    <button type="submit" class="button"><b>Rate Now</b></button>
-                </div>
-              </div>
-            </form> 
-      </ng-template>
-      <ng-template #elsecontent>
-          <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-                <div *ngIf="smallTrasherRattings == 0">
-                    <span class="fa fa-star"></span>
+                
+              </form> 
+        </ng-template>
+        <ng-template #elsecontent>
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                  <div *ngIf="smallTrasherRattings == 0">
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star "></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                  </div>
+                <div *ngIf="smallTrasherRattings == 1">
+                    <span class="fa fa-star checked"></span>
                     <span class="fa fa-star"></span>
                     <span class="fa fa-star "></span>
                     <span class="fa fa-star"></span>
                     <span class="fa fa-star"></span>
-                 </div>
-               <div *ngIf="smallTrasherRattings == 1">
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star "></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-               </div>
-               <div *ngIf="smallTrasherRattings == 2">
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star "></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-               </div>
-               <div *ngIf="smallTrasherRattings == 3">
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-               </div>
-               <div *ngIf="smallTrasherRattings == 4">
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-               </div>
-               <div *ngIf="smallTrasherRattings == 5">
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-               </div>
+                </div>
+                <div *ngIf="smallTrasherRattings == 2">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star "></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </div>
+                <div *ngIf="smallTrasherRattings == 3">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </div>
+                <div *ngIf="smallTrasherRattings == 4">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                </div>
+                <div *ngIf="smallTrasherRattings == 5">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                </div>
 
+              </div>
             </div>
-          </div>
-      </ng-template>
-          
-    </div>
-    <hr>
-  
-      <div class="stats">
-        <p>LKR 2000 per hour</p>
+        </ng-template>
+            
       </div>
-</div>
+      <hr>
+    
+        <div class="stats">
+          <p>LKR 2000 per hour</p>
+        </div>
+  </div>
+
+
 
 
 

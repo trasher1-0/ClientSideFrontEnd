@@ -106,6 +106,7 @@ import { OurServicesComponent } from './clientHomeComponents/our-services/our-se
 import { PhotoGallaryComponent } from './clientHomeComponents/photo-gallary/photo-gallary.component';
 import { AuthComponent } from './auth/auth.component';
 import { BackgroundComponent } from './background/background.component';
+import { UserNamePasswordUpdateComponent } from './user-name-password-update/user-name-password-update.component';
 
 
 
@@ -182,7 +183,8 @@ import { BackgroundComponent } from './background/background.component';
     OurServicesComponent,
     PhotoGallaryComponent,
     AuthComponent,
-    BackgroundComponent
+    BackgroundComponent,
+    UserNamePasswordUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -227,8 +229,7 @@ import { BackgroundComponent } from './background/background.component';
                    LocationComponent,
                    PickupPointComponent,
                    PickupPointForBookingComponent,
-                   LoginComponent,
-                   SignupComponent
+                   UserNamePasswordUpdateComponent
                   ]
 })
 export class AppModule { }
