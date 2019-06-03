@@ -98,6 +98,12 @@ import { PickupLocationComponent } from './getServiceFromRobot/pickup-location/p
 import { LocationComponent } from 'src/app/bookingComponents/location/location.component';
 import { PickupPointComponent } from './socialEventComponents/pickup-point/pickup-point.component';
 import { PickupPointForBookingComponent } from './socialEventComponents/pickup-point-for-booking/pickup-point-for-booking.component';
+import { AboutUsComponent } from './clientHomeComponents/about-us/about-us.component';
+import { ContactUsComponent } from './clientHomeComponents/contact-us/contact-us.component';
+import { HeadBannerComponent } from './clientHomeComponents/head-banner/head-banner.component';
+import { MailUsComponent } from './clientHomeComponents/mail-us/mail-us.component';
+import { OurServicesComponent } from './clientHomeComponents/our-services/our-services.component';
+import { PhotoGallaryComponent } from './clientHomeComponents/photo-gallary/photo-gallary.component';
 
 
 
@@ -166,7 +172,13 @@ import { PickupPointForBookingComponent } from './socialEventComponents/pickup-p
     PickupLocationComponent,
     LocationComponent,
     PickupPointComponent,
-    PickupPointForBookingComponent
+    PickupPointForBookingComponent,
+    AboutUsComponent,
+    ContactUsComponent,
+    HeadBannerComponent,
+    MailUsComponent,
+    OurServicesComponent,
+    PhotoGallaryComponent
   ],
   imports: [
     BrowserModule,
@@ -210,7 +222,9 @@ import { PickupPointForBookingComponent } from './socialEventComponents/pickup-p
                    PickupLocationComponent,
                    LocationComponent,
                    PickupPointComponent,
-                   PickupPointForBookingComponent
+                   PickupPointForBookingComponent,
+                   LoginComponent,
+                   SignupComponent
                   ]
 })
 export class AppModule { }
