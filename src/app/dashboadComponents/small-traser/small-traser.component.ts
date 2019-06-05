@@ -40,15 +40,15 @@ export class SmallTraserComponent implements OnInit {
 
   onSubmit(){
     if(this.service.form.valid){
-      const ratting={
+      const rattin={
         'customer_id':3,
         'rated_value':parseInt(this.service.form.get('ratting').value),
         'trasher_type':1
       }
       //console.log(this.service.form.get('ratting').value);
-      this.service.addRatting(ratting).subscribe(data=>{
+      this.service.addRatting(rattin).subscribe(data=>{
         this.ratting=data;
-        // console.log("data is : "+data['HttpErrorResponse']['error']);
+        console.log("Rating",this.ratting);
       });
     }
   }

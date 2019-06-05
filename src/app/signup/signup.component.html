@@ -1,9 +1,24 @@
 <div class="login" >
-    <div class="form">
-    <h2>Welcome</h2>
-		<input type="text" placeholder="Username">
-		<input type="email" placeholder="Email">
-    <input type="password" placeholder="Password">
-    <input type="submit" value="Sign In" class="submit">
+  <div class="form">
+      <h2>Welcome</h2>
+        <form [formGroup]="service.form" (submit)="onSubmit()" >
+
+          <input type="text" 
+                 placeholder="Username"
+                 name="user_name"
+                 id="user_name"
+                 formControlName="user_name">
+          <input type="email" 
+                  placeholder="Email"
+                  name="email"
+                  id="email"
+                  formControlName="email">
+          <input type="password" 
+                 placeholder="Password"
+                 name="password"
+                 id="password"
+                 formControlName="password">
+          <input type="submit" value="Sign In" class="submit">
+        </form>
     </div>
 </div>
