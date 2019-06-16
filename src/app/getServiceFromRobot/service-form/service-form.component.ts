@@ -6,6 +6,7 @@ declare var google: any;
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { PickupLocationComponent } from 'src/app/getServiceFromRobot/pickup-location/pickup-location.component';
 import { InvoiceService} from 'src/app/Services/invoiceService/invoice.service';
+import {AuthenticationService} from 'src/app/Services/authenticationService/authentication.service';
 
 import { keyframes } from '@angular/animations';
 import { firestore } from 'firebase';
@@ -26,20 +27,25 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
   public polygonCoords=[];
   public invoice;
   public gardenCoords:any;
+  public timeSlotsInfo;
+  public numOffirstTimeSlots;
+  public numOfSecondTimeSlots;
+  public numOfThrdTimeSlots;
+  public numOfForthTimeSlots;
 
   map: any;
   drawingManager: any;
   timeSlots: any[] =[];
 
+  constructor(private dialog:MatDialog,
+              private fireStore:AngularFirestore,
+              private service:InvoiceService,
+              private authService:AuthenticationService) {
+
+  }
 
   ngOnInit() {
     //this.resetForm();
-  }
-
-  constructor(private dialog:MatDialog,
-              private fireStore:AngularFirestore,
-              private service:InvoiceService) {
-
   }
 
   popup(){
@@ -70,17 +76,18 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
   k=0;
 
   isClick(){
-   // console.log(this.getService.getServiceModel.date)
-    if(this.k ==0){
-      this.k=(this.k+1);
-      return this.k;
+    // console.log(this.getService.getServiceModel.date)
+      if(this.k ==0){
+        this.k=(this.k+1);
+        return this.k;
+      }
+      if(this.k ==1){
+        this.k=(this.k -1);
+        return this.k;
+      }
     }
-    if(this.k ==1){
-      this.k=(this.k -1);
-      return this.k;
-    }
-  }
-
+  
+    
   availableTimeSlots(){
     if(this.k ==1){
       return true;
@@ -141,32 +148,32 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
   onSubmit(){
     console.log("cliekd");
   // if(this.service.form.valid){
-    // console.log(this.service.form.value);
+      const user=this.authService.getLocalSorageData();
+      console.log(user.id);
+   // console.log("user is  :"+user);
      const invoice={
-       'customer_id':3,
+       'customer_id':user.id,
        'customer_name':this.service.serviceForm.get('customer_name').value,
        "invoice_type":"Service Invoice",
        'address':this.service.serviceForm.get('address').value,
        "city":this.service.serviceForm.get('city').value,
        "date":this.service.serviceForm.get('date').value,
-       "time_slots":this.selectedSlots,
      }
 
-     const polygon={
-      "poligon":this.polygonCoords
-     }
    //  console.log(invoice);
      this.service.getInvoiceInfo(invoice);
-     this.service.getPoligonCoords(polygon);
+     this.service.getTimeSlots(this.selectedSlots);
+     this.service.getDate(this.service.serviceForm.get('date').value);
+     this.service.getPoligonCoords(this.polygonCoords);
+     
       // console.log(data)
      
      this.resetForm();
 
   //  }
- }
- resetForm(){
-   this.service.serviceForm.reset();
- }
+  }
 
-
+  resetForm(){
+    this.service.serviceForm.reset();
+  }
 }

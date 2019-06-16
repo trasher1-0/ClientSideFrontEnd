@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { LargeTrasherDialogBoxComponent } from 'src/app/dashboadComponents/large-trasher-dialog-box/large-trasher-dialog-box.component';
 import { RattingService } from 'src/app/Services/rattingService/ratting.service';
-
+import {AuthenticationService} from 'src/app/Services/authenticationService/authentication.service';
 
 @Component({
   selector: 'app-large-trasher',
@@ -13,19 +13,24 @@ export class LargeTrasherComponent implements OnInit {
 
   public largeTrasherRattings;
   public ratting;
+  public isRatedForLargeTrasher;
 
   constructor(private dialog:MatDialog,
-              private service:RattingService) { }
+              private service:RattingService,
+              private authService:AuthenticationService) { }
 
   ngOnInit() {
     this.service.getLargeTrasherRattings().subscribe(data=>{
       this.largeTrasherRattings=data;
       console.log(this.largeTrasherRattings);
     })
+    this.service.isRatedForLargeTrasher(this.authService.getLocalSorageData().id).subscribe(data=>{
+      this.isRatedForLargeTrasher=data;
+    })
   }
 
   isRated(){
-    return true;
+    return this.isRatedForLargeTrasher;
   }
   popup(){
     console.log("Popup");
@@ -38,8 +43,9 @@ export class LargeTrasherComponent implements OnInit {
 
   onSubmit(){
     if(this.service.form.valid){
+      const user=this.authService.getLocalSorageData();
       const ratting={
-        'customer_id':3,
+        'customer_id':user.id,
         'rated_value':parseInt(this.service.form.get('ratting').value),
         'trasher_type':3
       }

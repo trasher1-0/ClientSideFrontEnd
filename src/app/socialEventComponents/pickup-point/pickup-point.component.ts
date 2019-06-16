@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import {InvoiceService} from 'src/app/Services/invoiceService/invoice.service';
+import {Router} from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-pickup-point',
@@ -14,7 +16,9 @@ export class PickupPointComponent implements OnInit {
   locationChoosen=false;
 
   constructor(public dialogRef : MatDialogRef<PickupPointComponent>,
-              public service:InvoiceService) { 
+              public service:InvoiceService,
+              public _router:Router,
+              public toster:ToastrService) { 
 
   }
 
@@ -38,6 +42,9 @@ export class PickupPointComponent implements OnInit {
       "location":{"lat":this.lat,"lng":this.lng}
     }
     this.service.getDelivaryLocation(location);
+    this.dialogRef.close();
+    this.toster.success("","Successfully Submited !");
+    this._router.navigate(['customer/dashboad']);
   }
 
 }

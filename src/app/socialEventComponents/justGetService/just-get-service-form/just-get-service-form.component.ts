@@ -3,9 +3,13 @@ import { MapLoaderService } from 'src/app/map.loader';
 import { AngularFirestore } from '@angular/fire/firestore';
 declare var google: any;
 import { MatDialog, MatDialogConfig } from '@angular/material';
-
 import {InvoiceService} from 'src/app/Services/invoiceService/invoice.service';
 import { PickupPointComponent} from 'src/app/socialEventComponents/pickup-point/pickup-point.component';
+import { EmailValidator, NgForm, FormsModule } from '@angular/forms';
+import {AuthenticationService} from 'src/app/Services/authenticationService/authentication.service';
+import { keyframes } from '@angular/animations';
+import { firestore } from 'firebase';
+
 
 @Component({
   selector: 'app-just-get-service-form',
@@ -20,19 +24,28 @@ export class JustGetServiceFormComponent implements OnInit,AfterViewInit {
   lng: number = 79.8576826;
   locationChoosen=false;
   public selectedSlots=[];
-  public polygonCoords:any;
+  public polygonCoords=[];
   public invoice;
+  public gardenCoords:any;
 
   map: any;
   drawingManager: any;
   timeSlots: any[] =[];
 
   constructor(private dialog:MatDialog,
-    private service:InvoiceService) {
+              private service:InvoiceService,
+              private fireStore:AngularFirestore,
+              private authService:AuthenticationService) {
 
-}
+  }
 
-  ngOnInit() {
+  popup(){
+    console.log("Popup");
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.autoFocus=true;
+    dialogConfig.disableClose=true;
+    dialogConfig.width="70%";
+    this.dialog.open(PickupPointComponent,dialogConfig);
   }
 
   ngAfterViewInit() {
@@ -40,9 +53,55 @@ export class JustGetServiceFormComponent implements OnInit,AfterViewInit {
       this.drawPolygon();
     })
   }
+
+  // checking available time slots 
+  onCheckboxChange(event){
+    if(event.target.checked) {
+        this.selectedSlots.push(event.target.value);
+    }
+     console.log(this.selectedSlots);
+  }
+
+  // search available time slots
+
+  k=0;
+
+  isClick(){
+   // console.log(this.getService.getServiceModel.date)
+    if(this.k ==0){
+      this.k=(this.k+1);
+      return this.k;
+    }
+    if(this.k ==1){
+      this.k=(this.k -1);
+      return this.k;
+    }
+  }
+
+  availableTimeSlots(){
+    if(this.k ==1){
+      return true;
+    }
+  }
+
+  // pickup location map intergrated
+
+  onClickChooseLocation(event){
+    this.lat=event.coords.lat
+    this.lng=event.coords.lng
+    this.locationChoosen=true
+    console.log(this.lat);
+    console.log(this.lng);
+  }
+
+  ngOnInit() {
+  }
+
+ 
    // polygon map intergrated
 
-   drawPolygon() {
+   
+  drawPolygon() {
     this.map = new google.maps.Map(document.getElementById('map'), {
       center: { lat: this.lat, lng: this.lng },
       zoom: 8
@@ -64,78 +123,45 @@ export class JustGetServiceFormComponent implements OnInit,AfterViewInit {
         //this is the coordinate, you can assign it to a variable or pass into another function.
        // this.polygonCoords.push((event.overlay.getPath().getArray()));
        //alert(this.polygonCoords);
-       this.polygonCoords=event.overlay.getPath().getArray();
-       console.log(this.polygonCoords);
-       //console.log(event);
+       this.gardenCoords=event.overlay.getPath().getArray();
+       let i=0;
+      while(i<this.gardenCoords.length){
+        this.polygonCoords.push({
+          'lat':this.gardenCoords[i].lat(),
+         'lng':this.gardenCoords[i].lng()
+        });
+        i=i+1;
+      }
+     console.log(this.polygonCoords);
       }
     });
   }
-  
+
   // checking available time slots 
-  onCheckboxChange(event){
-    if(event.target.checked) {
-        this.selectedSlots.push(event.target.value);
-    }
-     console.log(this.selectedSlots);
-  }
   
-
-  onClickChooseLocation(event){
-    this.lat=event.coords.lat
-    this.lng=event.coords.lng
-    this.locationChoosen=true
-    console.log(this.lat);
-    console.log(this.lng);
-   }
-
-  k=0;
-
- 
-  isClick(){
-    if(this.k ==0){
-      this.k=(this.k+1);
-      return this.k;
-    }
-    if(this.k ==1){
-      this.k=(this.k -1);
-      return this.k;
-    }
-  }
-
-  availableTimeSlots(){
-    if(this.k ==1){
-      return true;
-    }
-  }
-
-
-  popup(){
-    console.log("Popup");
-    const dialogConfig=new MatDialogConfig();
-    dialogConfig.autoFocus=true;
-    dialogConfig.disableClose=true;
-    dialogConfig.width="70%";
-    this.dialog.open(PickupPointComponent,dialogConfig);
-  }
-
   onSubmit(){
     console.log("cliekd");
-  // if(this.service.form.valid){
-    // console.log(this.service.form.value);
+    // if(this.service.form.valid){
+        const user=this.authService.getLocalSorageData();
+        console.log(user.id);
+     // console.log("user is  :"+user);
      const invoice={
-       'customer_id':3,
+       'customer_id':user.id,
        'customer_name':this.service.socialEventForm.get('customer_name').value,
        "invoice_type":"Social Event Invoice",
        'address':this.service.socialEventForm.get('address').value,
        "city":this.service.socialEventForm.get('city').value,
        "date":this.service.socialEventForm.get('date').value,
-       "time_slots":this.selectedSlots
      }
+  
    //  console.log(invoice);
-     this.service.addInvoice(invoice).subscribe(data=>{
-       this.invoice=data;
-      // console.log(data)
-     });
+   this.service.getInvoiceInfo(invoice);
+   this.service.getTimeSlots(this.selectedSlots);
+   this.service.getDate(this.service.socialEventForm.get('date').value);
+   this.service.getPoligonCoords(this.polygonCoords);
+   
+    // console.log(data)
+   
      this.resetForm();
 
   //  }

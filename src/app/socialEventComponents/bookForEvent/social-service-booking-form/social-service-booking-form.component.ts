@@ -2,10 +2,14 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { MapLoaderService } from 'src/app/map.loader';
 import { AngularFirestore } from '@angular/fire/firestore';
 declare var google: any;
-
 import {InvoiceService} from 'src/app/Services/invoiceService/invoice.service';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { PickupPointForBookingComponent } from 'src/app/socialEventComponents/pickup-point-for-booking/pickup-point-for-booking.component';
+import { EmailValidator, NgForm, FormsModule } from '@angular/forms';
+import {AuthenticationService} from 'src/app/Services/authenticationService/authentication.service';
+import { keyframes } from '@angular/animations';
+import { firestore } from 'firebase';
+
 
 @Component({
   selector: 'app-social-service-booking-form',
@@ -24,27 +28,74 @@ export class SocialServiceBookingFormComponent implements OnInit,AfterViewInit {
   public invoice;
   public gardenCoords:any;
 
-
   map: any;
   drawingManager: any;
   timeSlots: any[] =[];
 
   constructor(private dialog:MatDialog,
-    private service:InvoiceService) {
+              private service:InvoiceService,
+              private fireStore:AngularFirestore,
+              private authService:AuthenticationService) {
 
 }
 
-  ngOnInit() {
+  popup(){
+    console.log("Popup");
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.autoFocus=true;
+    dialogConfig.disableClose=true;
+    dialogConfig.width="70%";
+    this.dialog.open(PickupPointForBookingComponent,dialogConfig);
   }
-
   ngAfterViewInit() {
     MapLoaderService.load().then(() => {
       this.drawPolygon();
     })
   }
-   // polygon map intergrated
 
-   drawPolygon() {
+  // checking available time slots 
+  onCheckboxChange(event){
+    if(event.target.checked) {
+        this.selectedSlots.push(event.target.value);
+    }
+     console.log(this.selectedSlots);
+  }
+  // search available time slots
+
+  k=0;
+
+  isClick(){
+   // console.log(this.getService.getServiceModel.date)
+    if(this.k ==0){
+      this.k=(this.k+1);
+      return this.k;
+    }
+    if(this.k ==1){
+      this.k=(this.k -1);
+      return this.k;
+    }
+  }
+
+  availableTimeSlots(){
+    if(this.k ==1){
+      return true;
+    }
+  }
+
+  // pickup location map intergrated
+
+  onClickChooseLocation(event){
+    this.lat=event.coords.lat
+    this.lng=event.coords.lng
+    this.locationChoosen=true
+    console.log(this.lat);
+    console.log(this.lng);
+  }
+
+  ngOnInit() {
+  }
+
+  drawPolygon() {
     this.map = new google.maps.Map(document.getElementById('map'), {
       center: { lat: this.lat, lng: this.lng },
       zoom: 8
@@ -79,82 +130,37 @@ export class SocialServiceBookingFormComponent implements OnInit,AfterViewInit {
       }
     });
   }
-  
+
   // checking available time slots 
-  onCheckboxChange(event){
-    if(event.target.checked) {
-        this.selectedSlots.push(event.target.value);
-    }
-     console.log(this.selectedSlots);
-  }
-  
-
-  onClickChooseLocation(event){
-    this.lat=event.coords.lat
-    this.lng=event.coords.lng
-    this.locationChoosen=true
-    console.log(this.lat);
-    console.log(this.lng);
-   }
-
-  k=0;
-
- 
-  isClick(){
-    if(this.k ==0){
-      this.k=(this.k+1);
-      return this.k;
-    }
-    if(this.k ==1){
-      this.k=(this.k -1);
-      return this.k;
-    }
-  }
-
-  availableTimeSlots(){
-    if(this.k ==1){
-      return true;
-    }
-  }
-
-
-  popup(){
-    console.log("Popup");
-    const dialogConfig=new MatDialogConfig();
-    dialogConfig.autoFocus=true;
-    dialogConfig.disableClose=true;
-    dialogConfig.width="70%";
-    this.dialog.open(PickupPointForBookingComponent,dialogConfig);
-  }
 
   onSubmit(){
     console.log("cliekd");
-  // if(this.service.form.valid){
-    // console.log(this.service.form.value);
+    // if(this.service.form.valid){
+        const user=this.authService.getLocalSorageData();
+        console.log(user.id);
+     // console.log("user is  :"+user);
      const invoice={
-       'customer_id':3,
-       'customer_name':this.service.socialEventForm.get('customer_name').value,
-       "invoice_type":"Social Event Invoice",
-       'address':this.service.socialEventForm.get('address').value,
-       "city":this.service.socialEventForm.get('city').value,
-       "date":this.service.socialEventForm.get('date').value,
-       "time_slots":this.selectedSlots,
-     }
+      'customer_id':user.id,
+      'customer_name':this.service.socialEventForm.get('customer_name').value,
+      "invoice_type":"Social Event booking Invoice",
+      'address':this.service.socialEventForm.get('address').value,
+      "city":this.service.socialEventForm.get('city').value,
+      "date":this.service.socialEventForm.get('date').value,
+    }
+ 
+    //  console.log(invoice);
+    this.service.getInvoiceInfo(invoice);
+    this.service.getTimeSlots(this.selectedSlots);
+    this.service.getDate(this.service.socialEventForm.get('date').value);
+    this.service.getPoligonCoords(this.polygonCoords);
+    
+      
+      this.resetForm();
 
-     const polygon={
-      "poligon":this.polygonCoords
-     }
-   //  console.log(invoice);
-     this.service.getInvoiceInfo(invoice);
-     this.service.getPoligonCoords(polygon);
-      // console.log(data)
-     
-     this.resetForm();
+//  }
+  }
 
-  //  }
- }
- resetForm(){
-   this.service.serviceForm.reset();
- }
-
+  resetForm(){
+    this.service.serviceForm.reset();
+  }
 }

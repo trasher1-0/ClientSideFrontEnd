@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { identifierModuleUrl } from '@angular/compiler';
 import { Router} from '@angular/router';
+import {AuthenticationService} from 'src/app/Services/authenticationService/authentication.service';
+import {InvoiceService} from 'src/app/Services/invoiceService/invoice.service';
 
 @Component({
   selector: 'app-previous-invoices',
@@ -24,11 +26,24 @@ export class PreviousInvoicesComponent implements OnInit {
 
   }*/
 
+  customer_id;
+  public invoices;
+
   constructor(
-    private router: Router
+    private router: Router,
+    private authService:AuthenticationService,
+    private service:InvoiceService
   ){}
 
   ngOnInit() {
+      const user=this.authService.getLocalSorageData();
+      console.log(user.id);
+      this.customer_id=user.id;
+      this.service.getInvoices(this.customer_id).subscribe(data=>{
+        this.invoices=data;
+        console.log(this.invoices);
+      })
+      
   }
 
   onSelect(serviceInvoice){

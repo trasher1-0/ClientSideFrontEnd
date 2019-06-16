@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from 'src/app/Services/authenticationService/authentication.service';
 import { NgModel, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -13,15 +14,17 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   private customer;
+  private user;
 
   constructor(private service:AuthenticationService,
-              private _router: Router) { }
+              private _router: Router,
+              private toster:ToastrService) { }
 
   ngOnInit() {
+   
   }
 
   onSubmit(){
-  //  console.log("cliekd");
   // if(this.service.form.valid){
     // console.log(this.service.form.value);
      const user={
@@ -29,19 +32,20 @@ export class LoginComponent implements OnInit {
        "password":this.service.loginForm.get('password').value,
        "is_loged":1,
      }
-   //  console.log(invoice);
      this.service.loginUser(user).subscribe(data=>{
          this.customer=data;
-        // console.log(this.customer.id);
          if(this.customer.id != null){
-           console.log("login sucessfuly");
-           localStorage.setItem('customer', JSON.stringify(this.customer));
-           let item = JSON.parse(localStorage.getItem('customer'));
-           console.log(item);
-           this._router.navigate(['customer/dashboad']);
+          console.log("login sucessfuly");
+          localStorage.setItem('customer', JSON.stringify(this.customer));
+          console.log("user is :"+JSON.parse(localStorage.getItem('customer')));
+          const x=this.service.getLocalSorageData();
+        // console.log(x);
+          this._router.navigate(['customer/dashboad']);
+          this.toster.success("Login successfully","Wel Come To Dashboad !");
          }
          else{
            console.log("login fail !");
+           this.toster.warning("User name or Password Incorrect ","Something Went Wrong !",{timeOut: 3000});
            this._router.navigate(['/customer/auth']);
          }
         

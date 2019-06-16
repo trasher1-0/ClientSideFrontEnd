@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { PrimumTrasherDialogBoxComponent } from 'src/app/dashboadComponents/primum-trasher-dialog-box/primum-trasher-dialog-box.component';
 import { RattingService } from 'src/app/Services/rattingService/ratting.service';
+import {AuthenticationService} from 'src/app/Services/authenticationService/authentication.service';
 
 @Component({
   selector: 'app-primum-trasher',
@@ -13,19 +14,24 @@ export class PrimumTrasherComponent implements OnInit {
 
   public primumTrasherRattings;
   public ratting;
+  public isRatedPrimumTrasher;
 
   constructor(private dialog:MatDialog,
-              private service:RattingService) { }
+              private service:RattingService,
+              private authService:AuthenticationService) { }
 
   ngOnInit() {
     this.service.getPrimumTrasherRattings().subscribe(data=>{
       this.primumTrasherRattings=data;
       console.log(this.primumTrasherRattings);
     })
+    this.service.isRatedForPrimumTrasher(this.authService.getLocalSorageData().id).subscribe(data=>{
+        this.isRatedPrimumTrasher=data;
+    })
   }
 
   isRated(){
-    return true;
+    return this.isRatedPrimumTrasher;
   }
 
             
@@ -41,8 +47,9 @@ export class PrimumTrasherComponent implements OnInit {
 
   onSubmit(){
     if(this.service.form.valid){
+      const user=this.authService.getLocalSorageData();
       const ratting={
-        'customer_id':3,
+        'customer_id':user.id,
         'rated_value':parseInt(this.service.form.get('ratting').value),
         'trasher_type':2
       }

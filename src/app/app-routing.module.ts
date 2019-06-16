@@ -72,8 +72,8 @@ const routes: Routes = [
         ]
   },
   {path:'customer/getService',component:GetServicePageComponent},
-  {path:'customer/booking',component:BookingPageComponent},
-  {path:'customer/booking/bookingForm',component:BookingFormViewComponent},
+  {path:'customer/booking',component:BookingFormViewComponent},
+  //{path:'customer/booking/bookingForm',component:BookingFormViewComponent},
   {path:'customer/serviceInvoice/view/:id' , component:ServiceInvoiceViewComponent},
   {path:'nav',component:NavigationbarComponent}
 

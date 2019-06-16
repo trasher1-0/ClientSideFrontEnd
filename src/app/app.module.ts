@@ -4,7 +4,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { AngularFireModule} from '@angular/fire';
-import { AngularFireDatabaseModule} from '@angular/fire/database';
+import { AngularFireDatabaseModule, AngularFireDatabase} from '@angular/fire/database';
 import { AngularFirestoreModule} from '@angular/fire/firestore';
 import { environment} from 'src/environments/environment';
 import { RouterModule} from '@angular/router';

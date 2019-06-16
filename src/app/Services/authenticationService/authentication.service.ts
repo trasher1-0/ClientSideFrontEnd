@@ -50,4 +50,14 @@ export class AuthenticationService {
  //   console.log(user);
     return this.http.post(this.base_Url+"/login/Authentication",user);
   }
+
+  setLocalStorageData(user:any){
+    localStorage.setItem('customer', JSON.stringify(user));
+  }
+
+  getLocalSorageData(){
+    const x= JSON.parse(localStorage.getItem('customer'));
+ //   console.log(x);
+    return x;
+  }
 }

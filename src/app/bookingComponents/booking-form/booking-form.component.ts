@@ -5,6 +5,7 @@ declare var google: any;
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import {LocationComponent} from 'src/app/bookingComponents/location/location.component';
 import { InvoiceService} from 'src/app/Services/invoiceService/invoice.service';
+import {AuthenticationService} from 'src/app/Services/authenticationService/authentication.service';
  
 @Component({
   selector: 'app-booking-form',
@@ -28,11 +29,18 @@ export class BookingFormComponent implements OnInit,AfterViewInit {
   timeSlots: any[] =[];
 
   constructor(private dialog:MatDialog,
-    private service:InvoiceService) {
+              private service:InvoiceService,
+              private authService:AuthenticationService) {
 
 }
 
-  ngOnInit() {
+  popup(){
+    console.log("Popup");
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.autoFocus=true;
+    dialogConfig.disableClose=true;
+    dialogConfig.width="70%";
+    this.dialog.open(LocationComponent,dialogConfig);
   }
 
   ngAfterViewInit() {
@@ -40,6 +48,49 @@ export class BookingFormComponent implements OnInit,AfterViewInit {
       this.drawPolygon();
     })
   }
+
+  // checking available time slots 
+  onCheckboxChange(event){
+    if(event.target.checked) {
+        this.selectedSlots.push(event.target.value);
+    }
+    console.log(this.selectedSlots);
+  }
+
+  // search available time slots
+
+  k=0;
+
+  isClick(){
+  // console.log(this.getService.getServiceModel.date)
+    if(this.k ==0){
+      this.k=(this.k+1);
+      return this.k;
+    }
+    if(this.k ==1){
+      this.k=(this.k -1);
+      return this.k;
+    }
+  }
+
+  availableTimeSlots(){
+    if(this.k ==1){
+      return true;
+    }
+  }
+
+  // pickup location map intergrated
+
+  onClickChooseLocation(event){
+    this.lat=event.coords.lat
+    this.lng=event.coords.lng
+    this.locationChoosen=true
+    console.log(this.lat);
+    console.log(this.lng);
+  }
+
+    ngOnInit() {
+    }
    // polygon map intergrated
 
    drawPolygon() {
@@ -78,74 +129,27 @@ export class BookingFormComponent implements OnInit,AfterViewInit {
     });
   }
   
-  // checking available time slots 
-  onCheckboxChange(event){
-    if(event.target.checked) {
-        this.selectedSlots.push(event.target.value);
-    }
-     console.log(this.selectedSlots);
-  }
-  
-
-  onClickChooseLocation(event){
-    this.lat=event.coords.lat
-    this.lng=event.coords.lng
-    this.locationChoosen=true
-    console.log(this.lat);
-    console.log(this.lng);
-   }
-
-  k=0;
-
- 
-  isClick(){
-    if(this.k ==0){
-      this.k=(this.k+1);
-      return this.k;
-    }
-    if(this.k ==1){
-      this.k=(this.k -1);
-      return this.k;
-    }
-  }
-
-  availableTimeSlots(){
-    if(this.k ==1){
-      return true;
-    }
-  }
-
-
-  popup(){
-    console.log("Popup");
-    const dialogConfig=new MatDialogConfig();
-    dialogConfig.autoFocus=true;
-    dialogConfig.disableClose=true;
-    dialogConfig.width="70%";
-    this.dialog.open(LocationComponent,dialogConfig);
-  }
 
   onSubmit(){
     console.log("cliekd");
   // if(this.service.form.valid){
-    // console.log(this.service.form.value);
+      const user=this.authService.getLocalSorageData();
+      console.log(user.id);
+   // console.log("user is  :"+user);
     const invoice={
-      'customer_id':3,
+      'customer_id':user.id,
       'customer_name':this.service.serviceForm.get('customer_name').value,
       "invoice_type":"Booking Invoice",
       'address':this.service.serviceForm.get('address').value,
       "city":this.service.serviceForm.get('city').value,
       "date":this.service.serviceForm.get('date').value,
-      "time_slots":this.selectedSlots,
     }
 
-    const polygon={
-     "poligon":this.polygonCoords
-    }
-  //  console.log(invoice);
+   // console.log(invoice);
     this.service.getInvoiceInfo(invoice);
-    this.service.getPoligonCoords(polygon);
-     // console.log(data)
+    this.service.getTimeSlots(this.selectedSlots);
+    this.service.getDate(this.service.serviceForm.get('date').value);
+    this.service.getPoligonCoords(this.polygonCoords);
     
     this.resetForm();
 

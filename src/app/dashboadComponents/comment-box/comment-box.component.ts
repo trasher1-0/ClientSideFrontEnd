@@ -33,6 +33,7 @@ export class CommentBoxComponent implements OnInit {
 
   onSubmit(){
     if(this.service.form.valid){
+      
       const comment={
         'customer_id':3,
         'comment':this.service.form.get('comment').value,

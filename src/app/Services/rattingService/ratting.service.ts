@@ -31,6 +31,19 @@ export class RattingService {
     return this.http.post(this.base_Url+"/customer/trasher/rattings/send",ratting);
   }
 
+  isRatedForSmallTrasher(customer_id){
+    console.log("is rated for small trasher !");
+    return this.http.get(this.base_Url+"/customer/isRatedSmallTrasher/"+customer_id);
+  }
+
+  isRatedForPrimumTrasher(customer_id){
+    return this.http.get(this.base_Url+"/customer/isRatedPrimumTrasher/"+customer_id)
+  }
+
+  isRatedForLargeTrasher(customer_id){
+    return this.http.get(this.base_Url+"/customer/isRatedLargeTrasher/"+customer_id)
+  }
+
   getSmallTrasherRattings(){
     return this.http.get(this.base_Url+"/customer/smallTrasher/Rattings");
   }
