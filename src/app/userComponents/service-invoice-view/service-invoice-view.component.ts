@@ -10,12 +10,14 @@ import { InvoiceService } from 'src/app/Services/invoiceService/invoice.service'
 })
 export class ServiceInvoiceViewComponent implements OnInit {
 
-  lat: number = 6.9037023;
-  lng: number = 79.8576826;
+  public lat
+  public lng
   locationChoosen=true;
   invoice_id;
   polygonCoords;
-  invoice;
+  public invoice;
+  public timeSlots;
+  public mapData;
 
  // ServiceInvoices : GetServiceModel[];
  // invoiceInfo: GetServiceModel;
@@ -34,7 +36,8 @@ export class ServiceInvoiceViewComponent implements OnInit {
   }*/
 
   constructor(private router:Router,
-              private route:ActivatedRoute, private invoiceService: InvoiceService){}
+              private route:ActivatedRoute, 
+              private invoiceService: InvoiceService){}
 
   ngOnInit() {
     this.invoice_id=this.route.snapshot.params.id;
@@ -43,12 +46,16 @@ export class ServiceInvoiceViewComponent implements OnInit {
       this.invoice=data;
       console.log(this.invoice);
     })
-    this.invoiceService.getMapInfo(243).subscribe((Data)=>{
+    this.invoiceService.getTimeSlotsForInvoiceView(this.invoice_id).subscribe(data=>{
+      this.timeSlots=data;
+    })
+
+    this.invoiceService.getMapInfo(this.invoice_id).subscribe((Data)=>{
       console.log(Data.payload.val())
-      let mapData=Data.payload.val();
-      console.log(mapData["pickup_location"]["location"].lat);
-      console.log(mapData["pickup_location"]["location"].lng);
-      this.polygonCoords=mapData["polygon_Coords"];
+      this.mapData=Data.payload.val();
+      this.lat=(this.mapData["pickup_location"]["location"].lat);
+      this.lng=(this.mapData["pickup_location"]["location"].lng);
+      this.polygonCoords=this.mapData["polygon_Coords"];
       console.log(this.polygonCoords);
       
     })

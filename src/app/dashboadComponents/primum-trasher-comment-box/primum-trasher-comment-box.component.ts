@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CommentService} from 'src/app/Services/commentService/comment.service';
 import {CustomerService} from 'src/app/Services/customerService/customer.service';
+import {AuthenticationService} from 'src/app/Services/authenticationService/authentication.service';
 
 @Component({
   selector: 'app-primum-trasher-comment-box',
@@ -10,10 +11,12 @@ import {CustomerService} from 'src/app/Services/customerService/customer.service
 export class PrimumTrasherCommentBoxComponent implements OnInit {
 
   constructor(private service:CommentService,
-              private customerService:CustomerService) { }
+              private customerService:CustomerService,
+              private authService:AuthenticationService) { }
 
   public primumComments;
   public customers;
+  private user;
   
 
   ngOnInit() {
@@ -25,12 +28,18 @@ export class PrimumTrasherCommentBoxComponent implements OnInit {
       this.customers=data;
       console.log(this.customers);
     })
+    this.getCurrentLogedUser();
+  }
+
+  getCurrentLogedUser(){
+    this.user=this.authService.getLocalSorageData();
+    return this.user;
   }
 
   onSubmit(){
     if(this.service.form.valid){
       const comment={
-        'customer_id':3,
+        'customer_id':this.user.id,
         'comment':this.service.form.get('comment').value,
         'trasher_type':2
       }

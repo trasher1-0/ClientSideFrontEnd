@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HelpServiceService } from 'src/app/help-service.service';
 import {CommentService} from 'src/app/Services/commentService/comment.service';
 import {CustomerService} from 'src/app/Services/customerService/customer.service';
+import { AuthenticationService} from 'src/app/Services/authenticationService/authentication.service';
 
 @Component({
   selector: 'app-comment-box',
@@ -12,10 +13,12 @@ export class CommentBoxComponent implements OnInit {
 
   constructor(private service : CommentService,
               private customerService:CustomerService,
-              private helpService:HelpServiceService) { }
+              private helpService:HelpServiceService,
+              private authService:AuthenticationService) { }
 
   public smallComments;
   public customers;
+  public user;
   
 
   ngOnInit() {
@@ -27,15 +30,20 @@ export class CommentBoxComponent implements OnInit {
       this.customers=data;
       console.log(this.customers);
     })
-
+    this.getCurrentLogedUser();
     this.getInvoices();
+  }
+
+  getCurrentLogedUser(){
+    this.user=this.authService.getLocalSorageData();
+    return this.user;
   }
 
   onSubmit(){
     if(this.service.form.valid){
       
       const comment={
-        'customer_id':3,
+        'customer_id':this.user.id,
         'comment':this.service.form.get('comment').value,
         'trasher_type':1
       }

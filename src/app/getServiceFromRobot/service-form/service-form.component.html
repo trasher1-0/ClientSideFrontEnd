@@ -55,8 +55,8 @@
               </div>
         </div>
        
-
-        <label class="serchLabel info" (click)="isClick()">Search available time slots</label>
+        
+          <label class="serchLabel info" (click)="isClick()">Search available time slots</label>
         <div *ngIf="availableTimeSlots(); then timeSlotBox;else worningLabel"></div>
       
         <ng-template #timeSlotBox>

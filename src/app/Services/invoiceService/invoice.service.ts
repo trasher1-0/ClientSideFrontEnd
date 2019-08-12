@@ -17,6 +17,7 @@ export class InvoiceService {
   public time_slots;
   public buyInvoiceInfo;
   public locationData;
+  public numberOfTimeSlots:any;
  
 
   constructor(private http:HttpClient, private firebase: AngularFireDatabase) { }
@@ -193,6 +194,7 @@ export class InvoiceService {
     return this.http.post(this.base_Url+"/customer/invoice/timeSlots/send",timeSlots);
   }
 
+  // save map data in firebase
   addMapInfo(MapInfo:any){
     console.log(MapInfo);
     this.firebase.object('invoices/'+MapInfo.invoice_id).set(MapInfo);
@@ -205,15 +207,30 @@ export class InvoiceService {
   }
 
   checkTimeSlotsAvalilable(date:any){
+    console.log("time slot");
     console.log(date);
+    this.http.get(this.base_Url+"/customer/invoice/selectedTimeSlots/"+date).subscribe(data=>{
+          this.numberOfTimeSlots=data;
+          
+    });
+    console.log((this.numberOfTimeSlots));
     return this.http.get(this.base_Url+"/customer/invoice/selectedTimeSlots/"+date);
   }
 
+  // get the invoice from db
+  getInvoice(invoice_id:any){
+    return this.http.get(this.base_Url+"/customer/get/invoice/"+invoice_id);
+  }
+
+  // get time slots of particular invoice from db
+  getTimeSlotsForInvoiceView(invoice_id:any){
+    return this.http.get(this.base_Url+"/customer/getInvoiceInfo/"+invoice_id);
+  }
+
+  // get map data from firebase
   getMapInfo(invoiceId: any){
     return this.firebase.object('invoices/'+invoiceId).snapshotChanges()
   }
 
-  getInvoice(invoice_id:any){
-    return this.http.get(this.base_Url+"/customer/get/invoice/"+invoice_id);
-  }
+
 }

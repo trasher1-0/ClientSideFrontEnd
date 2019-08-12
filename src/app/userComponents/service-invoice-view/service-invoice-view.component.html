@@ -20,6 +20,10 @@
                                 </div>
                                 <hr>
                                 <div class="input-group ">
+                                    <h3>Invoice Type</h3>
+                                </div>
+                                <hr>
+                                <div class="input-group ">
                                     <h3>Customer ID</h3>
                                 </div>
                                 <hr>
@@ -40,6 +44,10 @@
                                 </div>
                                 <hr>
                                 <div class="input-group ">
+                                    <h3>Quantity</h3>
+                                </div>
+                                <hr>
+                                <div class="input-group ">
                                     <h3>Selected Time Slots</h3>
                                 </div>
                             </div>
@@ -49,34 +57,42 @@
                             <div class="card">
                                 <div class="col-md-4"></div>
                                     <div class="col-md-10">
-                                        <div *ngFor="let invoice of ServiceInvoices">
-                                            <div *ngIf="invoice.invoice_id == invoice_id">
+                                        <div >
+                                            <div >
                                                 <div class="input-group ">
-                                                    <h4>{{invoice.invoice_id}}</h4>
+                                                    <h3>{{invoice.invoice_id}}</h3>
                                                 </div>
                                                 <hr>
                                                 <div class="input-group ">
-                                                    <h4>{{invoice.customer_Id}}</h4>
+                                                    <h3>{{invoice.invoice_type}}</h3>
                                                 </div>
                                                 <hr>
                                                 <div class="input-group ">
-                                                <h4>{{invoice.customer_name}}</h4>
+                                                    <h3>{{invoice.customer_id}}</h3>
                                                 </div>
                                                 <hr>
                                                 <div class="input-group ">
-                                                    <h4>{{invoice.address}}</h4>
+                                                <h3>{{invoice.customer_name}}</h3>
                                                 </div>
                                                 <hr>
                                                 <div class="input-group ">
-                                                    <h4>{{invoice.city}}</h4>
+                                                    <h3>{{invoice.address}}</h3>
                                                 </div>
                                                 <hr>
                                                 <div class="input-group ">
-                                                    <h4>{{invoice.date}}</h4>
+                                                    <h3>{{invoice.city}}</h3>
+                                                </div>
+                                                <hr>
+                                                <div class="input-group ">
+                                                    <h3>{{invoice.date}}</h3>
+                                                </div>
+                                                <hr>
+                                                <div class="input-group ">
+                                                    <h3>{{invoice.quantity}}</h3>
                                                 </div>
                                                 <hr>
                                                 <div class="input-group " >
-                                                    <h4 *ngFor="let timeSlot of invoice.timeSlots">{{timeSlot}}  ,  </h4>
+                                                    <h3 *ngFor="let timeSlot of timeSlots"> {{timeSlot}} , </h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -88,15 +104,17 @@
                     <div class="card">
                         <div class="col-md-11">
                             <div>
-                                <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Selected Cleaning Area</b></h2>
+                                <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Delevary Location </b></h2>
                             </div>
                             <hr>
-                            <div *ngFor="let invoice of ServiceInvoices">
-                                    <div *ngIf="invoice.invoice_id == invoice_id">
+                            <div>
+                                    <div>
                                         <agm-map    [latitude]='lat'
                                                     [longitude]='lng' 
                                                     [zoom]=15 
                                                     (mapClick)="onClickChooseLocation($event)">
+
+                                                    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
                                         </agm-map>
                                     </div>
                             </div>

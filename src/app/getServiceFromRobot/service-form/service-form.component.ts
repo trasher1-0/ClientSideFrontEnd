@@ -27,11 +27,10 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
   public polygonCoords=[];
   public invoice;
   public gardenCoords:any;
+  public selectedDate=this.service.serviceForm.get('date').value;
+
   public timeSlotsInfo;
-  public numOffirstTimeSlots;
-  public numOfSecondTimeSlots;
-  public numOfThrdTimeSlots;
-  public numOfForthTimeSlots;
+  public timeSlotsForParticularDate:any;
 
   map: any;
   drawingManager: any;
@@ -90,6 +89,10 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
     
   availableTimeSlots(){
     if(this.k ==1){
+      //console.log(this.service.serviceForm.get('date').value);
+      this.timeSlotsForParticularDate=(this.service.checkTimeSlotsAvalilable(this.service.serviceForm.get('date').value));
+      console.log(this.timeSlotsForParticularDate[0]);
+      console.log(this.timeSlotsForParticularDate[1]);
       return true;
     }
   }
@@ -176,4 +179,6 @@ export class ServiceFormComponent implements OnInit,AfterViewInit {
   resetForm(){
     this.service.serviceForm.reset();
   }
+
+ 
 }
