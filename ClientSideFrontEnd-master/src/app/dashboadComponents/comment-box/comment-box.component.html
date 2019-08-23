@@ -1,0 +1,59 @@
+<div class="card card-chart"> 
+      <div class="nav-item active">
+          <h2 class="mt-0 font-weight-bold blue-text" style="color:rgb(34, 154, 235);"><b><i>Comments</i></b></h2>
+      </div>
+      <hr>
+      <div *ngIf="smallComments.length != 0 ;then ifContent else elsecontent"></div>    
+      <ng-template #ifContent>
+          <div *ngFor="let comment of smallComments">
+              <div *ngFor="let customer of customers">
+                <div *ngIf="comment.customer_id == customer.id">
+                    <div class="media">
+                        <div *ngIf="customer.prof_pic != null">
+                            <img class="d-flex rounded-circle avatar z-depth-1-half mr-3" src="../assets/images/noImage.png">
+                        </div>
+                        <div *ngIf="customer.prof_pic == null">
+                            <img class="d-flex rounded-circle avatar z-depth-1-half mr-3" src="../assets/images/noImage.png">
+                        </div>
+    
+                        <div class="media-body">
+                          
+                            <h3 class="mt-0 font-weight-bold blue-text">{{customer.user_name}}</h3>
+                            <p>{{comment.comment}}</p>
+                            <div id="reply"></div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+      </ng-template>
+      <ng-template #elsecontent>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-5">
+              <div>
+                <img src="../assets/video/animasi-emptystate.gif" height="200px" width="100%">
+              </div>
+            </div>
+        </div>
+      </ng-template>
+</div>
+
+<div class="card card-chart"> 
+  <div class="col-md-10">
+      <form [formGroup]="service.form" (submit)="onSubmit()">
+          <div id="replyBox" class="media mt-3 shadow-textarea">
+              <img class="d-flex rounded-circle avatar z-depth-1-half mr-3"  src="../assets/images/noImage2.png">
+              <div class="media-body">
+                <h3 class="mt-0 font-weight-bold blue-text">{{user.user_name}}</h3>
+                <div class="form-group basic-textarea rounded-corners">
+                  <textarea class="form-control z-depth-1" formControlName="comment" rows="3" placeholder="Write your comment..."></textarea>
+                </div>
+              </div>
+          </div>
+          <button type="submit"  class="button button2" style="float: right;" ><h4><b>Comment</b></h4></button>
+      </form>
+  </div>
+</div>
+
+

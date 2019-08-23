@@ -1,0 +1,128 @@
+<div class="card-body">
+    <div class="container">
+      <div>
+          <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Trasher Service Invoice</b></h2>
+      </div>
+      <hr>
+      <form [formGroup]="service.socialEventForm" (submit)="onSubmit()">
+          <input  type="hidden" 
+                  name="id" 
+                  id="id" 
+                  >
+          <div class="row">
+              <div class="input-group input-group-icon">
+                  <input  type="text" 
+                          placeholder="Customer Name"
+                          id="customer_name"
+                          name="customer_name"
+                          formControlName="customer_name"/>
+                  <div class="input-icon"><i class="fa fa-user"></i></div>
+                </div>
+          </div>
+          
+          <div class="row">
+              <div class="input-group input-group-icon">
+                  <input  type="text" 
+                          placeholder="Delivary Adress"
+                          name="address"
+                          id="address"
+                          formControlName="address"/>
+                  <div class="input-icon"><i class="fa fa-home"></i></div>
+                </div>
+          </div>
+          
+          <div class="row">
+              <div class="input-group input-group-icon">
+                  <input  type="text" 
+                          placeholder="City or District"
+                          name="city"
+                          id="city"
+                          formControlName="city"/>
+                  <div class="input-icon"><i class="fa fa-building"></i></div>
+                </div>
+          </div>
+          
+          <div class="row">
+              <div class="input-group input-group-icon">
+                <input  type="date" 
+                        placeholder="Select the date" 
+                        vlaue="2014-02-09"
+                        name="date"
+                        id="date"
+                        formControlName="date"/>
+                  <div class="input-icon"><i class="fa fa-calendar"></i></div>
+                </div>
+          </div>
+         
+  
+          <label class="serchLabel info" (click)="isClick()">Search available time slots</label>
+          <div *ngIf="availableTimeSlots(); then timeSlotBox;else worningLabel"></div>
+        
+          <ng-template #timeSlotBox>
+                <div >
+                  <label class="con" >8.00 AM - 9.00 AM 
+                    <input type="checkbox" 
+                            name="8-9 slot"
+                            id="8-9 slot"
+                            value="8.00 AM - 9.00 AM"
+                            (change)="onCheckboxChange($event)">
+                      <span class="checkmark"></span>
+                  </label>
+                </div>
+                <div>
+                  <label class="con">10.00 AM - 11.00 AM
+                    <input type="checkbox" 
+                          name="10-11 slot"
+                          id="10-11 slot"
+                          value="10.00 AM - 11.00 AM"
+                          (change)="onCheckboxChange($event)">
+                      <span class="checkmark"></span>
+                  </label>
+                </div>
+                <div>
+                  <label class="con">12.00 PM - 2.00 PM
+                    <input type="checkbox" 
+                            name="12-2 slot"
+                            id="12-2 slot"
+                            value="12.00 PM - 2.00 PM"
+                            (change)="onCheckboxChange($event)">
+                      <span class="checkmark"></span>
+                  </label>
+                </div>
+                <div>
+                  <label class="con">3.00 PM - 4.00 PM
+                    <input type="checkbox" 
+                          name="3-4 slot"
+                          id="3-4 slot"
+                          value="3.00 PM - 4.00 PM"
+                          (change)="onCheckboxChange($event)">
+                      <span class="checkmark"></span>
+                  </label>
+                </div>
+            </ng-template>
+        
+            <hr>
+            <div >
+                <div >
+                  <div>
+                    <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Select the Cleaning Area </b></h2>
+                  </div>
+                  <hr>
+                  <div id="map"></div>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-7">
+                  <a (click)="popup()">
+                      <button type="submit" class="button button2"  >Select Pickup Location </button>
+                  </a>
+              </div>
+            </div> 
+      </form>
+    </div>
+  </div>
+  
+  
+  
+  

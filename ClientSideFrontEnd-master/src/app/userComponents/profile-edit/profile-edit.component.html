@@ -1,0 +1,44 @@
+  <div class="container">
+      <form>
+        <div class="row">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="input-group input-group-icon">
+                  <input type="text" placeholder="User Name" value={{currentUser.user_name}} disabled/>
+                  <div class="input-icon"><i class="fa fa-user"></i></div>
+                </div>
+                <div class="input-group input-group-icon">
+                  <input type="text" placeholder="Home Addres"/>
+                  <div class="input-icon"><i class="fa fa-home"></i></div>
+                </div>
+                <div class="input-group input-group-icon">
+                  <input type="text" placeholder="City or Town"/>
+                  <div class="input-icon"><i class="fa fa-building"></i></div>
+                </div>
+                <div class="input-group input-group-icon">
+                  <input type="email" placeholder={{currentUser.email}}  disabled/>
+                  <div class="input-icon"><i class="fa fa-envelope"></i></div>
+                </div>
+                <div class="input-group input-group-icon">
+                  <input type="number" placeholder="Phone Number"/>
+                  <div class="input-icon"><i class="fa fa-phone"></i></div>
+                </div>
+              </div>
+              
+              <a (click)="popup()">
+                  <label class="button button2"> Change Password</label>
+              </a>
+              <hr>
+              
+              <div class="row">
+                <div class="col-md-6"></div>
+                <div class="col-md-6">
+                    <label class="button1 button3"> Cancel</label>
+                    <button  type="submit" class="button button2"> Update Profile</button>
+                </div>  
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+ 

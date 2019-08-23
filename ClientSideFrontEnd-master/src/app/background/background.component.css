@@ -1,0 +1,5 @@
+.image{
+    height:800px; background-size:cover; width:100%;
+    background-image:url('src/assets/images/auth.jpg');
+    background-position:100% 100%;
+  }

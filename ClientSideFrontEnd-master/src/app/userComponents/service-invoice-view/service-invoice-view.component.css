@@ -1,0 +1,23 @@
+          
+agm-map{
+    height:500px;
+    width : 100%;
+   
+  }
+
+  .button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  .button2 {background-color: #008CBA;
+            border-radius: 5px;} /* Blue */
+  
+  

@@ -1,0 +1,50 @@
+  <div  *ngIf="invoices.length != 0 ;then ifContent else elsecontent"></div>
+  <ng-template #ifContent>
+    <div *ngFor="let invoice of invoices">
+        <div>
+            <div class="col-md-4">
+                <div *ngIf="invoice.customer_id==customer_id">
+                    <div class="col-md-12">
+                        <div class="card" >
+                            <div (click)="onSelect(invoice)">
+                                <a>
+                                  <mat-card>
+                                    <div class="col-md-2"></div>
+                                      <div >
+                                          <div class="row">
+                                              <div class="col-md-1"></div>
+                                              <mat-card><img src="../assets/images/imageLogo.jpg" width="100" height="100"></mat-card>
+                                          </div>
+                                          <div class="row">
+                                            <div class="col-md-1"></div>
+                                            <h3><b>Trasher Invoice</b></h3>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-md-1"></div>
+                                              <p><b>Submited Date : {{invoice.date}}</b></p>
+                                          </div>
+                                      </div>
+                                    <div class="col-md-2"></div>
+                                  </mat-card>
+                                </a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #elsecontent>
+    <div>
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <div >
+              <img src="../assets/video/found.gif" height="200px" width="100%">
+            </div>
+        </div>
+    </div>
+</ng-template>
+  
+
+

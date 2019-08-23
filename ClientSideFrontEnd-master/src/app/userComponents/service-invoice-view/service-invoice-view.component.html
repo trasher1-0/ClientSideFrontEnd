@@ -1,0 +1,172 @@
+<div>
+    <app-user></app-user>
+    
+    <div class="main-panel">
+      <div class="content">
+          <div>
+              <div class="card">
+                <div>
+                    <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Trasher Service Invoice</b></h2>
+                </div>
+                <hr>
+                <div class="row">
+
+                      <div class="col-md-4">
+                          <div class="card">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-10">
+                                <div class="input-group ">
+                                    <h3>Invoice ID</h3>
+                                </div>
+                                <hr>
+                                <div class="input-group ">
+                                    <h3>Invoice Type</h3>
+                                </div>
+                                <hr>
+                                <div class="input-group ">
+                                    <h3>Customer ID</h3>
+                                </div>
+                                <hr>
+                                <div class="input-group ">
+                                    <h3>Customer Name</h3>
+                                </div>
+                                <hr>
+                                <div class="input-group ">
+                                    <h3>Delivary Address</h3>
+                                </div>
+                                <hr>
+                                <div class="input-group ">
+                                    <h3>City or Destrict</h3>
+                                </div>
+                                <hr>
+                                <div class="input-group ">
+                                    <h3>Submited Date</h3>
+                                </div>
+                                <hr>
+                                <div class="input-group ">
+                                    <h3>Quantity</h3>
+                                </div>
+                                <hr>
+                                <div class="input-group ">
+                                    <h3>Payment Details</h3>
+                                </div>
+                                <hr>
+                                <div class="input-group ">
+                                    <h3>Selected Time Slots</h3>
+                                </div>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="col-md-7">
+                            <div class="card">
+                                <div class="col-md-4"></div>
+                                    <div class="col-md-10">
+                                        <div >
+                                            <div >
+                                                <div class="input-group ">
+                                                    <h3>{{invoice.invoice_id}}</h3>
+                                                </div>
+                                                <hr>
+                                                <div class="input-group ">
+                                                    <h3>{{invoice.invoice_type}}</h3>
+                                                </div>
+                                                <hr>
+                                                <div class="input-group ">
+                                                    <h3>{{invoice.customer_id}}</h3>
+                                                </div>
+                                                <hr>
+                                                <div class="input-group ">
+                                                <h3>{{invoice.customer_name}}</h3>
+                                                </div>
+                                                <hr>
+                                                <div class="input-group ">
+                                                    <h3>{{invoice.address}}</h3>
+                                                </div>
+                                                <hr>
+                                                <div class="input-group ">
+                                                    <h3>{{invoice.city}}</h3>
+                                                </div>
+                                                <hr>
+                                                <div class="input-group ">
+                                                    <h3>{{invoice.date}}</h3>
+                                                </div>
+                                                <hr>
+                                                <div class="input-group ">
+                                                    <h3>{{invoice.quantity}}</h3>
+                                                </div>
+                                                <hr>
+                                                <div class="input-group ">
+                                                    <h3 style="color:green"><b>Payment Sucessfull</b>(500/=)</h3>
+                                                </div>
+                                                <hr>
+                                                <div class="input-group " >
+                                                    <h3 *ngFor="let timeSlot of timeSlots"> {{timeSlot}} , </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                      </div>     
+                
+                    <div class="card">
+                        <div class="col-md-11">
+                            <div>
+                                <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Delevary Location </b></h2>
+                            </div>
+                            <hr>
+                            <div>
+                                    <div>
+                                        <agm-map    [latitude]=6.9037023
+                                                    [longitude]=79.8576826 
+                                                    [zoom]=17 
+                                                    (mapClick)="onClickChooseLocation($event)">
+
+                                                    <agm-marker [latitude]=6.9037023 [longitude]=79.8576826></agm-marker>
+                                        </agm-map>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                <!--    <div class="card">
+                        <div class="col-md-11">
+                            <div>
+                                <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Selected Pickup Location</b></h2>
+                            </div>
+                            <hr>
+                           <div *ngFor="let invoice of ServiceInvoices">
+                                    <div *ngIf="invoice.invoice_id == invoice_id">
+                                        <agm-map [latitude]="lat" 
+                                                    [longitude]="lng" 
+                                                    [zoom]=7 
+                                                    (mapClick)="onClickChooseLocation($event)">
+                                                <agm-marker 
+                                                    *ngIf="locationChoosen" 
+                                                    latitude={{invoice.pickupLocation.lat}} 
+                                                    longitude={{invoice.pickupLocation.lng}}>
+                                                </agm-marker>
+                                        </agm-map>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>-->
+
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-6">
+                                <a routerLink='/customer/profile'>
+                                    <button class="button button2">Go Back</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          </div>
+      </div>
+    </div>
+</div>
+
+
+

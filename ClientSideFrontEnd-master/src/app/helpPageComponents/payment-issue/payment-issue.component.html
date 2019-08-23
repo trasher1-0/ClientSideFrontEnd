@@ -1,0 +1,43 @@
+<div>
+    <app-help></app-help>
+    
+    <div class="main-panel">
+      <div class="content">
+        <mat-card>
+            <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Report Payment Issue</b></h2>
+          <hr>
+          <mat-card>
+            <div class="card-body">
+              <div class="col-md-3"></div>
+              <img class="img" src="../assets/images/p.png" height="200px" width=50% >
+            </div>
+          </mat-card>
+  
+          <mat-card>
+              <div class="col-md-2"></div>
+            <div class="card card-chart"> 
+              <div class="col-md-10">
+                  <form [formGroup]="service.form" (submit)="onSubmit()">
+                      <div id="replyBox" class="media mt-3 shadow-textarea">
+                          <img class="d-flex rounded-circle avatar z-depth-1-half mr-3"  src="../assets/images/noImage2.png">
+                          <div class="media-body">
+                            <h3 class="mt-0 font-weight-bold blue-text">{{user.user_name}}</h3>
+                            <div class="form-group basic-textarea rounded-corners">
+                              <textarea class="form-control z-depth-1" formControlName="comment" rows="3" placeholder="Reprot Payment Issue..."></textarea>
+                            </div>
+                          </div>
+                      </div>
+                      <button type="submit"  class="button button2" style="float: right;" ><h4><b>Report</b></h4></button>
+                  </form>
+              </div>
+            </div>
+          </mat-card>
+  
+        </mat-card>
+      </div>
+    </div>
+  
+  </div>
+  
+  
+   

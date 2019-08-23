@@ -1,0 +1,42 @@
+<div>
+  <form  method="post" action="https://sandbox.payhere.lk/pay/checkout" [formGroup]="service.locationForm" #payhere (submit)="onSubmit()">
+     <div>
+          <input type="hidden" name="merchant_id" value="1212553">
+          <input type="hidden" name="return_url" value={{payment.return_url}}>
+          <input type="hidden" name="cancel_url" value={{payment.cancel_url}}>
+          <input type="hidden" name="notify_url" value={{payment.notify_url}}>  
+          <input type="hidden" name="order_id" value={{payment.order_id}}>
+          <input type="hidden" name="items" value={{payment.items}}><br>
+          <input type="hidden" name="currency" value="LKR">
+          <input type="hidden" name="amount" value="{{payment.amount}}">  
+          <input type="hidden" name="first_name" value={{payment.first_name}}>
+          <input type="hidden" name="last_name" value={{payment.last_name}}><br>
+          <input type="hidden" name="email" value={{payment.email}}>
+          <input type="hidden" name="phone" value={{payment.phone}}><br>
+          <input type="hidden" name="address" value={{payment.address}}>
+          <input type="hidden" name="city" value={{payment.city}}>
+          <input type="hidden" name="country" value={{payment.country}}><br><br>  
+
+      </div>
+    
+      <div>
+            <div>
+              <h2 style="text-align: center;color:rgb(34, 154, 235);"><b>Select the Delevary location </b></h2>
+            </div>
+          <hr>
+      
+          <agm-map [latitude]="lat" [longitude]="lng" [zoom]=15 (mapClick)="onClickChooseLocation($event)">
+              <agm-marker *ngIf="locationChoosen" [latitude]="lat" [longitude]="lng"></agm-marker>
+            </agm-map>
+        
+      </div>
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-8">
+                <label class="button1 button3" (click)="onClose()" >Cancel</label>
+                <button type="submit"  class="button button2"  >Submit</button>
+            </div>
+          </div>
+    </form>
+</div>
+
